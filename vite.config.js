@@ -16,4 +16,18 @@ export default defineConfig({
     },
     
   },
+  css: {
+    preprocessorOptions: {
+      sass: {
+        additionalData: `
+        $foundation-primary-color: #FF7710;   
+        $foundation-secondary-color: #19172E; 
+        $foundation-accent-color: #FFFFFF;    
+        $content-primary-color: #19172E;      
+        $content-secondary-color: #6B6B6B;  
+        $content-tertiary-color: #A6A6A6;
+      `,  
+      },
+    },
+  },
 })
