@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>LionPlace</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+    <header>
+      <img src="/src/assets/login/pin.svg" alt="Lion Place Logo" />
+      <h1>Lion Place</h1>
+    </header>
+
+    <main>
+      <h2>로그인</h2>
+      <form>
+        <div>
+          <label for="idField"></label>
+          <input type="text" id="idField" placeholder="아이디를 입력해주세요" />
+        </div>
+        <div>
+          <label for="pwField"></label>
+          <input type="password" id="pwField" placeholder="비밀번호를 입력해주세요" />
+        </div>
+        <button type="submit" class="login">로그인</button>
+      </form>
+
+      <div class="findContainer">
+        <a href="/" rel="noopener noreferrer">아이디 찾기</a>
+        <a href="/" rel="noopener noreferrer">비밀번호 찾기</a>
+      </div>
+
+      <a href="/src/pages/register/index.html" rel="noopener noreferrer" class="register">회원가입</a>
+    </main>
+  </body>
+</html>
