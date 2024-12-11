@@ -11,7 +11,6 @@ export default defineConfig({
   },
   build: {
     outDir: "docs",
-    outDir: "docs",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
