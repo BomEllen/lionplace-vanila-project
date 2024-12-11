@@ -1,0 +1,65 @@
+/* CSS Custom Properties (전역 변수) */
+:root {
+  /* 색상 팔레트 */
+  --foundation-primary-color: #FF7710;  
+  --foundation-secondary-color: #19172E; 
+  --foundation-accent-color: #FFFFFF;    
+  --content-primary-color: #19172E;    
+  --content-secondary-color: #6B6B6B;   
+  --content-tertiary-color: #A6A6A6;    
+
+  /* 배경 및 텍스트 색상 */
+  --background-light: #fff; 
+  --background-dark: #19172E;
+  --text-light: #fff;
+  --text-dark: #19172E;
+  
+  /* 폰트 크기 */
+  --font-size-base: 16px;
+  --font-size-sm: 12px;
+  --font-size-md: 20px;
+  --font-size-lg: 24px;
+  --font-size-xl: 28px;
+  
+  /* 라인 높이 */
+  --line-height: 1.5;
+
+  /* 여백 및 패딩 */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+
+  /* 버튼 스타일 */
+  --btn-padding: 10px 20px;
+  --btn-border-radius: 5px;
+}
+
+/* SASS 변수 (컴파일 타임에 사용) */
+$foundation-primary-color: #FF7710;   
+$foundation-secondary-color: #19172E; 
+$foundation-accent-color: #FFFFFF;    
+$content-primary-color: #19172E;      
+$content-secondary-color: #6B6B6B;  
+$content-tertiary-color: #A6A6A6;    
+
+$background-light: #fff;              
+$background-dark: #19172E;           
+$text-light: #fff;                    
+$text-dark: #19172E;                
+
+$font-size-base: 16px;
+$font-size-sm: 12px;
+$font-size-md: 20px;
+$font-size-lg: 24px;
+$font-size-xl: 28px;
+
+$line-height: 1.5;
+
+$space-xs: 8px;
+$space-sm: 16px;
+$space-md: 24px;
+$space-lg: 32px;
+
+$btn-padding: 10px 20px;
+$btn-border-radius: 5px;
