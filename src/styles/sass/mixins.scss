@@ -1,3 +1,5 @@
+@use "../../styles/sass/variables.scss" as *;
+
 // 부드러운 전환을 위한 믹스인
 @mixin smooth-transition($property: all, $duration: 0.3s, $timing: ease) {
   transition: $property $duration $timing;
@@ -58,4 +60,37 @@
 // 라운드 효과 믹스인
 @mixin border-radius($radius: 5px) {
   border-radius: $radius;
+}
+
+@mixin form-container-styles($gap: 0.75rem) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin input-styles() {
+  border: 1px solid $foundation-primary-color;
+  border-radius: 4px;
+  color: $text-light;
+  height: 2.5625rem;
+  background-color: inherit;
+  font-size: $font-size-sm;
+  padding-inline: 1.25rem;
+
+  &::placeholder {
+    color: $foundation-primary-color;
+  }
+}
+
+@mixin login-button-styles($bg-color, $text-color) {
+  @include border-radius(0.25rem);
+  @include button-styles($bg-color, $text-color, 0 0);
+  height: 3.375rem;
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 400;
+  min-width: 15.625rem;
+
+  &:focus {
+    border: 1px solid $foundation-accent-color;
+  }
 }
