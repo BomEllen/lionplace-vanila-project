@@ -3,34 +3,34 @@
   <head>
     <title>LionPlace</title>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <header>
-      <img src="/src/assets/login/pin.svg" alt="Lion Place Logo" />
-      <h1>Lion Place</h1>
-    </header>
+    <h1><img src="/src/assets/login/logo.svg" alt="lion place logo" width="110px" /></h1>
 
-    <form>
-      <div>
-        <label for="idField">아이디</label>
-        <input type="text" id="idField" placeholder="영문 3자 이상" />
-      </div>
-      <div>
-        <label for="emailField">이메일</label>
-        <input type="email" id="emailField" placeholder="인증 가능한 이메일 주소" />
-      </div>
-      <div>
-        <label for="pwField">비밀번호</label>
-        <input type="password" id="pwField" placeholder="8문자 이상, 특수 문자 포함" />
-      </div>
-      <div>
-        <label for="pwField">비밀번호 확인</label>
-        <input type="password" id="pwField" placeholder="8문자 이상, 특수 문자 포함" />
-      </div>
-      <button type="submit" class="login">로그인</button>
-    </form>
+    <main class="reg-main">
+      <h2>회원가입</h2>
+      <form class="reg-form">
+        <div class="reg-id">
+          <label for="id-field">아이디</label>
+          <input type="text" id="id-field" placeholder="영문 3자 이상" />
+        </div>
+        <div class="reg-email">
+          <label for="email-field">이메일</label>
+          <input type="email" id="email-field" placeholder="인증 가능한 이메일 주소" />
+        </div>
+        <div class="reg-pw">
+          <label for="pw-field">비밀번호</label>
+          <input type="password" id="pw-field" placeholder="8문자 이상, 특수 문자 포함" />
+        </div>
+        <div class="reg-check-pw">
+          <label for="check-pw-field">비밀번호 확인</label>
+          <input type="password" id="check-pw-field" placeholder="8문자 이상, 특수 문자 포함" />
+        </div>
+        <button type="submit" class="btn-login">로그인</button>
+      </form>
+    </main>
   </body>
 </html>

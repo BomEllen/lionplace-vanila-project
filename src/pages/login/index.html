@@ -3,36 +3,35 @@
   <head>
     <title>LionPlace</title>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <header>
-      <img src="/src/assets/login/pin.svg" alt="Lion Place Logo" />
-      <h1>Lion Place</h1>
-    </header>
+    <h1><img src="/src/assets/login/logo.svg" alt="lion place logo" width="110px" /></h1>
 
-    <main>
+    <main class="login-main">
       <h2>로그인</h2>
-      <form>
-        <div>
-          <label for="idField"></label>
-          <input type="text" id="idField" placeholder="아이디를 입력해주세요" />
+
+      <form class="login-form">
+        <div class="login-id">
+          <label for="id-field"></label>
+          <input type="text" id="id-field" placeholder="아이디를 입력해주세요" />
         </div>
-        <div>
-          <label for="pwField"></label>
-          <input type="password" id="pwField" placeholder="비밀번호를 입력해주세요" />
+        <div class="login-pw">
+          <label for="pw-field"></label>
+          <input type="password" id="pw-field" placeholder="비밀번호를 입력해주세요" />
         </div>
-        <button type="submit" class="login">로그인</button>
+        <button type="submit" class="btn-login">로그인</button>
       </form>
 
-      <div class="findContainer">
-        <a href="/" rel="noopener noreferrer">아이디 찾기</a>
-        <a href="/" rel="noopener noreferrer">비밀번호 찾기</a>
-      </div>
-
       <a href="/src/pages/register/index.html" rel="noopener noreferrer" class="register">회원가입</a>
+
+      <div class="find-account">
+        <a href="/" rel="noopener noreferrer" class="find-id">아이디 찾기</a>
+        <span aria-hidden="true">|</span>
+        <a href="/" rel="noopener noreferrer" class="find-pw">비밀번호 찾기</a>
+      </div>
     </main>
   </body>
 </html>

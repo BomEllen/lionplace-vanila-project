@@ -9,27 +9,20 @@ body {
   margin: auto;
 }
 
-header {
-  @include flex-center(column);
-  gap: 1.5rem;
+h1 {
   margin-block: 11.25rem;
-  font-family: "Paperlogy", sans-serif;
-  font-weight: 500;
-
-  & h1 {
-    font-size: xx-large;
-    color: $foundation-primary-color;
-    white-space: nowrap;
-  }
 }
 
 a {
-  @include border-radius(0.25rem);
-  @include button-styles($foundation-primary-color, $content-primary-color, 0.625rem 0rem);
+  @include border-radius(4px);
+  @include button-styles($foundation-primary-color, $content-primary-color, 0.625rem 0);
 
   font-family: "Paperlogy", sans-serif;
   font-weight: 400;
-  text-align: center;
   text-decoration: none;
   min-width: 15.625rem;
+
+  &:focus {
+    outline: 1px solid $foundation-accent-color;
+  }
 }

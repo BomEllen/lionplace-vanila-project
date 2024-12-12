@@ -7,29 +7,46 @@ body {
   align-items: center;
   background-color: $foundation-secondary-color;
   margin: auto;
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 400;
+  color: $foundation-primary-color;
 }
 
-header {
-  @include flex-center(column);
-  gap: 1.5rem;
-  margin-block: 11.25rem;
-  font-family: "Paperlogy", sans-serif;
-  font-weight: 500;
+h1 {
+  margin-block-start: 3.875rem;
+}
 
-  & h1 {
-    font-size: xx-large;
-    color: $foundation-primary-color;
-    white-space: nowrap;
+.reg-main {
+  margin-block-start: 4.625rem;
+  @include form-container-styles();
+  font-size: $font-size-sm;
+
+  & h2 {
+    font-size: $font-size-xl;
+    margin-block-end: 0.75rem;
+  }
+
+  .reg-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6875rem;
+  }
+
+  & div {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+      line-height: 160%;
+    }
+
+    & input {
+      @include input-styles();
+    }
   }
 }
 
-.register {
-  @include border-radius(0.25rem);
-  @include button-styles($foundation-primary-color, $content-primary-color, 0.625rem 0rem);
-
-  font-family: "Paperlogy", sans-serif;
-  font-weight: 400;
-  text-align: center;
-  text-decoration: none;
-  min-width: 15.625rem;
+.btn-login {
+  @include login-button-styles($foundation-primary-color, $foundation-secondary-color);
+  margin-block-start: 4rem;
 }
