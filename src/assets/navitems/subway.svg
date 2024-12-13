@@ -1,17 +1,2 @@
-<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_3_693)">
-<path d="M14.25 4.5V15.75M14.25 4.5L18.75 2.25V13.5L14.25 15.75M14.25 4.5L9.75 2.25M14.25 15.75L9.75 13.5M9.75 2.25L5.25 4.5V15.75L9.75 13.5M9.75 2.25V13.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<filter id="filter0_d_3_693" x="-1" y="0" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3_693"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3_693" result="shape"/>
-</filter>
-</defs>
-</svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512" fill="#19172E"><path d="M21.867,1.612,17.515.155A2.956,2.956,0,0,0,15.724.12L8.538,2.092,4.155.233A3,3,0,0,0,0,3V21.754l7.982,2.281,8.021-2,8,1.948V4.483A3,3,0,0,0,21.867,1.612ZM15,2.384V20.219l-6,1.5V3.972ZM2,3A1,1,0,0,1,3.387,2.08L7,3.581V21.674L2,20.246Zm20,18.43-5-1.218V2.092l4.275,1.43A1,1,0,0,1,22,4.483Z"/></svg>
