@@ -1,18 +1,16 @@
-import { html, css, LitElement } from 'lit';
-import "./navigation.scss";
-import "../../assets/sass/reset.scss"
-import "../../assets/sass/variables.scss"
-import "../../assets/sass/font.scss";
+import { html, css, LitElement } from "lit";
+import "../../styles/sass/reset.scss";
+import "../../styles/sass/variables.scss";
+import "../../styles/sass/font.scss";
 
 class Navigation extends LitElement {
   static styles = css`
-
-
-    ul, li {
+    ul,
+    li {
       list-style: none;
       margin: 0;
       padding: 0;
-      font-family: 'Paperlogy', sans-serif;
+      font-family: "Paperlogy", sans-serif;
       font-weight: 300;
     }
 
@@ -43,17 +41,17 @@ class Navigation extends LitElement {
   handleNavigation(event: MouseEvent) {
     const target = event.target as HTMLLIElement;
     switch (target.textContent) {
-      case '피드':
-        window.location.href = '/feed';
+      case "피드":
+        window.location.href = "/feed";
         break;
-      case '방문':
-        window.location.href = '/visit';
+      case "방문":
+        window.location.href = "/visit";
         break;
-      case '리뷰':
-        window.location.href = '/review';
+      case "리뷰":
+        window.location.href = "/review";
         break;
-      case '예약•주문':
-        window.location.href = '/reservation';
+      case "예약•주문":
+        window.location.href = "/reservation";
         break;
       default:
         break;
@@ -72,4 +70,4 @@ class Navigation extends LitElement {
   }
 }
 
-customElements.define('navi-gation', Navigation);
+customElements.define("navi-gation", Navigation);
