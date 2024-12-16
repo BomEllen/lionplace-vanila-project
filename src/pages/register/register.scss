@@ -16,6 +16,11 @@ h1 {
   margin-block-start: 3.875rem;
 }
 
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px $foundation-secondary-color inset !important;
+  -webkit-text-fill-color: $text-light !important;
+}
+
 .reg-main {
   margin-block-start: 4.625rem;
   @include form-container-styles();
@@ -49,4 +54,9 @@ h1 {
 .btn-login {
   @include login-button-styles($foundation-primary-color, $foundation-secondary-color);
   margin-block-start: 4rem;
+
+  &:disabled {
+    background-color: darken($foundation-primary-color, 20%);
+    cursor: not-allowed;
+  }
 }

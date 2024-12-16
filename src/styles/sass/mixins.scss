@@ -62,6 +62,7 @@
   border-radius: $radius;
 }
 
+// 폼을 감싸고 있는 컨테이너의 정렬 믹스인
 @mixin form-container-styles($gap: 0.75rem) {
   display: flex;
   flex-direction: column;
@@ -76,6 +77,8 @@
   background-color: inherit;
   font-size: $font-size-sm;
   padding-inline: 1.25rem;
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 400;
 
   &::placeholder {
     color: $foundation-primary-color;
