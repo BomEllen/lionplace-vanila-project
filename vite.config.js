@@ -9,12 +9,16 @@ export default defineConfig({
       "@": resolve(__dirname, "/src"), // '@'를 'src' 디렉토리로 매핑
     },
   },
+  base: "./",
   build: {
     outDir: "docs",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
+        login: resolve(__dirname, "src/pages/login/index.html"),
+        register: resolve(__dirname, "src/pages/register/index.html"),
       },
     },
   },
+  plugins: [inlineCssModules()],
 });
