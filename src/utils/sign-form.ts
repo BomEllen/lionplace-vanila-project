@@ -2,7 +2,7 @@ const idRegex = /^[A-Za-z0-9]{3,}$/;
 const emainRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const pwRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
 
-export function isSignUpValid(inputList: HTMLInputElement[]): boolean {
+function isSignUpValid(inputList: HTMLInputElement[]): boolean {
   let count = 0;
 
   for (let item of inputList) {
