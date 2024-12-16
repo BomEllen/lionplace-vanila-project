@@ -1,4 +1,31 @@
 // font-weight 값을 배열로 정의
+$font-weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+$font-names: "1Thin", "2ExtraLight", "3Light", "4Regular", "5Medium",
+  "6SemiBold", "7Bold", "8ExtraBold", "9Black";
+
+$fonts: zip($font-weights, $font-names);
+
+// 반복문을 사용하여 @font-face 작성
+@each $font in $fonts {
+  $weight: nth($font, 1);
+  $name: nth($font, 2);
+
+  @font-face {
+    font-family: "Paperlogy";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-#{$name}.woff2")
+      format("woff2");
+    font-weight: $weight;
+    font-style: normal;
+  }
+}
+
+// @import 'font';  font.scss 파일을 불러옴.
+
+// /* 이제 Paperlogy 폰트를 사용할 수 있음 */
+// body {
+//     font-family: 'Paperlogy', sans-serif;
+//     font-weight: 300;
+// }// font-weight 값을 배열로 정의
 // font-weight 값을 배열로 정의
 $font-weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
 $font-names: "1Thin", "2ExtraLight", "3Light", "4Regular", "5Medium",

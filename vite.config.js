@@ -11,10 +11,10 @@ export default defineConfig({
   },
   build: {
     outDir: "docs",
+    outDir: "docs",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
-        profileAll: resolve(__dirname, "src/components/profile-all/index.html"),
       },
     },
   },
