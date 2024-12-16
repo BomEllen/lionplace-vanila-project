@@ -4,9 +4,10 @@ import "../../styles/sass/variables.scss";
 import "../../styles/sass/font.scss";
 
 class Navigation extends LitElement {
-  static styles = css`
-    ul,
-    li {
+  static styles: CSSResultGroup = css`
+    ${unsafeCSS(styles)}
+
+    nav ul {
       list-style: none;
       margin: 0;
       padding: 0;
@@ -14,24 +15,24 @@ class Navigation extends LitElement {
       font-weight: 300;
     }
 
-    ul {
+    nav ul {
       height: 32px;
       display: flex;
       justify-content: space-around;
       background-color: var(--foundation-secondary-color);
-      padding: 10px 10px;
+      padding: 10px;
       box-sizing: border-box;
       overflow: hidden;
       line-height: 0.8;
     }
 
-    ul li {
+    nav ul li {
       color: var(--text-light);
       transition: 0.2s;
       cursor: pointer;
     }
 
-    ul li:hover {
+    nav ul li:hover {
       color: var(--foundation-primary-color);
       border-bottom: 3px solid var(--foundation-primary-color);
       height: 20px;
@@ -60,12 +61,14 @@ class Navigation extends LitElement {
 
   render() {
     return html`
-      <ul class="navigation-wrap">
-        <li @click=${this.handleNavigation}>피드</li>
-        <li @click=${this.handleNavigation}>방문</li>
-        <li @click=${this.handleNavigation}>리뷰</li>
-        <li @click=${this.handleNavigation}>예약•주문</li>
-      </ul>
+      <nav>
+        <ul class="navigation-wrap">
+          <li @click=${this.handleNavigation} data-destination="/feed">피드</li>
+          <li @click=${this.handleNavigation} data-destination="/visit">방문</li>
+          <li @click=${this.handleNavigation} data-destination="/review">리뷰</li>
+          <li @click=${this.handleNavigation} data-destination="/reservation">예약•주문</li>
+        </ul>
+      </nav>
     `;
   }
 }

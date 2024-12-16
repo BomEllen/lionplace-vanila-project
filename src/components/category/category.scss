@@ -1,0 +1,38 @@
+@import '../../assets/sass/mixins.scss';
+@import '../../assets/sass/variables.scss';
+
+.category-wrap{
+    display:flex;
+    justify-content: space-between;
+    padding:10px;
+    border:1px solid black;
+}
+.content{
+    width:20%;
+    display:flex;
+    justify-content: space-between;
+    font-size:$font-size-sm;
+    margin-top:$space-xs;
+}
+
+img{
+    position:relative;
+    top:2px;
+}
+
+label{
+    display:none;
+}
+
+select{
+    border : 1px solid black;
+    border-radius: 15px;
+    background-color:$foundation-primary-color;
+    color:$foundation-accent-color;
+    padding:$space-xs
+}
+
+option{
+    background-color:$foundation-accent-color;
+    color:$foundation-secondary-color
+}

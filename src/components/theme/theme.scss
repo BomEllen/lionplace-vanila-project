@@ -1,0 +1,104 @@
+@import '../../assets/sass/mixins.scss';
+@import '../../assets/sass/variables.scss';
+
+.theme-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;  // 부모의 전체 너비에 맞춰서 아이템들이 배치되도록 설정
+}
+
+.sub-image {
+    width: 100%;
+    height: 300px;  // 고정된 높이
+    border: 1px solid;
+    position: relative;
+    box-sizing: border-box;  // border가 크기를 초과하지 않도록 설정
+}
+
+/* 스와이퍼 컨테이너 스타일 */
+.swiper-container {
+    width: 100%;
+    height: 100px;  // 부모 .sub-image의 높이에 맞춰서 높이를 100%로 설정
+    background-color: $background-light;
+    border-radius: $space-xs;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;  // border가 크기를 초과하지 않도록 설정
+}
+
+/* 스와이퍼 래퍼 스타일 */
+.swiper-wrapper {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 슬라이드 스타일 */
+.swiper-slide {
+    min-width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $background-light;
+    border-radius: $space-xs;
+    padding: $space-sm;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left:10px;
+}
+
+/* 이전/다음 버튼 */
+.swiper-button-prev,
+.swiper-button-next {
+    @include button-styles($foundation-primary-color, $text-light, $btn-padding);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.swiper-button-prev {
+    left: $space-sm;
+}
+
+.swiper-button-next {
+    right: $space-sm;
+}
+
+/* 페이지네이션 */
+.swiper-pagination {
+    position: absolute;
+    bottom: $space-xs;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.swiper-pagination-bullet {
+    background-color: $foundation-primary-color;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: $foundation-secondary-color;
+}
+
+.text-box {
+    position: absolute;
+    bottom: 40%;
+}
+
+.add-button{
+    border:none;
+    background-color:#fff;
+    margin: 130px auto;
+    display:block;
+}
+
+.add-button img{
+    width:$space-lg;
+}
+
+.add-item-card {
+    width: 100%;
+}
+
