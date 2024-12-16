@@ -3,7 +3,7 @@ import "../../styles/sass/font.scss";
 import "./register.scss";
 import pb from "../../api/pocketbase";
 import { User } from "../../@types/type";
-import { alertAndProceed, handleInput } from "../../utils/sign-form";
+import { alertAndProceed, handleInput } from "../../utils/form-utils";
 
 const inputList = [...document.querySelectorAll("input")];
 const loginBtn = document.querySelector(".btn-login") as HTMLButtonElement;
