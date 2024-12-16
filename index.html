@@ -1,29 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
   <head>
+    <title>LionPlace</title>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite Lit Example</title>
-
-    <!-- 컴포넌트 관련 스타일시트 및 스크립트 로드 -->
-    <link rel="stylesheet" href="./src/assets/sass/reset.scss">
-    <link rel="stylesheet" href="./src/assets/sass/variables.scss">
-    <link rel="stylesheet" href="./src/components/time-gps/timegps.scss">
-    <link rel="stylesheet" href="./src/main.scss">
-    <link rel="stylesheet" href="./src/components/navigation/navigation.scss">
-
-    <!-- 컴포넌트 스크립트 로드 -->
-    <script type="module" src="./src/components/time-gps/timegps.ts"></script>
-    <script type="module" src="./src/components/navigation/navigation.ts"></script>
+    <script type="module" src="./src/pages/main/index.js"></script>
   </head>
   <body>
-    <div id="app">
+    <h1><img src="/src/assets/login/logo.svg" alt="lion place logo" /></h1>
 
-      <nav-items></nav-items>
-
-      <time-gps></time-gps>
-      <navi-gation></navi-gation>
-    </div>
-
+    <a href="/src/pages/login/index.html" rel="noopener noreferrer">시작하기</a>
   </body>
 </html>

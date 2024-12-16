@@ -1,0 +1,28 @@
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $foundation-secondary-color;
+  margin: auto;
+}
+
+h1 {
+  margin-block: 11.25rem;
+}
+
+a {
+  @include border-radius(4px);
+  @include button-styles($foundation-primary-color, $content-primary-color, 0.625rem 0);
+
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  min-width: 15.625rem;
+
+  &:focus {
+    outline: 1px solid $foundation-accent-color;
+  }
+}
