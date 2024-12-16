@@ -1,0 +1,28 @@
+
+
+body {
+  background-color: rgb(70, 70, 70);
+}
+
+.reservation-types-button--selected {
+  background-color: var(--background-light); 
+  height: 5.1875rem;
+  width: 5.25rem;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+
+
+    img {
+      filter: drop-shadow(4px 5px 3px var(--shadow-color));
+      
+    }
+
+    span {
+      margin-top: 3px;
+    }
+
+}

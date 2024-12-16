@@ -1,5 +1,6 @@
-import { html, css, LitElement } from "lit";
-import "../../styles/sass/reset.scss";
+import { html, css, LitElement } from 'lit';
+import "./navigation.scss";
+import "../../styles/sass/reset.scss"
 import "../../styles/sass/variables.scss";
 import "../../styles/sass/font.scss";
 

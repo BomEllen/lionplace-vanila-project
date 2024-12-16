@@ -1,0 +1,25 @@
+body {
+  background-color: orange;
+}
+
+.reservation--types__button {
+  background-color: white; 
+  height: 5.1875rem;
+  width: 5.25rem;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+
+.button--icon {
+  filter: drop-shadow(4px 5px 3px #a4a4a4);
+  
+}
+.button--name {
+  margin-top: 3px;
+}
+
