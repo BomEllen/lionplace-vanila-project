@@ -1,52 +1,52 @@
 /* base.scss */
 
 @import "./variables.scss";
-@import "./mixins.scss"; 
+@import "./mixins.scss";
 
 /* 기본적인 스타일들 */
 
 /* 전체 레이아웃을 위한 글로벌 설정 */
 body {
-    font-size: $font-size-base;
-    line-height: $line-height;
-    color: $text-dark;
-    background-color: $background-light;
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
+  font-size: $font-size-base;
+  line-height: $line-height;
+  color: $text-dark;
+  background-color: $background-light;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
 }
 
 /* 링크 스타일 */
 a {
-    color: $primary-color;
-    text-decoration: none;
-    transition: color 0.3s;
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.3s;
 
-    &:hover {
-        color: $accent-color;
-    }
+  &:hover {
+    color: $accent-color;
+  }
 
-    &:focus {
-        outline: 2px solid $accent-color;
-    }
+  &:focus {
+    outline: 2px solid $accent-color;
+  }
 }
 
 /* 버튼 스타일 */
 button {
-    @include button-styles($primary-color, $text-light, $btn-padding);
+  @include button-styles($primary-color, $text-light, $btn-padding);
 
-    &:hover {
-        background-color: $secondary-color;
-    }
+  &:hover {
+    background-color: $secondary-color;
+  }
 
-    &:focus {
-        outline: none;
-        box-shadow: 0 0 5px $accent-color;
-    }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px $accent-color;
+  }
 
-    &:active {
-        transform: translateY(1px);
-    }
+  &:active {
+    transform: translateY(1px);
+  }
 }
 
 /* 카드 컴포넌트 스타일 */
@@ -77,23 +77,126 @@ button {
 // }
 
 /* 폼 요소 스타일 */
-input, select, textarea {
-    font-size: $font-size-base;
-    padding: $space-xs;
-    border: 1px solid $border-color;
-    border-radius: $btn-border-radius;
-    background-color: $background-light;
-    transition: border-color 0.3s ease;
+input,
+select,
+textarea {
+  font-size: $font-size-base;
+  padding: $space-xs;
+  border: 1px solid $border-color;
+  border-radius: $btn-border-radius;
+  background-color: $background-light;
+  transition: border-color 0.3s ease;
 
-    &:focus {
-        border-color: $primary-color;
-        outline: none;
-    }
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
 }
 
 label {
-    font-size: $font-size-sm;
-    color: $text-dark;
-    margin-bottom: $space-xs;
-    display: inline-block;
+  font-size: $font-size-sm;
+  color: $text-dark;
+  margin-bottom: $space-xs;
+  display: inline-block;
+}
+/* base.scss */
+
+@import "./variables.scss";
+@import "./mixins.scss"; // 믹스인 파일을 불러옵니다
+
+/* 기본적인 스타일들 */
+
+/* 전체 레이아웃을 위한 글로벌 설정 */
+body {
+  font-size: $font-size-base;
+  line-height: $line-height;
+  color: $text-dark;
+  background-color: $background-light;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+}
+
+/* 링크 스타일 */
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $accent-color;
+  }
+
+  &:focus {
+    outline: 2px solid $accent-color;
+  }
+}
+
+/* 버튼 스타일 */
+button {
+  @include button-styles($primary-color, $text-light, $btn-padding);
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px $accent-color;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* 카드 컴포넌트 스타일 */
+// .card {
+//   background-color: $background-light;
+//   border: 1px solid $border-color;
+//   border-radius: $btn-border-radius;
+//   padding: $space-md;
+//   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+//   transition: box-shadow 0.3s ease;
+
+//   &:hover {
+//     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+//   }
+// }
+
+// .card-title {
+//   font-size: $font-size-lg;
+//   font-weight: bold;
+//   color: $text-dark;
+//   margin-bottom: $space-sm;
+// }
+
+// .card-description {
+//   font-size: $font-size-base;
+//   color: $text-dark;
+//   margin-top: $space-sm;
+// }
+
+/* 폼 요소 스타일 */
+input,
+select,
+textarea {
+  font-size: $font-size-base;
+  padding: $space-xs;
+  border: 1px solid $border-color;
+  border-radius: $btn-border-radius;
+  background-color: $background-light;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+}
+
+label {
+  font-size: $font-size-sm;
+  color: $text-dark;
+  margin-bottom: $space-xs;
+  display: inline-block;
 }
