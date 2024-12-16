@@ -1,8 +1,9 @@
-import { html, css, LitElement } from 'lit';
-import {customElement} from "lit/decorators.js"
+import { html, css, LitElement } from "lit";
+import { customElement } from "lit/decorators.js";
 import "./../../styles/sass/font.scss";
 import "./../../styles/sass/reset.scss";
 import "./../../styles/sass/variables.scss";
+import "./navitems.scss";
 
 // SVG 이미지 파일 import
 import mapImage from "./../../assets/navitems/map.svg";
@@ -10,7 +11,6 @@ import saveImage from "./../../assets/navitems/save.svg";
 import subwayImage from "./../../assets/navitems/subway.svg";
 import carImage from "./../../assets/navitems/car.svg";
 import myImage from "./../../assets/navitems/my.svg";
-
 
 @customElement("nav-items")
 class NavItems extends LitElement {
@@ -121,4 +121,3 @@ class NavItems extends LitElement {
     `;
   }
 }
-

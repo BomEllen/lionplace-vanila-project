@@ -1,0 +1,8 @@
+@use "../../styles/sass/variables" as *;
+@use "../../styles/sass/mixins.scss" as *;
+
+my-component {
+  display: block;
+  padding: $space-sm;
+  border-radius: $btn-border-radius;
+}

@@ -1,25 +1,24 @@
-//@use "../../styles/sass/base.scss" as *;
 @use "../../styles/sass/variables.scss" as *;
 @use "../../styles/sass/mixins.scss" as *;
-@use "../../styles/sass/font.scss" as *;
 @use "../../styles/sass/reset.scss";
+@use "../../styles/sass/font.scss";
 
 body {
   font-family: "Paperlogy", sans-serif;
   font-weight: 300;
 }
 
-.profile__all {
+.profile-all {
   position: relative;
   background-color: $foundation-secondary-color;
   padding: 2.25rem 1.375rem 1.375rem;
   min-height: 6.5rem;
 
-  .profile__all--wrap {
+  .profile-all-wrap {
     display: flex;
     gap: 1.875rem;
 
-    .profile__edit--button {
+    .profile-edit-button {
       position: relative;
       border-radius: 50%;
       border: 5px solid #fff;
@@ -38,14 +37,13 @@ body {
         bottom: 0;
         right: -6px;
         border-radius: 50%;
-        background: url("./../../assets/profile-all/profile-img-icon.svg")
-          no-repeat;
+        background: url("./../../assets/profile-all/profile-img-icon.svg") no-repeat;
         width: 20px;
         height: 20px;
       }
     }
-    .profile__number {
-      .profile__nickname {
+    .profile-number {
+      .profile-nickname {
         span {
           display: inline-block;
           color: $background-light;
@@ -78,7 +76,7 @@ body {
     }
   }
 }
-.profile__coupon--btn {
+.profile-coupon-btn {
   position: absolute;
   top: 0.71875rem;
   right: 1.375rem;
@@ -109,7 +107,7 @@ body {
     text-align: center;
   }
 }
-.profile__btn--wrap {
+.profile-btn-wrap {
   display: flex;
   gap: 0.3125rem;
   margin-top: 0.5rem;

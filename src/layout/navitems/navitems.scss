@@ -1,15 +1,6 @@
-@use './../../styles/sass/font.scss' as *;
-@use './../../styles/sass/reset.scss' as *;
-@use './../../styles/sass/variables.scss' as *;
-
-
-
-
-/*바디는 해당 컴포넌트의 배경이 흰색이라 잘 보이지 않아 
-설정한 것이니 삭제하시고 사용해주시면 됩니다!*/
-body {
-  background-color: pink;
-}
+@use "./../../styles/sass/font.scss";
+@use "./../../styles/sass/reset.scss";
+@use "./../../styles/sass/variables.scss" as *;
 
 .nav-items {
   width: 100vw;
@@ -19,59 +10,47 @@ body {
   justify-content: center;
   align-items: center;
 
-
   ul {
-      display: flex;
-      justify-content: space-between;
-      list-style: none; 
-      margin: 0 $space-xs;
-      padding: 0;
-      width: 100%; 
-    }
-
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0 $space-xs;
+    padding: 0;
+    width: 100%;
+  }
 
   li {
-      position: relative; 
-    }
-
+    position: relative;
+  }
 
   a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: $foundation-secondary-color;
-      padding: 0.625rem; 
-      border-top: 0.1875rem solid transparent;
-    
-      &.selected {
-        border-top: 0.1875rem solid $foundation-primary-color;
-      
-        span {
-          color: $foundation-primary-color;
-        }
-      
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $foundation-secondary-color;
+    padding: 0.625rem;
+    border-top: 0.1875rem solid transparent;
+
+    &.selected {
+      border-top: 0.1875rem solid $foundation-primary-color;
+
+      span {
+        color: $foundation-primary-color;
       }
     }
-
+  }
 
   img {
-      width: 1.5rem;
-      height: 1.5rem;
-      padding-bottom: 0.25rem;
-    }
-
+    width: 1.5rem;
+    height: 1.5rem;
+    padding-bottom: 0.25rem;
+  }
 
   span {
-      font-family: Paperlogy, sans-serif;
-      font-size: 0.875rem;
-      margin-top: 0.25rem;
-      color: $content-primary-color;
-    }
-
+    font-family: Paperlogy, sans-serif;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    color: $content-primary-color;
+  }
 }
-
-
-
-
-

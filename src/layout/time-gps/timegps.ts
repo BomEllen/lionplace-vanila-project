@@ -1,15 +1,14 @@
-import { html, css, LitElement } from 'lit';
+import { html, css, LitElement } from "lit";
 import "./timegps.scss";
-import time from "../../assets/images/time&gps.svg"; 
+import time from "../../assets/images/time&gps.svg";
 import frame from "../../assets/images/frame 32.svg";
-import "../../assets/sass/font.scss";
-
+import "../../styles/sass/font.scss";
 
 class Timegps extends LitElement {
   static styles = css`
     body {
-    font-family: "Paperlogy", sans-serif;
-    font-weight: 300;
+      font-family: "Paperlogy", sans-serif;
+      font-weight: 300;
     }
 
     .time-lte {
@@ -29,4 +28,4 @@ class Timegps extends LitElement {
   }
 }
 
-customElements.define('time-gps', Timegps);
+customElements.define("time-gps", Timegps);
