@@ -1,11 +1,10 @@
-import { html, css, LitElement } from "lit";
+import { html, css, LitElement, CSSResultGroup, unsafeCSS } from "lit";
 import "../../styles/sass/reset.scss";
 import "../../styles/sass/variables.scss";
 import "../../styles/sass/font.scss";
 
 class Navigation extends LitElement {
   static styles: CSSResultGroup = css`
-    ${unsafeCSS(styles)}
 
     nav ul {
       list-style: none;
@@ -61,14 +60,47 @@ class Navigation extends LitElement {
 
   render() {
     return html`
-      <nav>
-        <ul class="navigation-wrap">
-          <li @click=${this.handleNavigation} data-destination="/feed">피드</li>
-          <li @click=${this.handleNavigation} data-destination="/visit">방문</li>
-          <li @click=${this.handleNavigation} data-destination="/review">리뷰</li>
-          <li @click=${this.handleNavigation} data-destination="/reservation">예약•주문</li>
-        </ul>
-      </nav>
+    <nav role="navigation" aria-label="주요 네비게이션">
+    <ul class="navigation-wrap">
+      <li>
+        <a 
+          href="/feed" 
+          @click=${this.handleNavigation} 
+          aria-label="피드로 이동"
+          tabindex="0">
+          피드
+        </a>
+      </li>
+      <li>
+        <a 
+          href="/visit" 
+          @click=${this.handleNavigation} 
+          aria-label="방문 페이지로 이동"
+          tabindex="0">
+          방문
+        </a>
+      </li>
+      <li>
+        <a 
+          href="/review" 
+          @click=${this.handleNavigation} 
+          aria-label="리뷰 페이지로 이동"
+          tabindex="0">
+          리뷰
+        </a>
+      </li>
+      <li>
+        <a 
+          href="/reservation" 
+          @click=${this.handleNavigation} 
+          aria-label="예약 및 주문 페이지로 이동"
+          tabindex="0">
+          예약•주문
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
     `;
   }
 }
