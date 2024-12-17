@@ -1,28 +1,31 @@
+@use "./../../styles/sass/reset.scss";
+@use "./../../styles/sass/font.scss";
+@use "./../../styles/sass/variables.scss" as *;
 
 
-body {
-  background-color: rgb(70, 70, 70);
-}
-
-.reservation-types-button--selected {
-  background-color: var(--background-light); 
-  height: 5.1875rem;
+.reservation-types-button {
   width: 5.25rem;
-  border-radius: 12px;
-  border: none;
+  height: 5.1875rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-flow: column;
+  flex-direction: column;
+  background-color: var(--background-light);
+  border-radius: 12px;
+  border: 1px solid var(--foundation-primary-color);
+  font-family: Paperlogy, sans-serif;
+  font-size: var(--font-size-sm);
+  color: var(--foundation-primary-color);
+  cursor: pointer;
+
+  /* 선택된 버튼 스타일 */
+  &:focus {
+    background-color: var(--foundation-primary-color); 
+    color: var(--text-light); 
+  }
 
 
-    img {
-      filter: drop-shadow(4px 5px 3px var(--shadow-color));
-      
-    }
-
-    span {
-      margin-top: 3px;
-    }
-
+  span {
+    margin-top: 3px;
+  }
 }
