@@ -1,38 +1,130 @@
-@import '../../assets/sass/mixins.scss';
-@import '../../assets/sass/variables.scss';
+@import '../../styles/sass/mixins.scss';
+@import '../../styles/sass/variables.scss';
 
-.category-wrap{
-    display:flex;
-    justify-content: space-between;
-    padding:10px;
-    border:1px solid black;
-}
-.content{
-    width:20%;
-    display:flex;
-    justify-content: space-between;
-    font-size:$font-size-sm;
-    margin-top:$space-xs;
+/* 전체 카테고리 래퍼 */
+.category-wrap {
+    padding: 0.625rem;  /* 10px */
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;  /* 8px */
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    margin-top: 1.25rem;  /* 카테고리 위쪽 여백 추가 */
+    margin-bottom: 1.25rem;  /* 카테고리 아래쪽 여백 추가 */
 }
 
-img{
-    position:relative;
-    top:2px;
+.tablist {
+    display: flex;
+    justify-content: space-between;  /* 탭 항목 양옆 정렬 */
+    align-items: center;
+    margin-bottom: 0.75rem; /* 탭과 콘텐츠 사이 여백 */
 }
 
-label{
-    display:none;
+.content {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.9375rem;  /* 15px */
+    align-items: center;
+    font-size: $font-size-sm;
 }
 
-select{
-    border : 1px solid black;
-    border-radius: 15px;
-    background-color:$foundation-primary-color;
-    color:$foundation-accent-color;
-    padding:$space-xs
+.tab-content, .container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;  /* 8px */
+    cursor: pointer;
+    line-height: 1.5;
+    vertical-align: middle;
+    padding: 0.5rem; /* 탭 클릭 영역에 패딩 추가 */
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
 }
 
-option{
-    background-color:$foundation-accent-color;
-    color:$foundation-secondary-color
+/* 탭 클릭 시 색상 변경 */
+.tab-content:hover {
+    background-color: #f1f1f1;
+}
+
+.tab-content img {
+    width: 1.25rem;  /* 20px */
+    height: 1.25rem;  /* 20px */
+    transition: transform 0.3s ease;
+    vertical-align: middle;
+}
+
+.tab-content:hover img {
+    transform: scale(1.1); /* 호버 시 이미지 확대 */
+}
+
+/* Select 박스 스타일 */
+#sort-options {
+    position: absolute;
+    right: 0.25rem;
+    padding: 0.375rem 0.75rem;  /* 상하 6px, 좌우 12px */
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    background-color: $foundation-primary-color;
+    color: $foundation-accent-color;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 10rem;  /* 160px */
+}
+
+#sort-options:hover {
+    background-color: $foundation-secondary-color;
+}
+
+/* 옵션 스타일 */
+option {
+    background-color: $foundation-accent-color;
+    color: $foundation-secondary-color;
+    line-height: 1.5;
+}
+
+/* label 숨기기 */
+label {
+    display: none;
+}
+
+/* 북마크 메시지 */
+.bookmark-message {
+    position: fixed;
+    bottom: 1.25rem; /* 화면 하단 20px */
+    left: 50%;
+    transform: translateX(-50%); /* 화면 중앙 정렬 */
+    color: white;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    border-radius: 0.3125rem; /* 둥근 모서리 */
+    font-size: 1rem; /* 16px */
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeInOut 1s forwards;
+
+    &.success {
+        background-color: #28a745; /* 초록색 */
+    }
+
+    &.error {
+        background-color: #dc3545; /* 빨간색 */
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+button {
+    border: none;
+    background-color: $foundation-accent-color;
 }

@@ -9,6 +9,10 @@ import bookmarkOn from "../../assets/images/bookmark.svg";
 class ReceipePaper extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
+    body{
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
+    }
   `;
 
   reviews: Array<any> = []; // 리뷰 데이터

@@ -1,6 +1,11 @@
 /* SCSS 변수 */
-@import '../../assets/sass/mixins.scss';
-@import '../../assets/sass/variables.scss';
+@import '../../styles/sass/mixins.scss';
+@import '../../styles/sass/variables.scss';
+
+body{
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 400;
+}
 
 .header {
   display: flex;

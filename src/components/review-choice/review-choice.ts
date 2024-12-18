@@ -1,24 +1,30 @@
 import { html, css, LitElement, CSSResultGroup, unsafeCSS } from 'lit';
 import styles from './review-choice.scss?inline'; // SCSS를 인라인으로 불러옵니다.
-import '../../assets/sass/reset.scss';
-import '../../assets/sass/variables.scss';
-import '../../assets/sass/font.scss';
+import '../../styles/sass/reset.scss';
+import '../../styles/sass/variables.scss';
+import '../../styles/sass/font.scss';
 
 class ReviewChoice extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
+    body{
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
+    }
   `;
 
- // 뒤로가기 버튼 클릭 처리
- private goBack() {
+  // 뒤로가기 버튼 클릭 처리
+  private goBack() {
     console.log('뒤로가기 클릭');
-    // 뒤로가기 동작을 정의, 예: history.back() 또는 특정 페이지로 이동
+    // 뒤로가기 동작: history.back()을 사용하거나 메인 페이지로 이동
+    window.location.href = "../../../_main-template.html"; // '/'는 메인 페이지 URL
   }
 
   // 나가기 버튼 클릭 처리
   private exit() {
     console.log('나가기 클릭');
-    // 나가기 동작을 정의, 예: 페이지를 종료하거나 로그아웃 등
+    // 나가기 동작: 메인 페이지로 이동
+    window.location.href =  "../../../_main-template.html"; // '/'는 메인 페이지 URL
   }
 
   render() {

@@ -19,6 +19,10 @@ interface FeedItem {
 class ImageFieldFeed extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
+    body{
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
+    }
   `;
 
   feedData: FeedItem[] = [];

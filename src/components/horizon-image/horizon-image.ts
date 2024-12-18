@@ -5,10 +5,15 @@ import '../../styles/sass/variables.scss';
 import '../../styles/sass/font.scss';
 import bookmarkOff from "../../assets/images/bookmark-filled.svg";
 import bookmarkOn from "../../assets/images/bookmark.svg";
+import "../../styles/sass/font.scss";
 
 class HorizonImage extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
+    body{
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
+    }
   `;
 
   // 이미지 데이터

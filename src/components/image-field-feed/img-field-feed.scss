@@ -3,13 +3,13 @@
 .image-container-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: $space-sm;
+  gap: $space-sm; /* 0.5rem */
 }
 
 .image-text-container {
   position: relative;
-  width: 48%;
-  margin-bottom: $space-sm;
+  width: 48%; /* 48% */
+  margin-bottom: $space-sm; /* 0.5rem */
   overflow: hidden;
   background-color: $background-light;
   box-sizing: border-box;
@@ -22,12 +22,12 @@
 }
 
 #bookmark {
-  width: 30px;
-  height: 30px;
+  width: 1.875rem; /* 30px */
+  height: 1.875rem; /* 30px */
   display: block;
   position: absolute;
-  top: $space-sm;
-  right: $space-sm;
+  top: $space-sm; /* 0.5rem */
+  right: $space-sm; /* 0.5rem */
   transition: 0.3s all;
 }
 
@@ -37,50 +37,47 @@
 
 .text-overlay {
   position: absolute;
-  bottom: $space-sm;
-  left: $space-sm;
+  bottom: $space-sm; /* 0.5rem */
+  left: $space-sm; /* 0.5rem */
   color: $text-light;
-  font-size: $font-size-sm;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  font-size: $font-size-sm; /* 0.875rem */
+  text-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.7); /* 1px 1px 3px */
   text-align: left;
 }
 
-.bookmark-message {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    z-index: 1000;
+.bookmark-message{
+  position: fixed;
+  bottom: 1.25rem; /* 20px */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  padding: 0.625rem 1.25rem; /* 10px 20px */
+  border-radius: 0.3125rem; /* 5px */
+  font-size: 1rem; /* 16px */
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeInOut 1s forwards;
+
+  &.success {
+    background-color: #28a745; /* 초록색 */
+  }
+
+  &.error {
+    background-color: #dc3545; /* 빨간색 */
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
     opacity: 0;
-    animation: fadeInOut 1s forwards;
-  
-    &.success {
-      background-color: #28a745; /* 초록색 */
-    }
-  
-    &.error {
-      background-color: #dc3545; /* 빨간색 */
-    }
   }
-  
-  @keyframes fadeInOut {
-    0% {
-      opacity: 0;
-    }
-    20% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
+  20% {
+    opacity: 1;
   }
-  
-  
-  
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

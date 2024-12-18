@@ -6,36 +6,43 @@ import "../../styles/sass/font.scss";
 class Navigation extends LitElement {
   static styles: CSSResultGroup = css`
 
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      font-family: "Paperlogy", sans-serif;
-      font-weight: 300;
-    }
+  a{
+    text-decoration: none;
+    color: var(--text-light);
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
+  }
+  
+  nav ul {
+    height: 2rem; /* 32px */
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--foundation-secondary-color);
+    padding: 0.625rem; /* 10px */
+    box-sizing: border-box;
+    overflow: hidden;
+    line-height: 0.8;
+  } 
 
-    nav ul {
-      height: 32px;
-      display: flex;
-      justify-content: space-around;
-      background-color: var(--foundation-secondary-color);
-      padding: 10px;
-      box-sizing: border-box;
-      overflow: hidden;
-      line-height: 0.8;
-    }
-
-    nav ul li {
-      color: var(--text-light);
-      transition: 0.2s;
-      cursor: pointer;
-    }
-
-    nav ul li:hover {
-      color: var(--foundation-primary-color);
-      border-bottom: 3px solid var(--foundation-primary-color);
-      height: 20px;
-    }
+  nav ul li {
+    color: var(--text-light);
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  
+  nav ul li:hover {
+    color: var(--foundation-primary-color);
+    border-bottom: 0.1875rem solid var(--foundation-primary-color); /* 3px */
+    height: 1.25rem; /* 20px */
+  }
+  
   `;
 
   handleNavigation(event: MouseEvent) {
