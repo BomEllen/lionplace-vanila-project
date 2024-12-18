@@ -1,9 +1,9 @@
 import { html, LitElement, css, CSSResultGroup, unsafeCSS, PropertyValues } from "lit";
 import { customElement } from "lit/decorators.js";
-import styles from "./theme.scss?inline";
+import styles from "./theme-bar.scss?inline";
 
 @customElement("theme-bar")
-class Theme extends LitElement {
+class ThemeBar extends LitElement {
   private isDragging: boolean = false;
   private startX: number | null = null;
   private scrollPosition: number | null = null;

@@ -3,4 +3,4 @@ import "./navigation/navigation.ts";
 import "./post/post.ts";
 import "./post-list/post-list.ts";
 import "./profile-all/profile-all.ts";
-import "./theme/theme.ts";
+import "./theme-bar/theme-bar.ts";
