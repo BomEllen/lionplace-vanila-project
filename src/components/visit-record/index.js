@@ -1,2 +1,3 @@
 import "./visit-record.scss";
-import "../visit-record/index.ts";
+import "./visit-record-complete.ts";
+import "./visit-record-noreview.ts";
