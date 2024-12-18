@@ -4,6 +4,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: $space-sm; /* 0.5rem */
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 300;
 }
 
 .image-text-container {
@@ -13,6 +15,7 @@
   overflow: hidden;
   background-color: $background-light;
   box-sizing: border-box;
+  
 }
 
 .image-text-container img {

@@ -32,7 +32,7 @@ class ReviewChoice extends LitElement {
       <!-- 상단 바 -->
       <div class="header">
         <button class="button" @click="${this.goBack}">뒤로가기</button>
-        <span>리뷰 초이스</span>
+        <span>리뷰 선택</span>
         <button class="button" @click="${this.exit}">나가기</button>
       </div>
     `;

@@ -1,5 +1,6 @@
 @use '../../styles/sass/mixins.scss' as *;
 @use '../../styles/sass/variables.scss' as *;
+@use "../../styles/sass/font.scss" as *;
 
 body{
   margin:0;
@@ -11,6 +12,8 @@ body{
   gap: $space-md; /* 1rem */
   // padding: $space-lg; /* 2rem */
   background-color: $background-light;
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 300;
 }
 
 .image-list {

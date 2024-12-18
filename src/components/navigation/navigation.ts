@@ -1,4 +1,4 @@
-import { html, css, LitElement, CSSResultGroup, unsafeCSS } from "lit";
+import { html, css, LitElement, CSSResultGroup } from "lit";
 import "../../styles/sass/reset.scss";
 import "../../styles/sass/variables.scss";
 import "../../styles/sass/font.scss";

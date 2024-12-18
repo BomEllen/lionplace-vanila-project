@@ -1,5 +1,6 @@
 @import '../../styles/sass/mixins.scss';
 @import '../../styles/sass/variables.scss';
+@import "../../styles/sass/font.scss";
 
 /* 전체 카테고리 래퍼 */
 .category-wrap {
@@ -37,6 +38,8 @@
     padding: 0.5rem; /* 탭 클릭 영역에 패딩 추가 */
     border-radius: 0.5rem;
     transition: background-color 0.3s ease;
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
 }
 
 /* 탭 클릭 시 색상 변경 */
@@ -68,6 +71,8 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 10rem;  /* 160px */
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
 }
 
 #sort-options:hover {

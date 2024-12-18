@@ -2,7 +2,7 @@ import { html, css, LitElement, CSSResultGroup, unsafeCSS, TemplateResult } from
 import styles from "../theme/theme.scss?inline";
 import eye from "../../assets/images/eye.svg";
 import button from "../../assets/images/plus-btn.svg";
-import "../../styles/sass/base.scss"
+// import "../../styles/sass/base.scss"
 
 // Item 및 SubItem 인터페이스 정의
 interface SubItem {
