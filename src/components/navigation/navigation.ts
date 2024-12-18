@@ -42,7 +42,7 @@ class Navigation extends LitElement {
     const target = event.target as HTMLLIElement;
     switch (target.textContent) {
       case "피드":
-        window.location.href = "/feed";
+        window.location.href = "/src/pages/feed/";
         break;
       case "방문":
         window.location.href = "/visit";
