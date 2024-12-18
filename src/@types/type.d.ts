@@ -9,3 +9,12 @@ export interface User {
   userName: string;
   verified: boolean;
 }
+
+export interface PostData {
+  userImg: string;
+  userName: string;
+  image: string;
+  text: string;
+  date: string;
+  reviewCount: number;
+}
