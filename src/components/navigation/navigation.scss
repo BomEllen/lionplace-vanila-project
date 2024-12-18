@@ -1,5 +1,6 @@
 @use "../../styles/sass/variables.scss" as *;
 @use "../../styles/sass/font.scss" as *;
+@use "../../styles/sass/reset.scss";
 
 ul,
 li {
@@ -21,7 +22,7 @@ ul {
   line-height: 0.8;
 }
 
-ul li {
+ul li a {
   color: $text-light;
   transition: 0.2s;
   cursor: pointer;
@@ -31,4 +32,13 @@ ul li:hover {
   color: $foundation-primary-color;
   border-bottom: 3px solid $foundation-primary-color;
   height: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: $text-light;
+}
+
+a:hover {
+  color: $foundation-primary-color;
 }

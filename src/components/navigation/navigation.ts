@@ -1,5 +1,5 @@
 import { html, css, LitElement, unsafeCSS } from "lit";
-import "../../styles/sass/reset.scss";
+
 import styles from "./navigation.scss?inline";
 import { customElement } from "lit/decorators.js";
 
