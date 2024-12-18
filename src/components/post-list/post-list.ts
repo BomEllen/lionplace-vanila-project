@@ -15,9 +15,11 @@ class PostList extends LitElement {
 
   connectedCallback(): void {
     super.connectedCallback();
+    // 연결 시 데이터 불러옴
     this.fetchData();
   }
 
+  // isoString("2024-12-16 05:20:58.524Z")을 "12.16.월"로 바꿔주는 함수
   formatToDate(isoString: string): string {
     const date = new Date(isoString);
 
@@ -33,6 +35,7 @@ class PostList extends LitElement {
   }
 
   async fetchData() {
+    // expand 옵션을 통해 연결된 릴레이션(editedUser, = 피드 작성 유저정보)까지 받아서 한번에 확인 가능
     const feeds = await pb.collection("feeds").getFullList({ expand: "editedUser" });
 
     this.dataList = feeds.map(
