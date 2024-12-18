@@ -3,54 +3,55 @@
 @use "./../../styles/sass/variables.scss" as *;
 
 .nav-items {
-  width: 100vw;
+  width: 100%;
   height: 4.1875rem;
   background-color: $foundation-accent-color;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+}
 
-  ul {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    margin: 0 $space-xs;
-    padding: 0;
-    width: 100%;
-  }
+ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0 $space-xs;
+  padding: 0;
+  width: 100%;
+}
 
-  li {
-    position: relative;
-  }
+li {
+  position: relative;
+}
 
-  a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: $foundation-secondary-color;
-    padding: 0.625rem;
-    border-top: 0.1875rem solid transparent;
+a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: $foundation-secondary-color;
+  padding: 0.625rem;
+  border-top: 0.1875rem solid transparent;
+}
 
-    &.selected {
-      border-top: 0.1875rem solid $foundation-primary-color;
-
-      span {
-        color: $foundation-primary-color;
-      }
-    }
-  }
-
-  img {
-    width: 1.5rem;
-    height: 1.5rem;
-    padding-bottom: 0.25rem;
-  }
+a.selected {
+  border-top: 0.1875rem solid $foundation-primary-color;
 
   span {
-    font-family: Paperlogy, sans-serif;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-    color: $content-primary-color;
+    color: $foundation-primary-color;
   }
+}
+
+img {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding-bottom: 0.25rem;
+}
+
+span {
+  font-family: "Paperlogy", sans-serif;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  color: $content-primary-color;
 }

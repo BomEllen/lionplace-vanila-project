@@ -1,9 +1,9 @@
-import { html, css, LitElement } from "lit";
+import { html, css, LitElement, unsafeCSS } from "lit";
 import { customElement } from "lit/decorators.js";
 import "./../../styles/sass/font.scss";
 import "./../../styles/sass/reset.scss";
 import "./../../styles/sass/variables.scss";
-import "./navitems.scss";
+import styles from "./navitems.scss?inline";
 
 // SVG 이미지 파일 import
 import mapImage from "./../../assets/navitems/map.svg";
@@ -15,58 +15,7 @@ import myImage from "./../../assets/navitems/my.svg";
 @customElement("nav-items")
 class NavItems extends LitElement {
   static styles = css`
-    .nav-items {
-      width: 100vw;
-      height: 4.1875rem;
-      background-color: var(--foundation-accent-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    ul {
-      display: flex;
-      justify-content: space-between;
-      list-style: none;
-      margin: 0 var(--space-xs);
-      padding: 0;
-      width: 100%;
-    }
-
-    li {
-      position: relative;
-    }
-
-    a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: var(--foundation-secondary-color);
-      padding: 0.625rem;
-      border-top: 0.1875rem solid transparent;
-    }
-
-    a.selected {
-      border-top: 0.1875rem solid var(--foundation-primary-color);
-
-      span {
-        color: var(--foundation-primary-color);
-      }
-    }
-
-    img {
-      width: 1.5rem;
-      height: 1.5rem;
-      padding-bottom: 0.25rem;
-    }
-
-    span {
-      font-family: "Paperlogy", sans-serif;
-      font-size: 0.875rem;
-      margin-top: 0.25rem;
-      color: var(--content-primary-color);
-    }
+    ${unsafeCSS(styles)}
   `;
 
   handleNavItems(event: MouseEvent) {
