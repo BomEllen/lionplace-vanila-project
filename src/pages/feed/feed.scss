@@ -1,0 +1,19 @@
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 20rem;
+}
+
+time-gps {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav-items {
+  position: sticky;
+  bottom: 0;
+}

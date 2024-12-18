@@ -1,0 +1,68 @@
+@use "../../styles/sass/reset.scss";
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+@use "../../styles/sass/font.scss";
+
+.location-nav {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding-block: 0.5rem;
+  width: 100%;
+}
+
+.location-menu {
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+  cursor: grab;
+  scroll-snap-type: x mandatory; /* 스냅 스크롤을 통해 각 항목이 한 번에 보여짐 */
+  -webkit-overflow-scrolling: touch;
+  padding-inline-end: 3.375rem;
+  & li button {
+    @include button-styles($background-light, $content-primary-color, 0.25rem 0.25rem);
+    width: 3.375rem;
+    height: 2.25rem;
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    border-radius: 4px;
+
+    &.active {
+      background-color: $foundation-primary-color;
+      color: $foundation-accent-color;
+    }
+
+    &:focus {
+      border: 1px solid $foundation-secondary-color;
+    }
+  }
+}
+
+.btn-location {
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  background: linear-gradient(91deg, rgba(255, 255, 255, 0) 0.83%, $background-light 42.39%);
+  backdrop-filter: blur(0.5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem 0.25rem;
+  width: 3.375rem;
+  height: 2.25rem;
+  position: absolute;
+  inset-inline-end: 0;
+  border: none;
+  cursor: pointer;
+
+  & img {
+    width: 0.6875rem;
+  }
+
+  &:focus {
+    border: 1px solid $foundation-secondary-color;
+  }
+}
