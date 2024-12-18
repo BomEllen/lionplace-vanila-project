@@ -1,0 +1,40 @@
+@use "./../../styles/sass/reset.scss";
+@use "./../../styles/sass/font.scss";
+@use "./../../styles/sass/variables.scss" as *;
+
+
+.reservation-types-button-container {
+  margin: 0.375rem;
+  display: flex;
+  justify-content: space-around;
+    
+
+
+  .reservation-types-button {
+      width: 5.25rem;
+      height: 5.1875rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: $background-light;
+      border-radius: 12px;
+      border: 1px solid $foundation-primary-color;
+      font-family: Paperlogy, sans-serif;
+      font-size: $font-size-sm;
+      color: $foundation-primary-color;
+      cursor: pointer;
+
+
+    /* 선택된 버튼 스타일 */
+    &:focus {
+      background-color: $foundation-primary-color; 
+      color: $text-light; 
+    }
+
+
+    span {
+      margin-top: 3px;
+    }
+  }
+}
