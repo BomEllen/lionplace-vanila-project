@@ -1,9 +1,13 @@
-import { resolve } from "node:path";
-import { defineConfig } from "vite";
+import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
 import inlineCssModules from "vite-plugin-inline-css-modules";
+
+
+
 
 export default defineConfig({
   plugins: [inlineCssModules()],
+  base: "./",
   resolve: {
     alias: {
       "@": resolve(__dirname, "/src"), // '@'를 'src' 디렉토리로 매핑
