@@ -31,12 +31,22 @@ class Navigation extends LitElement {
 
   render() {
     return html`
-      <ul class="navigation-wrap">
-        <li @click=${this.handleNavigation}>피드</li>
-        <li @click=${this.handleNavigation}>방문</li>
-        <li @click=${this.handleNavigation}>리뷰</li>
-        <li @click=${this.handleNavigation}>예약•주문</li>
-      </ul>
+      <nav role="navigation" aria-label="주요 네비게이션">
+        <ul class="navigation-wrap">
+          <li>
+            <a href="/feed" @click=${this.handleNavigation} aria-label="피드로 이동" tabindex="0"> 피드 </a>
+          </li>
+          <li>
+            <a href="/visit" @click=${this.handleNavigation} aria-label="방문 페이지로 이동" tabindex="0"> 방문 </a>
+          </li>
+          <li>
+            <a href="/review" @click=${this.handleNavigation} aria-label="리뷰 페이지로 이동" tabindex="0"> 리뷰 </a>
+          </li>
+          <li>
+            <a href="/reservation" @click=${this.handleNavigation} aria-label="예약 및 주문 페이지로 이동" tabindex="0"> 예약•주문 </a>
+          </li>
+        </ul>
+      </nav>
     `;
   }
 }
