@@ -1,4 +1,4 @@
 declare module "*.scss?inline" {
-    const content: string;
-    export default content;
-  }
+  const content: string;
+  export default content;
+}
