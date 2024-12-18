@@ -17,7 +17,7 @@
     "vite-plugin-style-import": "^2.0.0"
   },
   "dependencies": {
-    "@euid/scss-mixins": "^0.2.0",
-    "pocketbase": "^0.22.1"
+    "pocketbase": "^0.22.1",
+    "swiper": "^11.1.15"
   }
 }

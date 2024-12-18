@@ -1,0 +1,54 @@
+/* SCSS 변수 */
+@import '../../styles/sass/mixins.scss';
+@import '../../styles/sass/variables.scss';
+
+body{
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 400;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $space-sm $space-lg;
+  background-color: $background-light;
+  border-bottom: 1px solid $content-secondary-color;
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 300;
+}
+
+.button {
+  background: none;
+  border: 1px solid $foundation-primary-color;
+  color: $foundation-primary-color;
+  padding: $btn-padding;
+  font-size: $font-size-base;
+  cursor: pointer;
+  border-radius: $btn-border-radius;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: $foundation-primary-color;
+  color: $background-light;
+}
+
+/* 리뷰 내용 영역 */
+.content {
+  padding: $space-lg;
+  background-color: $background-light;
+  margin-top: $space-sm;
+  border-radius: $space-xs;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content h2 {
+  font-size: $font-size-lg;
+  margin-bottom: $space-sm;
+}
+
+.content p {
+  font-size: $font-size-base;
+  color: $content-secondary-color;
+}

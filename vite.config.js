@@ -19,9 +19,17 @@ export default defineConfig({
     outDir: "docs",
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "index.html"),
-        login: resolve(__dirname, "src/pages/login/index.html"),
-        register: resolve(__dirname, "src/pages/register/index.html"),
+        main: resolve(__dirname, 'index.html'),
+      },
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      sass: {
+        additionalData: `
+         @import "./src/assets/sass/variables.scss";
+         @import "./src/assets/sass/mixins.scss";
+        `,
       },
     },
   },
