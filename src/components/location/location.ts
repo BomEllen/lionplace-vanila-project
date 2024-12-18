@@ -1,6 +1,7 @@
 import { html, LitElement, css, CSSResultGroup, unsafeCSS } from "lit";
 import { customElement } from "lit/decorators.js";
 import styles from "./location.scss?inline";
+import map from "../../assets/navitems/map.svg";
 
 @customElement("location-bar")
 class Location extends LitElement {
@@ -88,7 +89,7 @@ class Location extends LitElement {
   render() {
     return html`
       <nav class="location-nav">
-        <button class="btn-location" type="button"><img src="../../assets/navitems/map.svg" alt="현 위치 로고" /><span>현위치</span></button>
+        <button class="btn-location" type="button"><img src="${map}" alt="현 위치 로고" /><span>현위치</span></button>
 
         <ul class="location-menu" @focusin=${this.handleFocus} @mousedown=${this.handleMouseDown} @mousemove=${this.handleMouseMove} @mouseup=${this.handleMouseUp} @mouseleave=${this.handleMouseLeave}>
           <li><button class="active" type="button">전체</button></li>
