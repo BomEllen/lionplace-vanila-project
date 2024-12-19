@@ -1,55 +1,19 @@
-import { html, css, LitElement, CSSResultGroup } from "lit";
-import "../../styles/sass/reset.scss";\\
-import "../../styles/sass/variables.scss";
-import "../../styles/sass/font.scss";
+import { html, css, LitElement, unsafeCSS } from "lit";
 
+import styles from "./navigation.scss?inline";
+import { customElement } from "lit/decorators.js";
+
+@customElement("custom-navigation")
 class Navigation extends LitElement {
-  static styles: CSSResultGroup = css`
-
-  a{
-    text-decoration: none;
-    color: var(--text-light);
-    transition: 0.2s;
-    cursor: pointer;
-  }
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-family: "Paperlogy", sans-serif;
-    font-weight: 300;
-  }
-  
-  nav ul {
-    height: 2rem; /* 32px */
-    display: flex;
-    justify-content: space-around;
-    background-color: var(--foundation-secondary-color);
-    padding: 0.625rem; /* 10px */
-    box-sizing: border-box;
-    overflow: hidden;
-    line-height: 0.8;
-  } 
-
-  nav ul li {
-    color: var(--text-light);
-    transition: 0.2s;
-    cursor: pointer;
-  }
-  
-  nav ul li:hover {
-    color: var(--foundation-primary-color);
-    border-bottom: 0.1875rem solid var(--foundation-primary-color); /* 3px */
-    height: 1.25rem; /* 20px */
-  }
-  
+  static styles = css`
+    ${unsafeCSS(styles)}
   `;
 
   handleNavigation(event: MouseEvent) {
     const target = event.target as HTMLLIElement;
     switch (target.textContent) {
       case "피드":
-        window.location.href = "/feed";
+        window.location.href = "/src/pages/feed/";
         break;
       case "방문":
         window.location.href = "/visit";
@@ -107,9 +71,6 @@ class Navigation extends LitElement {
       </li>
     </ul>
   </nav>
-  
     `;
   }
 }
-
-customElements.define("navi-gation", Navigation);

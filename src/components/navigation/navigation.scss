@@ -1,4 +1,44 @@
 @use "../../styles/sass/variables.scss" as *;
-@use "../../styles/sass/mixins.scss" as *;
 @use "../../styles/sass/font.scss" as *;
-@use "../../styles/sass/reset.scss" as *;
+@use "../../styles/sass/reset.scss";
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 300;
+}
+
+ul {
+  height: 32px;
+  display: flex;
+  justify-content: space-around;
+  background-color: $foundation-secondary-color;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 0.8;
+}
+
+ul li a {
+  color: $text-light;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+ul li:hover {
+  color: $foundation-primary-color;
+  border-bottom: 3px solid $foundation-primary-color;
+  height: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: $text-light;
+}
+
+a:hover {
+  color: $foundation-primary-color;
+}
