@@ -30,8 +30,8 @@ class ReservationTypes extends LitElement {
   render() {
     return html`
       <div class="reservation-types-button-container">
-        <button class="reservation-types-button" aria-label="예약 내역 전체 보기 버튼">
-          <svg width="20" height="20" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <button class="reservation-types-button" aria-label="예약 내역 전체 보기">
+          <svg role="img" width="20" height="20" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M6.5 0.5H1.25C0.8 0.5 0.5 0.8 0.5 1.25V6.5C0.5 6.95 0.8 7.25 1.25 7.25H6.5C6.95 7.25 7.25 6.95 7.25 6.5V1.25C7.25 0.8 6.95 0.5 6.5 0.5ZM6.5 8.75H1.25C0.8 8.75 0.5 9.05 0.5 9.5V14.75C0.5 15.2 0.8 15.5 1.25 15.5H6.5C6.95 15.5 7.25 15.2 7.25 14.75V9.5C7.25 9.05 6.95 8.75 6.5 8.75ZM14.75 0.5H9.5C9.05 0.5 8.75 0.8 8.75 1.25V6.5C8.75 6.95 9.05 7.25 9.5 7.25H14.75C15.2 7.25 15.5 6.95 15.5 6.5V1.25C15.5 0.8 15.2 0.5 14.75 0.5ZM14.75 8.75H9.5C9.05 8.75 8.75 9.05 8.75 9.5V14.75C8.75 15.2 9.05 15.5 9.5 15.5H14.75C15.2 15.5 15.5 15.2 15.5 14.75V9.5C15.5 9.05 15.2 8.75 14.75 8.75Z"
               fill="currentColor"
@@ -39,14 +39,14 @@ class ReservationTypes extends LitElement {
           </svg>
           <span>전체</span>
         </button>
-        <button class="reservation-types-button" aria-label="병의원 예약 내역 보기 버튼">
-          <svg width="25" height="25" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <button class="reservation-types-button" aria-label="병의원 예약 내역 보기">
+          <svg role="img" width="25" height="25" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.875 12.75H10.125V10.125H12.75V7.875H10.125V5.25H7.875V7.875H5.25V10.125H7.875V12.75ZM3.75 15.75C3.3375 15.75 2.98425 15.6033 2.69025 15.3097C2.39675 15.0157 2.25 14.6625 2.25 14.25V3.75C2.25 3.3375 2.39675 2.98425 2.69025 2.69025C2.98425 2.39675 3.3375 2.25 3.75 2.25H14.25C14.6625 2.25 15.0157 2.39675 15.3097 2.69025C15.6033 2.98425 15.75 3.3375 15.75 3.75V14.25C15.75 14.6625 15.6033 15.0157 15.3097 15.3097C15.0157 15.6033 14.6625 15.75 14.25 15.75H3.75Z" />
           </svg>
           <span>병의원</span>
         </button>
-        <button class="reservation-types-button" aria-label="뷰티 예약 내역 보기 버튼">
-          <svg width="22" height="22" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <button class="reservation-types-button" aria-label="뷰티 예약 내역 보기">
+          <svg role="img" width="22" height="22" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
@@ -55,8 +55,8 @@ class ReservationTypes extends LitElement {
           </svg>
           <span>뷰티</span>
         </button>
-        <button class="reservation-types-button" aria-label="공연 예약 내역 보기 버튼">
-          <svg width="23" height="23" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <button class="reservation-types-button" aria-label="공연 예약 내역 보기">
+          <svg role="img" width="23" height="23" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
