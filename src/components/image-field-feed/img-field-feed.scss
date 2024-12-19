@@ -54,12 +54,13 @@
   position: fixed;
   bottom: 1.25rem; /* 20px */
   left: 50%;
+  bottom:7%;
   transform: translateX(-50%);
   color: white;
   padding: 0.625rem 1.25rem; /* 10px 20px */
   border-radius: 0.3125rem; /* 5px */
   font-size: 1rem; /* 16px */
-  z-index: 1000;
+  z-index: 1000000000000;
   opacity: 0;
   animation: fadeInOut 1s forwards;
 

@@ -69,10 +69,8 @@ body {
   text-align: left;  /* 텍스트 왼쪽 정렬 */
   padding: 0.1875rem;
   box-sizing: border-box;
-  // border: 0.0625rem solid black;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-size: cover;
+  background-size: cover;  /* 불필요한 중복 제거 */
   background-position: center;
 }
 
@@ -128,14 +126,13 @@ body {
 
 .sub-item img {
   width: 100%;
-.sub-item img {
-  width: 100%;
+  /* 중복된 .sub-item img 선택자 제거 */
 }
 
 /* 화살표 버튼 */
 .swiper-button-prev, .swiper-button-next {
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -147,7 +144,7 @@ body {
   border-radius: 50%;  /* 원형 버튼 */
   font-size: 1.5rem;  /* 화살표 크기 */
   text-align: center;
-  line-height:0.7;
+  line-height: 0.7;
 }
 
 .swiper-button-prev {
@@ -167,12 +164,9 @@ body {
 .add-item-card {
   width: 100%;
   height: 100%;
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #ffffff; */
   border: 0.0625rem dashed #FF7710;  /* 실제 색상으로 변경 */
   border-radius: 0.5rem;  /* 둥근 모서리 */
   padding: 3.125rem;
@@ -186,7 +180,6 @@ body {
 
 .add-button {
   margin-top: 6rem;
-  margin-top: 6rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -198,7 +191,7 @@ body {
   transition: transform 0.3s ease;
   position: relative;
   left: -2.6875rem;
-  top:-2rem;
+  top: -2rem;
 }
 
 .add-button p {
@@ -210,10 +203,10 @@ body {
   transform: rotate(45deg); /* 아이콘 회전 효과 */
 }
 
-.add-button p{
-  position:relative;
-  top:-1.2rem;
-  left:-0.4rem;
+.add-button p {
+  position: relative;
+  top: -1.2rem;
+  left: -0.4rem;
 }
 
 button {
@@ -232,8 +225,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  opacity: 1;
 button:hover {
   opacity: 1;
 }
