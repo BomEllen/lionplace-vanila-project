@@ -4,14 +4,14 @@ import inlineCssModules from "vite-plugin-inline-css-modules";
 
 export default defineConfig({
   plugins: [inlineCssModules()],
-  base: "./",
+  base: "/",
   resolve: {
     alias: {
       "@": "/src",
     },
   },
   build: {
-    outDir: "docs",
+    outDir: "dist",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
