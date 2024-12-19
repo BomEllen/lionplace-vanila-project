@@ -1,5 +1,5 @@
 /* 기본 변수 설정 */
-@import '../../styles/sass/variables.scss';
+@import "../../styles/sass/variables.scss";
 
 $card-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 
@@ -24,7 +24,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.625rem 1.25rem;  /* 상하좌우 패딩 */
+  padding: 0.625rem 1.25rem; /* 상하좌우 패딩 */
   background-color: #ffffff;
   border-bottom: 1px solid #ddd;
   box-shadow: $card-shadow;
@@ -32,17 +32,17 @@ body {
 
 .header .button {
   background-color: transparent;
-  border: 1px solid #FF7710;  /* 실제 색상으로 변경 */
-  color: #FF7710;  /* 실제 색상으로 변경 */
-  padding: 0.5rem 1rem;  /* 버튼 패딩 */
-  font-size: 1rem;  /* 폰트 크기 */
+  border: 1px solid #ff7710; /* 실제 색상으로 변경 */
+  color: #ff7710; /* 실제 색상으로 변경 */
+  padding: 0.5rem 1rem; /* 버튼 패딩 */
+  font-size: 1rem; /* 폰트 크기 */
   cursor: pointer;
-  border-radius: 0.3125rem;  /* 버튼 둥근 모서리 */
+  border-radius: 0.3125rem; /* 버튼 둥근 모서리 */
   transition: background-color 0.3s, color 0.3s;
 }
 
 .header .button:hover {
-  background-color: #e66c00;  /* 파랑색 어두운 색으로 변경 (어두운 파랑 대체) */
+  background-color: #e66c00; /* 파랑색 어두운 색으로 변경 (어두운 파랑 대체) */
   color: #fff;
 }
 
@@ -51,41 +51,40 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  gap: 0.5rem;  /* 카드 사이 간격 */
-//   padding: 1.25rem;
-//   margin-top: 1rem;  /* 상단 간격 */
+  gap: 0.5rem; /* 카드 사이 간격 */
+  //   padding: 1.25rem;
+  //   margin-top: 1rem;  /* 상단 간격 */
 }
 
 .sub-image {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;  /* 텍스트 왼쪽 정렬 */
+  align-items: flex-start; /* 텍스트 왼쪽 정렬 */
   justify-content: flex-end;
   border-radius: 0.5rem;
   box-shadow: $card-shadow;
-  width: 100%;  /* 양쪽 공간을 50%로 나누도록 설정 */
-  height:400px;
+  width: 100%; /* 양쪽 공간을 50%로 나누도록 설정 */
+  height: 400px;
   background-color: #ffffff;
-  text-align: left;  /* 텍스트 왼쪽 정렬 */
-  padding:3px;
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  padding: 3px;
   box-sizing: border-box;
-  border:1px solid black;
+  border: 1px solid black;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
-
 }
 
 .sub-image h2 {
-  font-size: 1.125rem;  /* 제목 폰트 크기 */
-  margin-bottom: 0.625rem;  /* 제목 아래 여백 */
+  font-size: 1.125rem; /* 제목 폰트 크기 */
+  margin-bottom: 0.625rem; /* 제목 아래 여백 */
   color: #333;
 }
 
 .sub-image p {
-  font-size: 0.875rem;  /* 텍스트 폰트 크기 */
+  font-size: 0.875rem; /* 텍스트 폰트 크기 */
   color: #777;
-  margin-bottom: 0.625rem;  /* 텍스트 아래 여백 */
+  margin-bottom: 0.625rem; /* 텍스트 아래 여백 */
 }
 
 /* 슬라이드 */
@@ -94,8 +93,8 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  margin-top: 0.625rem;  /* 슬라이드 상단 여백 */
-  position: relative;  /* 화살표 버튼을 위치시키기 위해 필요 */
+  margin-top: 0.625rem; /* 슬라이드 상단 여백 */
+  position: relative; /* 화살표 버튼을 위치시키기 위해 필요 */
 }
 
 .swiper-wrapper {
@@ -107,29 +106,30 @@ body {
   display: 42px;
   justify-content: center;
   align-items: center;
-  width: 33.3333%;  /* 한 줄에 3개의 슬라이드가 보이도록 설정 */
+  width: 33.3333%; /* 한 줄에 3개의 슬라이드가 보이도록 설정 */
   min-width: 33.3333%;
   background-color: #fafafa;
-  padding: 0.1875rem;  /* 슬라이드 패딩 */
+  padding: 0.1875rem; /* 슬라이드 패딩 */
 }
 
 .sub-item {
-  width:100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 0.3125rem;  /* 둥근 모서리 */
+  border-radius: 0.3125rem; /* 둥근 모서리 */
   text-align: center;
 }
 
-.sub-item img{
-    width:100%;
+.sub-item img {
+  width: 100%;
 }
 
 /* 화살표 버튼 */
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -138,87 +138,88 @@ body {
   border: none;
   padding: 0.5rem;
   cursor: pointer;
-  border-radius: 50%;  /* 원형 버튼 */
-  font-size: 1rem;  /* 화살표 크기 */
+  border-radius: 50%; /* 원형 버튼 */
+  font-size: 1rem; /* 화살표 크기 */
 }
 
 .swiper-button-prev {
-  left: 0.625rem;  /* 왼쪽 화살표 위치 */
+  left: 0.625rem; /* 왼쪽 화살표 위치 */
 }
 
 .swiper-button-next {
-  right: 0.625rem;  /* 오른쪽 화살표 위치 */
+  right: 0.625rem; /* 오른쪽 화살표 위치 */
 }
 
-.swiper-button-prev:hover, .swiper-button-next:hover {
-  background-color: rgba(0, 0, 0, 0.5);  /* 호버 시 배경 어두움 */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* 호버 시 배경 어두움 */
 }
 
 /* 플러스 버튼 카드 */
 .add-item-card {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  border: 1px dashed #FF7710;  /* 실제 색상으로 변경 */
-  border-radius: 0.5rem;  /* 둥근 모서리 */
+  border: 1px dashed #ff7710; /* 실제 색상으로 변경 */
+  border-radius: 0.5rem; /* 둥근 모서리 */
   padding: 3.125rem;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .add-item-card:hover {
-  transform: scale(1.05);  /* 호버 시 확대 */
+  transform: scale(1.05); /* 호버 시 확대 */
 }
 
 .add-button {
-  margin-top:6rem;
+  margin-top: 6rem;
   background: none;
   border: none;
-  
+
   cursor: pointer;
 }
 
-.add-button img {
-  width:200%;
-  height:200%;
+.add-button svg {
+  width: 200%;
+  height: 200%;
   transition: transform 0.3s ease;
-  position:relative;
-  left:-35px;
+  position: relative;
+  left: -35px;
 }
 
-.add-button p{
-    font-size:20px;
-    width:100px;
+.add-button p {
+  font-size: 20px;
+  width: 100px;
 }
 
-.add-item-card:hover .add-button img {
-  transform: rotate(45deg);  /* 아이콘 회전 효과 */
+.add-item-card:hover .add-button svg {
+  transform: rotate(45deg); /* 아이콘 회전 효과 */
 }
 
-button{
-    width:100px;
-    height:40px;
-    font-size:20px;
-    line-height:1;
-    background-color:$foundation-accent-color;
-    border: 1px solid $content-tertiary-color;
-    padding:$space-xs;
-    border-radius: 10px;
-    margin-bottom:200px;
-    opacity: 0.5;
-    color:$content-tertiary-color;
-    transition: 0.3s;
-    cursor:pointer;
+button {
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 1;
+  background-color: $foundation-accent-color;
+  border: 1px solid $content-tertiary-color;
+  padding: $space-xs;
+  border-radius: 10px;
+  margin-bottom: 200px;
+  opacity: 0.5;
+  color: $content-tertiary-color;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-button:hover{
-    opacity:1 
+button:hover {
+  opacity: 1;
 }
-.swiper-button-prev.disabled, .swiper-button-next.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
+.swiper-button-prev.disabled,
+.swiper-button-next.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
