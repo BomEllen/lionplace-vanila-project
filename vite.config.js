@@ -1,9 +1,6 @@
-import { resolve } from 'node:path'
-import { defineConfig } from 'vite'
+import { resolve } from "node:path";
+import { defineConfig } from "vite";
 import inlineCssModules from "vite-plugin-inline-css-modules";
-
-
-
 
 export default defineConfig({
   plugins: [inlineCssModules()],
@@ -22,6 +19,7 @@ export default defineConfig({
         login: resolve(__dirname, "src/pages/login/index.html"),
         register: resolve(__dirname, "src/pages/register/index.html"),
         feed: resolve(__dirname, "src/pages/feed/index.html"),
+        visitRecord: resolve(__dirname, "src/pages/visit-record/index.html"),
       },
     },
   },
