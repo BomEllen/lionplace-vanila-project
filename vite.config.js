@@ -20,6 +20,7 @@ export default defineConfig({
         feed: resolve(__dirname, "src/pages/feed/index.html"),
         review: resolve(__dirname, "src/pages/review/index.html"),
         visitRecord: resolve(__dirname, "src/pages/visit-record/index.html"),
+        reserved: resolve(__dirname, "src/pages/reserved/index.html"),
       },
     },
   },

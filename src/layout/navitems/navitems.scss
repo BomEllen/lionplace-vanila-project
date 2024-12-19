@@ -10,10 +10,10 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  position: fixed;  /* 고정된 위치 */
-  bottom: 0;  /* 하단에 고정 */
-  left: 0;  /* 왼쪽에 고정 */
-  z-index: 1000;  /* 다른 요소 위에 올 수 있도록 설정 */
+  // position: fixed; /* 고정된 위치 */
+  // bottom: 0; /* 하단에 고정 */
+  // left: 0; /* 왼쪽에 고정 */
+  // z-index: 1000; /* 다른 요소 위에 올 수 있도록 설정 */
 }
 
 ul {
