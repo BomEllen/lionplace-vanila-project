@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>LionPlace</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../../components/index.js"></script>
+    <script type="module" src="../../layout/index.js"></script>
+    <link rel="stylesheet" href="visit-record.scss" />
+  </head>
+  <body>
+    <time-gps></time-gps>
+    <profile-all></profile-all>
+    <custom-navigation></custom-navigation>
+    <div class="review-visit-record-wrap">
+      <div class="review-visit-record-list">
+        <h3>3월 방문</h3>
+        <visit-record-complete></visit-record-complete>
+      </div>
+      <div class="review-visit-record-list">
+        <h3>2월 방문</h3>
+        <visit-record-noreview></visit-record-noreview>
+      </div>
+    </div>
+    <nav-items></nav-items>
+  </body>
+</html>
