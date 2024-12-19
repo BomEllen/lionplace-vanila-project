@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>Reservation</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./index.js"></script>
+    <script type="module" src="./reserved.js"></script>
+  </head>
+
+
+  <body>
+
+    <time-gps></time-gps>
+    <profile-all></profile-all>
+    <navi-gation></navi-gation>
+    <reservation-toggle></reservation-toggle>
+    <reservation-types></reservation-types>
+
+    <!-- 예약 정보 표시 글 -->
+    <p class="user-info">
+      <span id="userName"></span>님은 
+      <span id="reservationCount" class="text-decorate"></span>회 예약하셨고, <br>
+      <span id="payCount" class="text-decorate"></span>원 결제하셨습니다.
+    </p>
+
+    <!-- 예약업체 리스트 -->
+    <div class="visit-list-container">
+        <reservation-visit-list></reservation-visit-list>
+        <reservation-visit-list></reservation-visit-list>
+        <reservation-visit-list></reservation-visit-list>
+    </div>
+
+    <!-- 더보기 버튼 -->
+    <button>더보기 ∨</button>
+
+    <!-- 예약 모아보기 버튼 -->
+    <nav>
+      <ul>
+        <li>
+          <button>
+            <span class="label">방문</span>
+            <span class="number">33</span>
+          </button>
+        </li>
+        <li>
+          <button>
+            <span class="label">예약취소</span>
+            <span class="number">15</span>
+          </button>
+        </li>
+        <li>
+          <button>
+            <span class="label">기간선택</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 네브바 -->
+    <nav-items></nav-items>
+  </body>
+</html>
