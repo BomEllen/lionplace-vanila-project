@@ -8,6 +8,7 @@ import { alertAndProceed, handleInput } from "../../utils/form-utils";
 const inputList = [...document.querySelectorAll("input")];
 const loginBtn = document.querySelector(".btn-login") as HTMLButtonElement;
 
+// 중복된 아이디(userName)가 존재하는지 확인하는 함수(T/F를 반환)
 function isUserNameUnique(userArray: User[], inputId: string): boolean {
   let result = true;
 
@@ -22,6 +23,7 @@ function isUserNameUnique(userArray: User[], inputId: string): boolean {
   return result;
 }
 
+// UserRecord를 만들어 포켓베이스에 저장하는 함수
 async function createUserRecord() {
   const data = {
     userName: inputList[0].value,
