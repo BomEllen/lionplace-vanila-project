@@ -4,15 +4,14 @@ import inlineCssModules from "vite-plugin-inline-css-modules";
 
 export default defineConfig({
   plugins: [inlineCssModules()],
-  base: "./",
+  base: "/",
   resolve: {
     alias: {
       "@": "/src",
-      // "@": resolve(__dirname, "/src"), // '@'를 'src' 디렉토리로 매핑
     },
   },
   build: {
-    outDir: "docs",
+    outDir: "dist",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
@@ -20,16 +19,6 @@ export default defineConfig({
         register: resolve(__dirname, "src/pages/register/index.html"),
         feed: resolve(__dirname, "src/pages/feed/index.html"),
         visitRecord: resolve(__dirname, "src/pages/visit-record/index.html"),
-      },
-    },
-  },
-  css: {
-    preprocessorOptions: {
-      sass: {
-        additionalData: `
-         @import "./src/assets/sass/variables.scss";
-         @import "./src/assets/sass/mixins.scss";
-        `,
       },
     },
   },
