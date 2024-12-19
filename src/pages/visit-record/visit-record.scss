@@ -1,0 +1,19 @@
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+
+.review-visit-record-wrap {
+  display: grid;
+  gap: 1rem;
+  background-color: #e1e1e1;
+  padding: 1.5rem 0.75rem;
+
+  .review-visit-record-list {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+
+    h3 {
+      color: $foundation-secondary-color;
+    }
+  }
+}
