@@ -5,31 +5,29 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="../../components/index.js"></script>
+    <script type="module" src="../../layout/index.js"></script>
     <script type="module" src="./reserved.js"></script>
   </head>
 
-
   <body>
-
     <time-gps></time-gps>
     <profile-all></profile-all>
-    <navi-gation></navi-gation>
+    <custom-navigation></custom-navigation>
     <reservation-toggle></reservation-toggle>
     <reservation-types></reservation-types>
 
     <!-- 예약 정보 표시 글 -->
     <p class="user-info">
-      <span id="userName"></span>님은 
-      <span id="reservationCount" class="text-decorate"></span>회 예약하셨고, <br>
+      <span id="userName"></span>님은 <span id="reservationCount" class="text-decorate"></span>회 예약하셨고, <br />
       <span id="payCount" class="text-decorate"></span>원 결제하셨습니다.
     </p>
 
     <!-- 예약업체 리스트 -->
     <div class="visit-list-container">
-        <reservation-visit-list></reservation-visit-list>
-        <reservation-visit-list></reservation-visit-list>
-        <reservation-visit-list></reservation-visit-list>
+      <reservation-visit-list></reservation-visit-list>
+      <reservation-visit-list></reservation-visit-list>
+      <reservation-visit-list></reservation-visit-list>
     </div>
 
     <!-- 더보기 버튼 -->

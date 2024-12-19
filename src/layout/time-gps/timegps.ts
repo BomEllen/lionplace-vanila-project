@@ -1,7 +1,6 @@
 import { html, css, LitElement, unsafeCSS } from "lit";
-import styles from "./timegps.scss?inline";
 import "../../styles/sass/font.scss";
-import styles from './timegps.scss?inline';
+import styles from "./timegps.scss?inline";
 
 class Timegps extends LitElement {
   static styles = css`

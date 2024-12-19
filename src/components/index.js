@@ -9,6 +9,7 @@ import "./horizon-image/horizon-image.ts";
 import "./receipe-paper/receipe-paper.ts";
 import "./reservation/reservation-toggle.ts";
 import "./reservation/reservation-types.ts";
+import "./reservation/reservation-visit-list.ts";
 import "./review-choice/review-choice.ts";
 import "./theme/theme.ts";
 import "./visit-record/visit-record-noreview.ts";
