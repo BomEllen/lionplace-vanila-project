@@ -20,8 +20,8 @@ class ImageFieldFeed extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
     body{
-    font-family: "Paperlogy", sans-serif;
-    font-weight: 300;
+      font-family: "Paperlogy", sans-serif;
+      font-weight: 300;
     }
   `;
 
@@ -111,12 +111,17 @@ class ImageFieldFeed extends LitElement {
               (item) => html`
                 <section class="image-text-container">
                   <img src="${item.img}" alt="${item.title}" />
-                  <img 
+                  <svg
+                    role="img"
                     id="bookmark" 
-                    src="${item.isBookmarked ? bookmarkOff : bookmarkOn}" 
-                    alt="북마크 아이콘" 
                     @click="${() => this.toggleBookmark(item.id)}"
-                  />
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    width="24" height="24"
+                    fill="${item.isBookmarked ? '#FF7710' : '#aaa'}">
+                    <title>북마크</title>
+                    <path d="M2.3999 2.4C2.3999 1.08 3.4799 0 4.7999 0H19.1999C19.8364 0 20.4469 0.252856 20.897 0.702944C21.347 1.15303 21.5999 1.76348 21.5999 2.4V24L11.9999 19.2L2.3999 24V2.4Z" />
+                  </svg>
                   <div class="text-overlay">
                     <p>${item.text}</p>
                     <h2>${item.title}</h2>
