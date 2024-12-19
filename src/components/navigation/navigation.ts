@@ -31,22 +31,46 @@ class Navigation extends LitElement {
 
   render() {
     return html`
-      <nav role="navigation" aria-label="주요 네비게이션">
-        <ul class="navigation-wrap">
-          <li>
-            <a href="/feed" @click=${this.handleNavigation} aria-label="피드로 이동" tabindex="0"> 피드 </a>
-          </li>
-          <li>
-            <a href="/visit" @click=${this.handleNavigation} aria-label="방문 페이지로 이동" tabindex="0"> 방문 </a>
-          </li>
-          <li>
-            <a href="/review" @click=${this.handleNavigation} aria-label="리뷰 페이지로 이동" tabindex="0"> 리뷰 </a>
-          </li>
-          <li>
-            <a href="/reservation" @click=${this.handleNavigation} aria-label="예약 및 주문 페이지로 이동" tabindex="0"> 예약•주문 </a>
-          </li>
-        </ul>
-      </nav>
+    <nav role="navigation" aria-label="주요 네비게이션">
+    <ul class="navigation-wrap">
+      <li>
+        <a 
+          href="/feed" 
+          @click=${this.handleNavigation} 
+          aria-label="피드로 이동"
+          tabindex="0">
+          피드
+        </a>
+      </li>
+      <li>
+        <a 
+          href="/visit" 
+          @click=${this.handleNavigation} 
+          aria-label="방문 페이지로 이동"
+          tabindex="0">
+          방문
+        </a>
+      </li>
+      <li>
+        <a 
+          href="/review" 
+          @click=${this.handleNavigation} 
+          aria-label="리뷰 페이지로 이동"
+          tabindex="0">
+          리뷰
+        </a>
+      </li>
+      <li>
+        <a 
+          href="/reservation" 
+          @click=${this.handleNavigation} 
+          aria-label="예약 및 주문 페이지로 이동"
+          tabindex="0">
+          예약•주문
+        </a>
+      </li>
+    </ul>
+  </nav>
     `;
   }
 }
