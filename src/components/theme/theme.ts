@@ -33,7 +33,7 @@ class Theme extends LitElement {
       name: 'Item 1',
       description: html`
         <div>
-          <p>입력해주세요.<span><img src="${eye}" alt="조회수수" /></span></p>
+          <p>뚜비 디저트 카페<span> <img src="${eye}" alt="조회수수" /></span> <span>12</span></p>
         </div>
       `,
       subItems: [
@@ -182,6 +182,8 @@ class Theme extends LitElement {
             <div class="add-item-card">
               <button @click="${this.handleAddButtonClick}" class="add-button">
                 <img src="${button}" alt="플러스 버튼 이미지" />
+                <p>내 리뷰만<br /> 모아
+                <br/>테마만들기</p>
               </button>
             </div>
           </div>

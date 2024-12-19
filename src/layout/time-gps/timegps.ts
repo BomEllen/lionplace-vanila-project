@@ -1,21 +1,14 @@
-import { html, css, LitElement } from "lit";
+import { html, css, LitElement, unsafeCSS } from "lit";
 import "./timegps.scss";
 import time from "../../assets/images/time&gps.svg";
 import frame from "../../assets/images/frame 32.svg";
 import "../../styles/sass/font.scss";
+import styles from './timegps.scss?inline';
 
 class Timegps extends LitElement {
   static styles = css`
-    body {
-      font-family: "Paperlogy", sans-serif;
-      font-weight: 300;
-    }
-
-    .time-lte {
-      display: flex;
-      justify-content: space-between;
-      margin: var(--space-sm);
-    }
+  ${unsafeCSS(styles)}
+  
   `;
 
   render() {
