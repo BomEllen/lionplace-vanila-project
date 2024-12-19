@@ -1,8 +1,14 @@
 @use "../../styles/sass/variables" as *;
 @use "../../styles/sass/mixins.scss" as *;
 
-my-component {
-  display: block;
-  padding: $space-sm;
-  border-radius: $btn-border-radius;
+body {
+  font-family: "Paperlogy", sans-serif;
+  font-weight: 300;
+}
+
+.time-lte {
+  display: flex;
+  justify-content: space-between;
+  background-color:$foundation-accent-color;
+  padding:0.75rem;
 }

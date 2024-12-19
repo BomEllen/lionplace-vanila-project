@@ -46,6 +46,8 @@
   font-size: $font-size-sm; /* 0.875rem */
   text-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.7); /* 1px 1px 3px */
   text-align: left;
+  font-size:$space-sm;
+  font-weight: 700;;
 }
 
 .bookmark-message{

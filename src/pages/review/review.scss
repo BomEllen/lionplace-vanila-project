@@ -1,0 +1,27 @@
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+@use "../../styles/sass/font.scss" as *;
+@use "../../styles/sass/reset.scss" as *;
+
+body{
+    background-color:rgb(235, 235, 235);
+}
+
+*{
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 600;
+}
+
+theme-component{
+    display:block;
+    padding:0.75rem;
+    margin-top:2.75rem;
+}
+
+h2{
+    font-size:$space-md;
+    padding-left:0.75rem;
+    position:relative;
+    top:1.75rem;
+    box-sizing: border-box;
+}

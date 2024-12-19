@@ -24,15 +24,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.625rem 1.25rem;  /* 상하좌우 패딩 */
+  padding: 1rem 2rem;  /* 상하좌우 패딩 */
   background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 0.0625rem solid #ddd;
   box-shadow: $card-shadow;
 }
 
 .header .button {
   background-color: transparent;
-  border: 1px solid #FF7710;  /* 실제 색상으로 변경 */
+  border: 0.0625rem solid #FF7710;  /* 실제 색상으로 변경 */
   color: #FF7710;  /* 실제 색상으로 변경 */
   padding: 0.5rem 1rem;  /* 버튼 패딩 */
   font-size: 1rem;  /* 폰트 크기 */
@@ -51,9 +51,9 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  gap: 0.5rem;  /* 카드 사이 간격 */
-//   padding: 1.25rem;
-//   margin-top: 1rem;  /* 상단 간격 */
+  gap: 0.3125rem;  /* 카드 사이 간격 */
+  /* padding: 1.25rem; */
+  /* margin-top: 1rem;  상단 간격 */
 }
 
 .sub-image {
@@ -64,16 +64,15 @@ body {
   border-radius: 0.5rem;
   box-shadow: $card-shadow;
   width: 100%;  /* 양쪽 공간을 50%로 나누도록 설정 */
-  height:400px;
+  height: 20rem;
   background-color: #ffffff;
   text-align: left;  /* 텍스트 왼쪽 정렬 */
-  padding:3px;
+  padding: 0.1875rem;
   box-sizing: border-box;
-  border:1px solid black;
+  // border: 0.0625rem solid black;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
-
 }
 
 .sub-image h2 {
@@ -101,45 +100,50 @@ body {
 .swiper-wrapper {
   display: flex;
   transition: transform 0.3s ease-in-out;
+  margin-top: 1rem;
 }
 
 .swiper-slide {
-  display: 42px;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 33.3333%;  /* 한 줄에 3개의 슬라이드가 보이도록 설정 */
   min-width: 33.3333%;
-  background-color: #fafafa;
-  padding: 0.1875rem;  /* 슬라이드 패딩 */
+  /* background-color: #fafafa; */
+  padding: 0.125rem;  /* 슬라이드 패딩 */
 }
 
 .sub-item {
-  width:100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+  /* background-color: #ffffff; */
+  /* border: 1px solid #ddd; */
   border-radius: 0.3125rem;  /* 둥근 모서리 */
   text-align: center;
 }
 
-.sub-item img{
-    width:100%;
+.sub-item img {
+  width: 100%;
 }
 
 /* 화살표 버튼 */
 .swiper-button-prev, .swiper-button-next {
+  width:30px;
+  height:30px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   border: none;
-  padding: 0.5rem;
+  padding: 0.3125rem;
   cursor: pointer;
   border-radius: 50%;  /* 원형 버튼 */
-  font-size: 1rem;  /* 화살표 크기 */
+  font-size: 1.5rem;  /* 화살표 크기 */
+  text-align: center;
+  line-height:0.7;
 }
 
 .swiper-button-prev {
@@ -156,13 +160,13 @@ body {
 
 /* 플러스 버튼 카드 */
 .add-item-card {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  border: 1px dashed #FF7710;  /* 실제 색상으로 변경 */
+  /* background-color: #ffffff; */
+  border: 0.0625rem dashed #FF7710;  /* 실제 색상으로 변경 */
   border-radius: 0.5rem;  /* 둥근 모서리 */
   padding: 3.125rem;
   cursor: pointer;
@@ -174,51 +178,67 @@ body {
 }
 
 .add-button {
-  margin-top:6rem;
+  margin-top: 6rem;
   background: none;
   border: none;
-  
   cursor: pointer;
 }
 
 .add-button img {
-  width:200%;
-  height:200%;
+  width: 200%;
+  height: 200%;
   transition: transform 0.3s ease;
-  position:relative;
-  left:-35px;
+  position: relative;
+  left: -2.6875rem;
+  top:-2rem;
 }
 
-.add-button p{
-    font-size:20px;
-    width:100px;
+.add-button p {
+  font-size: 1.25rem;
+  width: 6.25rem;
 }
 
 .add-item-card:hover .add-button img {
   transform: rotate(45deg);  /* 아이콘 회전 효과 */
 }
 
-button{
-    width:100px;
-    height:40px;
-    font-size:20px;
-    line-height:1;
-    background-color:$foundation-accent-color;
-    border: 1px solid $content-tertiary-color;
-    padding:$space-xs;
-    border-radius: 10px;
-    margin-bottom:200px;
-    opacity: 0.5;
-    color:$content-tertiary-color;
-    transition: 0.3s;
-    cursor:pointer;
+.add-button p{
+  position:relative;
+  top:-1.2rem;
+  left:-0.4rem;
 }
 
-button:hover{
-    opacity:1 
+button {
+  width: 6.25rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: $foundation-accent-color;
+  border: 0.0625rem solid $content-tertiary-color;
+  padding: $space-xs;
+  border-radius: 0.625rem;
+  margin-bottom: 6.25rem;
+  opacity: 0.5;
+  color: $content-tertiary-color;
+  transition: 0.3s;
+  cursor: pointer;
 }
+
+button:hover {
+  opacity: 1;
+}
+
 .swiper-button-prev.disabled, .swiper-button-next.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.text-box h2 {
+  font-size: $space-lg;
+  font-weight: 500;
+}
+
+.text-box div div p {
+  font-size: $space-sm;
+  font-weight: 500;
+}

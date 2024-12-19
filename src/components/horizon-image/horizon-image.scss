@@ -30,7 +30,7 @@ body{
   overflow: hidden;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* 0.125rem (2px), 0.25rem (4px) */
   position: relative;
-  padding: 0 $space-sm; /* 왼쪽 공간을 없애고, 오른쪽만 여백 추가 */
+  // padding: 0 $space-sm; /* 왼쪽 공간을 없애고, 오른쪽만 여백 추가 */
   max-width: 37.5rem; /* 600px (37.5rem) */
   margin: 0 auto; /* 화면 중앙 정렬 */
 }
