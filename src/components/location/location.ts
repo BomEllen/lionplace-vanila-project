@@ -1,7 +1,7 @@
 import { html, LitElement, css, CSSResultGroup, unsafeCSS } from "lit";
 import { customElement } from "lit/decorators.js";
 import styles from "./location.scss?inline";
-import map from "../../assets/navitems/map.svg";
+import map from "@/assets/navitems/map.svg";
 
 @customElement("location-bar")
 class Location extends LitElement {

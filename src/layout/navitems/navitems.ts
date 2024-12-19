@@ -6,11 +6,11 @@ import "./../../styles/sass/variables.scss";
 import styles from "./navitems.scss?inline";
 
 // SVG 이미지 파일 import
-import mapImage from "./../../assets/navitems/map.svg";
-import saveImage from "./../../assets/navitems/save.svg";
-import subwayImage from "./../../assets/navitems/subway.svg";
-import carImage from "./../../assets/navitems/car.svg";
-import myImage from "./../../assets/navitems/my.svg";
+import mapImage from "@/assets/navitems/map.svg";
+import saveImage from "@/assets/navitems/save.svg";
+import subwayImage from "@/assets/navitems/subway.svg";
+import carImage from "@/assets/navitems/car.svg";
+import myImage from "@/assets/navitems/my.svg";
 
 @customElement("nav-items")
 class NavItems extends LitElement {
