@@ -1,7 +1,6 @@
 import { html, LitElement, css, CSSResultGroup, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import styles from "./post.scss?inline";
-import pb from "../../api/pocketbase";
 import { PostData } from "../../@types/type";
 
 @customElement("custom-post")
