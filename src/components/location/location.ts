@@ -106,6 +106,16 @@ class Location extends LitElement {
           <li><button type="button">동교동</button></li>
           <li><button type="button">연남동</button></li>
           <li><button type="button">서교동</button></li>
+          <li><button type="button">포항시</button></li>
+          <li><button type="button">해운대</button></li>
+          <li><button type="button">수성구</button></li>
+          <li><button type="button">왕십리</button></li>
+          <li><button type="button">왕십리</button></li>
+          <li><button type="button">왕십리</button></li>
+          <li><button type="button">왕십리</button></li>
+          <li><button type="button">왕십리</button></li>
+          <li><button type="button">왕십리</button></li>
+          <li><button type="button">왕십리</button></li>
         </ul>
       </nav>
     `;

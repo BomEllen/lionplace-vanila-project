@@ -5,17 +5,10 @@
 body {
   height: 100vh;
 
-  time-gps {
-    position: sticky;
-    top: 0;
-  }
-
   nav-items {
-    position: fixed;
+    position: sticky;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100; // reservation-toggle에서 z-index 사용해서 이거 주지 않으면 토글의 글자가 올라옴.
+    z-index: 1000;
   }
 
   p {

@@ -100,6 +100,16 @@ class ThemeBar extends LitElement {
           <li><button type="button">한정식</button></li>
           <li><button type="button">흑백요리사</button></li>
           <li><button type="button">일식</button></li>
+          <li><button type="button">디저트</button></li>
+          <li><button type="button">카페</button></li>
+          <li><button type="button">뷔페</button></li>
+          <li><button type="button">베이커리</button></li>
+          <li><button type="button">베이커리</button></li>
+          <li><button type="button">베이커리</button></li>
+          <li><button type="button">베이커리</button></li>
+          <li><button type="button">베이커리</button></li>
+          <li><button type="button">베이커리</button></li>
+          <li><button type="button">베이커리</button></li>
         </ul>
       </nav>
     `;
