@@ -36,6 +36,6 @@ class OrderTable extends LitElement {
           <img src="/hot-mint-choco.png" alt="핫 초코 미떼 민트초코맛" />
         </a>
       </div>
-    `;
+    ` ;
   }
 }
