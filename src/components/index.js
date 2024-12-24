@@ -14,3 +14,5 @@ import "./review-choice/review-choice.ts";
 import "./theme/theme.ts";
 import "./visit-record/visit-record-noreview.ts";
 import "./visit-record/visit-record-complete.ts";
+import "./order-page/order-table.ts"
+import "./footer/footer.ts"

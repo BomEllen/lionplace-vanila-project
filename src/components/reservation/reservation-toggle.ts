@@ -1,6 +1,6 @@
 import { html, css, LitElement, unsafeCSS } from "lit";
 import { customElement } from "lit/decorators.js";
-import "../../styles/sass/reset.scss"
+import "../../styles/sass/reset.scss";
 import "../../styles/sass/variables.scss";
 import "../../styles/sass/font.scss";
 import styles from "./reservation-toggle.scss?inline";
@@ -12,27 +12,19 @@ class ReservationToggle extends LitElement {
   `;
 
   firstUpdated() {
-    const switchContainer = this.shadowRoot?.querySelector<HTMLElement>(".toggle-switch");
-    const buttons = this.shadowRoot?.querySelectorAll<HTMLButtonElement>(".toggle");
+    const buttons = this.shadowRoot?.querySelectorAll<HTMLAnchorElement>(".toggle");
 
-    /* switchContainer나 buttons가 null이면 종료 */
-    if (!switchContainer || !buttons) return;
+    if (!buttons) return;
 
+    // 현재 URL을 기반으로 버튼의 active 상태 설정
+    const currentPath = window.location.pathname;
     buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        if (button.classList.contains("active")) return;
-
-        const direction = button.getAttribute("data-direction");
-
-        buttons.forEach((btn) => btn.classList.remove("active"));
+      const href = button.getAttribute("href");
+      if (href && currentPath.includes(href)) {
         button.classList.add("active");
-
-        /* direction이 null이 아닌 경우에만 실행 */
-        if (switchContainer && direction) {
-          switchContainer.classList.remove("left", "right");
-          switchContainer.classList.add(direction as string);
-        }
-      });
+      } else {
+        button.classList.remove("active");
+      }
     });
   }
 
@@ -40,16 +32,14 @@ class ReservationToggle extends LitElement {
     return html`
       <div class="toggle-container">
         <div class="toggle-wrapper">
-          <div class="toggle-switch left">
-            <div class="toggle active" data-direction="left">예약</div>
-            <div class="toggle" data-direction="right">주문</div>
-          </div>
+          <div class="toggle-switch">
+            <!-- 버튼 링크 -->
+            <a href="/src/pages/reserved/index.html" class="toggle" data-direction="left">예약</a>
+            <a href="/src/pages/order/index.html" class="toggle" data-direction="right">주문</a>
+          
+            </div>
         </div>
       </div>
     `;
   }
-};
-
-
-
-
+}
