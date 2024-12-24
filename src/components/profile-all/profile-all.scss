@@ -27,18 +27,18 @@ body {
       background-color: $foundation-primary-color;
       text-decoration: none;
       @include flex-center();
-
-      span:nth-child(1) {
-        color: $background-light;
-        font-size: $font-size-sm;
+      img {
+        object-fit: cover;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
       }
       span:nth-child(2) {
         position: absolute;
         bottom: 0;
         right: -6px;
         border-radius: 50%;
-        background: url("./../../assets/profile-all/profile-img-icon.svg")
-          no-repeat;
+        background: url("./../../assets/profile-all/profile-img-icon.svg") no-repeat;
         width: 20px;
         height: 20px;
       }
@@ -114,7 +114,8 @@ body {
   margin-top: 0.75rem;
 
   button {
-    width: 50%;
+    width: 100%;
+    // 2개였을 때 : width: 50%;
     height: 1.875rem;
     background-color: $foundation-primary-color;
     font-size: 0.75rem;
