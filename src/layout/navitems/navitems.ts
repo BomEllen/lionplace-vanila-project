@@ -29,7 +29,7 @@ class NavItems extends LitElement {
       <nav class="nav-items">
         <ul>
           <li @click=${this.handleNavItems}>
-            <a href="/" alt="지도 페이지로 이동">
+            <a href="/">
               <svg role="img" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512" fill="#19172E">
                 <title>지도</title>
                 <path d="M12,6a4,4,0,1,0,4,4A4,4,0,0,0,12,6Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,12Z" />
@@ -39,7 +39,7 @@ class NavItems extends LitElement {
             </a>
           </li>
           <li @click=${this.handleNavItems}>
-            <a href="/" alt="저장 페이지로 이동">
+            <a href="/">
               <svg role="img" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512" fill="#19172E">
                 <title>저장</title>
                 <path d="M20.137,24a2.8,2.8,0,0,1-1.987-.835L12,17.051,5.85,23.169a2.8,2.8,0,0,1-3.095.609A2.8,2.8,0,0,1,1,21.154V5A5,5,0,0,1,6,0H18a5,5,0,0,1,5,5V21.154a2.8,2.8,0,0,1-1.751,2.624A2.867,2.867,0,0,1,20.137,24ZM6,2A3,3,0,0,0,3,5V21.154a.843.843,0,0,0,1.437.6h0L11.3,14.933a1,1,0,0,1,1.41,0l6.855,6.819a.843.843,0,0,0,1.437-.6V5a3,3,0,0,0-3-3Z" />
@@ -48,7 +48,7 @@ class NavItems extends LitElement {
             </a>
           </li>
           <li @click=${this.handleNavItems}>
-            <a href="/" alt="대중교통 페이지로 이동">
+            <a href="/">
               <svg role="img" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512" fill="#19172E">
                 <title>대중교통</title>
                 <path d="M21.867,1.612,17.515.155A2.956,2.956,0,0,0,15.724.12L8.538,2.092,4.155.233A3,3,0,0,0,0,3V21.754l7.982,2.281,8.021-2,8,1.948V4.483A3,3,0,0,0,21.867,1.612ZM15,2.384V20.219l-6,1.5V3.972ZM2,3A1,1,0,0,1,3.387,2.08L7,3.581V21.674L2,20.246Zm20,18.43-5-1.218V2.092l4.275,1.43A1,1,0,0,1,22,4.483Z" />
@@ -57,7 +57,7 @@ class NavItems extends LitElement {
             </a>
           </li>
           <li @click=${this.handleNavItems}>
-            <a href="/" alt="내비게이션 페이지로 이동">
+            <a href="/">
               <svg role="img" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512" fill="#19172E">
                 <title>내비게이션</title>
                 <path
@@ -68,7 +68,7 @@ class NavItems extends LitElement {
             </a>
           </li>
           <li @click=${this.handleNavItems}>
-            <a href="/" alt="마이 페이지로 이동">
+            <a href="/">
               <svg role="img" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512" fill="#19172E">
                 <title>마이 페이지</title>
                 <path
