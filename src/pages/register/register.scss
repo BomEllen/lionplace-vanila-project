@@ -47,6 +47,7 @@ input:-webkit-autofill {
 
     & input {
       @include input-styles();
+      @include smooth-transition();
     }
   }
 }
@@ -59,4 +60,8 @@ input:-webkit-autofill {
     background-color: darken($foundation-primary-color, 20%);
     cursor: not-allowed;
   }
+}
+
+input.error:focus {
+  @include shake-animation();
 }

@@ -2,7 +2,7 @@ import "../../styles/sass/reset.scss";
 import "../../styles/sass/font.scss";
 import "./login.scss";
 import pb from "../../api/pocketbase";
-import { alertAndProceed, handleInput } from "../../utils/form-utils";
+import { handleInput, debounce, alertAndProceed } from "../../utils/form-utils";
 
 const inputList = [...document.querySelectorAll("input")];
 const loginBtn = document.querySelector(".btn-login") as HTMLButtonElement;
@@ -14,9 +14,15 @@ async function handleLogin(e: Event) {
   const [userName, pw] = [inputList[0].value, inputList[1].value];
 
   try {
-    const authData = await pb.collection("users").authWithPassword(userName, pw);
+    const { record, token } = await pb.collection("users").authWithPassword(userName, pw);
 
-    console.log(authData);
+    localStorage.setItem(
+      "auth",
+      JSON.stringify({
+        record,
+        token,
+      })
+    );
 
     console.log("로그인 성공");
 
@@ -31,8 +37,9 @@ async function handleLogin(e: Event) {
 }
 
 inputList.forEach((item) => {
-  item.addEventListener("change", () => {
-    handleInput(inputList, loginBtn);
+  item.addEventListener("input", () => {
+    const debounceHandleInput = debounce(handleInput, 300);
+    debounceHandleInput(inputList, loginBtn);
   });
 });
 

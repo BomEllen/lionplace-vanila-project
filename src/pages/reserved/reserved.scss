@@ -40,32 +40,4 @@ body {
     height: 3.0625rem;
   }
 
-  ul {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: #f3f4f6;
-
-    button {
-      display: flex;
-      align-items: center;
-      padding: 0.5rem 1rem;
-      background-color: white;
-      border-radius: 2rem;
-      cursor: pointer;
-
-      &:focus {
-        background-color: $foundation-primary-color;
-      }
-
-      .lable {
-        font-weight: 500;
-      }
-      .number {
-        margin-left: 0.25rem;
-        color: #4b5563;
-      }
-    }
-  }
 }
