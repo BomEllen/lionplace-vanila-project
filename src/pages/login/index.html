@@ -15,17 +15,17 @@
 
       <form class="login-form">
         <div class="login-id">
-          <label for="id-field"></label>
-          <input type="text" id="id-field" placeholder="아이디를 입력해주세요" />
+          <label for="id-field" hidden>아이디</label>
+          <input type="text" id="id-field" placeholder="아이디는 최소 3자 이상입니다" />
         </div>
         <div class="login-pw">
-          <label for="pw-field"></label>
-          <input type="password" id="pw-field" placeholder="비밀번호를 입력해주세요" />
+          <label for="pw-field" hidden>비밀번호</label>
+          <input type="password" id="pw-field" placeholder="비밀번호는 특수문자 포함, 8자 이상입니다" />
         </div>
         <button type="submit" class="btn-login" disabled>로그인</button>
       </form>
 
-      <a href="/src/pages/register/index.html" rel="noopener noreferrer" class="register">회원가입</a>
+      <a href="/src/pages/register/index.html" class="register">회원가입</a>
 
       <div class="find-account">
         <a href="/" rel="noopener noreferrer" class="find-id">아이디 찾기</a>

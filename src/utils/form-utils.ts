@@ -37,6 +37,15 @@ function isSignUpValid(inputList: HTMLInputElement[]): boolean {
   return false;
 }
 
+// debounce 함수
+export function debounce<T extends (...args: any[]) => void>(func: Function, delay: number): (...args: any[]) => void {
+  let timer: number;
+  return function (...args: Parameters<T>) {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+}
+
 // Input을 받았을 때 isSignUpValid 함수를 돌려 해당 버튼을 활성화/비활성화 처리
 export function handleInput(inputList: HTMLInputElement[], loginBtn: HTMLButtonElement) {
   if (isSignUpValid(inputList)) {
