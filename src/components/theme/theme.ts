@@ -185,7 +185,8 @@ private handleAddButtonClick() {
           `
         )}
 
-        <!-- 플러스 버튼 영역 -->
+        
+        <!-- 플러스 버튼 기능 영역 -->
         <div class="theme-wrap">
           <div class="sub-image">
             <div class="add-item-card">
