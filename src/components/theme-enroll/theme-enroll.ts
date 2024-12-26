@@ -5,7 +5,9 @@ import '../../styles/sass/reset.scss';
 import '../../styles/sass/variables.scss';
 import '../../styles/sass/font.scss';
 import '../review-post/review-post.ts'; // review-post 컴포넌트 추가
+import { customElement } from "lit/decorators.js";
 
+@customElement("theme-enroll")
 class ThemeEnroll extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -152,5 +154,3 @@ class ThemeEnroll extends LitElement {
     `;
   }
 }
-
-customElements.define('theme-enroll', ThemeEnroll);

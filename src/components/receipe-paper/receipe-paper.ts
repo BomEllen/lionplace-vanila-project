@@ -5,7 +5,9 @@ import '../../styles/sass/variables.scss';
 import '../../styles/sass/font.scss';
 import bookmarkOff from "../../assets/images/bookmark-filled.svg";
 import bookmarkOn from "../../assets/images/bookmark.svg";
+import { customElement } from "lit/decorators.js";
 
+@customElement("receipe-paper")
 class ReceipePaper extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -117,5 +119,3 @@ class ReceipePaper extends LitElement {
     `;
   }
 }
-
-customElements.define('receipe-paper', ReceipePaper);

@@ -1,4 +1,5 @@
 import { html, css, LitElement, CSSResultGroup, unsafeCSS } from 'lit';
+import { customElement } from "lit/decorators.js";
 import styles from './img-field-feed.scss?inline'; // SCSS를 인라인으로 불러옵니다.
 import '../../styles/sass/reset.scss';
 import '../../styles/sass/variables.scss';
@@ -13,7 +14,7 @@ interface FeedItem {
   text: string;
   isBookmarked: boolean;
 }
-
+@customElement("image-field-feed")
 class ImageFieldFeed extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -133,5 +134,3 @@ class ImageFieldFeed extends LitElement {
     `;
   }
 }
-
-customElements.define('image-field-feed', ImageFieldFeed);

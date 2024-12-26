@@ -3,6 +3,7 @@ import styles from './horizon-image.scss?inline'; // SCSS를 인라인으로 불
 import '../../styles/sass/reset.scss';
 import '../../styles/sass/variables.scss';
 import '../../styles/sass/font.scss';
+import { customElement } from "lit/decorators.js";
 
 // FeedItem 인터페이스 정의
 interface FeedItem {
@@ -13,7 +14,7 @@ interface FeedItem {
   text: string;
   isBookmarked: boolean;
 }
-
+@customElement("horizon-image")
 class HorizonImage extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -140,5 +141,3 @@ class HorizonImage extends LitElement {
     `;
   }
 }
-
-customElements.define('horizon-image', HorizonImage);

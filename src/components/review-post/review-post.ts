@@ -1,7 +1,8 @@
 import { html, css, LitElement, CSSResultGroup, unsafeCSS } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import styles from './review-post.scss?inline';
 
+@customElement("review-post")
 class ReviewPost extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -134,5 +135,3 @@ class ReviewPost extends LitElement {
     `;
   }
 }
-
-customElements.define('review-post', ReviewPost);

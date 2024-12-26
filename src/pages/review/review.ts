@@ -5,7 +5,9 @@ import '../../styles/sass/variables.scss';
 import '../../styles/sass/font.scss';
 import '../../components/theme/theme.ts';
 import '../../components/category/category.ts';
+import { customElement } from "lit/decorators.js";
 
+@customElement("review-page")
 class Review extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -19,5 +21,3 @@ class Review extends LitElement {
     `;
   }
 }
-
-customElements.define('review-page', Review);

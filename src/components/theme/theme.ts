@@ -3,6 +3,7 @@ import styles from "../theme/theme.scss?inline";
 import eye from "../../assets/images/eye.svg";
 import button from "../../assets/images/plus-btn.svg";
 // import "../../styles/sass/base.scss"
+import { customElement } from "lit/decorators.js";
 
 // Item 및 SubItem 인터페이스 정의
 interface SubItem {
@@ -17,7 +18,7 @@ interface Item {
   subItems: SubItem[];
   isAddButton?: boolean; // 플러스 버튼 여부를 나타내는 속성 추가
 }
-
+@customElement("theme-component")
 class Theme extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -208,4 +209,3 @@ private handleAddButtonClick() {
   }
 }
 
-customElements.define("theme-component", Theme);

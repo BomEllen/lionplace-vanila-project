@@ -3,7 +3,9 @@ import styles from './review-plus.scss?inline';
 import '../../styles/sass/reset.scss';
 import '../../styles/sass/variables.scss';
 import '../../styles/sass/font.scss';
+import { customElement } from "lit/decorators.js";
 
+@customElement("review-plus")
 class ReviewPlus extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -216,4 +218,3 @@ class ReviewPlus extends LitElement {
   }
 }
 
-customElements.define('review-plus', ReviewPlus);
