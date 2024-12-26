@@ -9,3 +9,4 @@ import "./theme/theme.ts";
 import "./reservation";
 import "./visit-record";
 import "./feed";
+import "./order-page/order-table.ts"
