@@ -1,0 +1,64 @@
+@import "../../styles/sass/variables.scss";
+*{
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 400;
+}
+
+.theme-enroll-wrap{
+    background-color : $foundation-secondary-color;
+    display:flex;
+    justify-content: space-between;
+    padding:1.25rem 0.75rem;
+}
+
+button{
+    border:none;
+    background-color:$foundation-secondary-color;
+    cursor: pointer;
+}
+
+.create-button{
+    display:flex;
+    height:2.5rem;
+    color:$text-light;
+    border: 1px solid $foundation-accent-color;
+    border-radius: 1rem;
+    padding:0 1rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+span{
+    line-height:2.5rem;
+}
+
+.create-button svg{
+    position:relative;
+    top:0.5rem;
+    left:-0.5rem;
+}
+
+.background-image-path {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0; /* 배경 색 */
+    border: 1px solid #ddd; /* 테두리 */
+    border-radius: 5px; /* 둥근 테두리 */
+    max-width: 80%; /* 최대 너비 */
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px; /* 폰트 크기 */
+    color: #333; /* 텍스트 색 */
+    word-wrap: break-word; /* 긴 경로 텍스트가 잘리거나 넘치지 않도록 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    white-space: nowrap; /* 텍스트가 줄 바꿈되지 않도록 설정 */
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+    text-overflow: ellipsis; /* 넘치는 텍스트는 '...'으로 처리 */
+  }
+  
+  .background-image-path p {
+    margin: 0; /* p 태그의 기본 여백 제거 */
+    font-weight: bold; /* 텍스트 굵게 */
+  }
+  
+  

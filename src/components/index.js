@@ -14,3 +14,7 @@ import "./review-choice/review-choice.ts";
 import "./theme/theme.ts";
 import "./visit-record/visit-record-noreview.ts";
 import "./visit-record/visit-record-complete.ts";
+import "./theme-enroll/theme-enroll.ts"
+import "./review-post/review-post.ts"
+import "./review-plus/review-plus.ts"
+
