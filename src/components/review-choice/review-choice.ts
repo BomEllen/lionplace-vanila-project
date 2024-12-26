@@ -3,7 +3,9 @@ import styles from './review-choice.scss?inline'; // SCSS를 인라인으로 불
 import '../../styles/sass/reset.scss';
 import '../../styles/sass/variables.scss';
 import '../../styles/sass/font.scss';
+import { customElement } from "lit/decorators.js";
 
+@customElement("review-choice")
 class ReviewChoice extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -38,5 +40,3 @@ class ReviewChoice extends LitElement {
     `;
   }
 }
-
-customElements.define('review-choice', ReviewChoice);

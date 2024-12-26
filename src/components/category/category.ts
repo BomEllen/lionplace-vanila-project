@@ -3,11 +3,10 @@ import styles from "./category.scss?inline"; // SCSS를 인라인으로 불러�
 import "../../styles/sass/reset.scss";
 import "../../styles/sass/variables.scss";
 import "../../styles/sass/font.scss";
-import allBlack from "../../assets/images/all-black.svg";
-import onlyPhotoBlack from "../../assets/images/only-img-black.svg";
 import "../horizon-image/horizon-image.ts"; // <horizon-image> 컴포넌트 임포트
 import "../image-field-feed/image-field-feed.ts"; // <image-field-feed> 컴포넌트 임포트
-
+import { customElement } from "lit/decorators.js";
+@customElement("cate-gory")
 class Category extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -122,5 +121,3 @@ class Category extends LitElement {
     `;
   }
 }
-
-customElements.define("cate-gory", Category);

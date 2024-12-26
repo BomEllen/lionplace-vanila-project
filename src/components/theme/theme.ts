@@ -3,6 +3,7 @@ import styles from "../theme/theme.scss?inline";
 import eye from "../../assets/images/eye.svg";
 import button from "../../assets/images/plus-btn.svg";
 // import "../../styles/sass/base.scss"
+import { customElement } from "lit/decorators.js";
 
 // Item 및 SubItem 인터페이스 정의
 interface SubItem {
@@ -17,7 +18,7 @@ interface Item {
   subItems: SubItem[];
   isAddButton?: boolean; // 플러스 버튼 여부를 나타내는 속성 추가
 }
-
+@customElement("theme-component")
 class Theme extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -129,11 +130,12 @@ class Theme extends LitElement {
     });
   }
 
-  // 플러스 버튼 클릭 핸들러
-  private handleAddButtonClick() {
-    console.log("플러스 버튼 클릭됨!");
-    // 아이템 추가 로직 구현 가능
-  }
+// 플러스 버튼 클릭 핸들러
+private handleAddButtonClick() {
+  console.log("플러스 버튼 클릭됨!");
+  // plus-review 페이지로 이동
+  window.location.href = "/src/pages/plus-review/"; // 또는 window.location.assign("/plus-review");
+}
 
   firstUpdated() {
     this.fetchBackgroundImage(); // 컴포넌트가 처음 렌더링될 때 백그라운드 이미지 요청
@@ -184,7 +186,8 @@ class Theme extends LitElement {
           `
         )}
 
-        <!-- 플러스 버튼 영역 -->
+        
+        <!-- 플러스 버튼 기능 영역 -->
         <div class="theme-wrap">
           <div class="sub-image">
             <div class="add-item-card">
@@ -206,4 +209,3 @@ class Theme extends LitElement {
   }
 }
 
-customElements.define("theme-component", Theme);
