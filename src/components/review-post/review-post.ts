@@ -44,7 +44,7 @@ class ReviewPost extends LitElement {
 
   // 커버 변경 버튼 클릭 시 파일 선택 창 열기
   handleCoverChange() {
-    const input = this.shadowRoot?.querySelector('input[type="file"]') as HTMLInputElement;
+    const input = this.renderRoot?.querySelector('input[type="file"]') as HTMLInputElement;
     input?.click();
   }
 
