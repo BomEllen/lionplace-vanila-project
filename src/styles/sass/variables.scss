@@ -1,7 +1,7 @@
 /* CSS Custom Properties (전역 변수) */
 :root {
   /* 색상 팔레트 */
-  --foundation-primary-color: #FF7710;  
+  --foundation-primary-color: #FF8324;  
   --foundation-secondary-color: #19172E; 
   --foundation-accent-color: #FFFFFF;    
   --content-primary-color: #19172E;    
@@ -40,7 +40,7 @@
 }
 
 /* SASS 변수 (컴파일 타임에 사용) */
-$foundation-primary-color: #FF7710;   
+$foundation-primary-color: #FF8324;   
 $foundation-secondary-color: #19172E; 
 $foundation-accent-color: #FFFFFF;    
 $content-primary-color: #19172E;      
