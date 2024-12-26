@@ -58,7 +58,7 @@ body {
 .description {
   font-size: $font-size-sm; /* 0.875rem */
   color: $content-secondary-color;
-  line-height: $line-height; /* 1.5rem */
+    -height: $line-height; /* 1.5rem */
 }
 
 /* 북마크 아이콘 오른쪽 상단에 배치 */
