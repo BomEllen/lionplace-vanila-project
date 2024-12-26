@@ -129,11 +129,12 @@ class Theme extends LitElement {
     });
   }
 
-  // 플러스 버튼 클릭 핸들러
-  private handleAddButtonClick() {
-    console.log("플러스 버튼 클릭됨!");
-    // 아이템 추가 로직 구현 가능
-  }
+// 플러스 버튼 클릭 핸들러
+private handleAddButtonClick() {
+  console.log("플러스 버튼 클릭됨!");
+  // plus-review 페이지로 이동
+  window.location.href = "/src/pages/plus-review/"; // 또는 window.location.assign("/plus-review");
+}
 
   firstUpdated() {
     this.fetchBackgroundImage(); // 컴포넌트가 처음 렌더링될 때 백그라운드 이미지 요청
