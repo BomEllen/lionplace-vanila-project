@@ -15,4 +15,7 @@ import "./theme/theme.ts";
 import "./visit-record/visit-record-noreview.ts";
 import "./visit-record/visit-record-complete.ts";
 import "./order-page/order-table.ts"
+import "./reserved-show-more/reserved-more-review.ts"
+import "./reserved-show-more/reserved-more-title.ts"
+import "./reserved-show-more/reserved-more-review-textonly.ts"
 import "./footer/footer.ts"
