@@ -40,4 +40,15 @@ body {
     height: 3.0625rem;
   }
 
+
+  .hidden-content {
+  max-height: 0; /* 숨김 */
+  overflow: hidden;
+  background-color: rgb(247, 247, 247);
+  transition: max-height 0.5s ease; /* 펼쳐지는 애니메이션 */
+  }
+  .hidden-content.active {
+    max-height: 500px; /* 대충 큰 값 */
+  }
+
 }
