@@ -12,12 +12,14 @@ input::placeholder {
 }
 
 button {
-  outline: none;
+  // outline: none;
   display: block;
   margin: 0 auto;
   border: 1px solid $foundation-accent-color;
   padding: 1rem 3rem;
   transition: background-color 0.3s ease;
+  position:relative;
+  top:-2rem;
 }
 
 button:hover {
