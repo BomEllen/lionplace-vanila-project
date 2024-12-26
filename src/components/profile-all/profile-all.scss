@@ -3,7 +3,7 @@
 @use "../../styles/sass/reset.scss";
 @use "../../styles/sass/font.scss";
 
-body {
+:host {
   font-family: "Paperlogy", sans-serif;
   font-weight: 300;
 }
@@ -21,18 +21,20 @@ body {
     .profile-edit-button {
       position: relative;
       border-radius: 50%;
-      border: 5px solid #fff;
       inline-size: 3.125rem;
       block-size: 3.125rem;
-      background-color: $foundation-primary-color;
       text-decoration: none;
       @include flex-center();
+      cursor: pointer;
+
       img {
+        border: 5px solid #fff;
         object-fit: cover;
         width: inherit;
         height: inherit;
         border-radius: inherit;
       }
+
       span:nth-child(2) {
         position: absolute;
         bottom: 0;
@@ -114,24 +116,19 @@ body {
   margin-top: 0.75rem;
 
   button {
+    @include button-styles($foundation-primary-color, $text-light, 0 0);
     width: 100%;
     // 2개였을 때 : width: 50%;
     height: 1.875rem;
-    background-color: $foundation-primary-color;
     font-size: 0.75rem;
-    color: $background-light;
     border-radius: 0.5rem;
     border: none;
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
 
     svg {
       display: inline-block;
       vertical-align: middle;
     }
-
-    // @include button-styles(
-    //   $foundation-primary-color,
-    //   $content-primary-color,
-    //   0.625rem 0rem
-    // );
   }
 }
