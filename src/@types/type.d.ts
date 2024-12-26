@@ -7,6 +7,7 @@ export interface User {
   id: string;
   updated: Date;
   userName: string;
+  email: string;
   verified: boolean;
 }
 

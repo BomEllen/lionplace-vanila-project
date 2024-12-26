@@ -1,11 +1,29 @@
 import { html, css, LitElement, unsafeCSS } from "lit";
 import "../../styles/sass/font.scss";
 import styles from "./timegps.scss?inline";
+import { customElement } from "lit/decorators.js";
+import { alertAndProceed } from "../../utils/form-utils";
 
+@customElement("time-gps")
 class Timegps extends LitElement {
   static styles = css`
     ${unsafeCSS(styles)}
   `;
+
+  connectedCallback(): void {
+    super.connectedCallback();
+
+    this.isAuth();
+  }
+
+  isAuth() {
+    const authData = localStorage.getItem("auth");
+    if (authData === null) {
+      alertAndProceed("로그인 후 사이트에 방문해 주세요.").then(() => {
+        location.href = "/src/pages/register/";
+      });
+    }
+  }
 
   render() {
     return html`
@@ -103,5 +121,3 @@ class Timegps extends LitElement {
     `;
   }
 }
-
-customElements.define("time-gps", Timegps);

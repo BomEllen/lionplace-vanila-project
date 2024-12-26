@@ -3,8 +3,7 @@ import styles from './horizon-image.scss?inline'; // SCSS를 인라인으로 불
 import '../../styles/sass/reset.scss';
 import '../../styles/sass/variables.scss';
 import '../../styles/sass/font.scss';
-import bookmarkOff from "../../assets/images/bookmark-filled.svg";
-import bookmarkOn from "../../assets/images/bookmark.svg";
+import { customElement } from "lit/decorators.js";
 
 // FeedItem 인터페이스 정의
 interface FeedItem {
@@ -15,13 +14,23 @@ interface FeedItem {
   text: string;
   isBookmarked: boolean;
 }
-
+@customElement("horizon-image")
 class HorizonImage extends LitElement {
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
     body {
       font-family: "Paperlogy", sans-serif;
       font-weight: 300;
+    }
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      outline: none;
+    }
+    button:focus {
+      outline: 2px solid #FF7710; /* 포커스 시 시각적 표시 */
     }
   `;
 
@@ -94,18 +103,20 @@ class HorizonImage extends LitElement {
                 (image, index) => html`
                   <div class="image-item">
                     <!-- 북마크 아이콘 -->
-                    <svg 
-                      role="img"
-                      @click="${() => this.toggleBookmark(index)}"
-                      xmlns="http://www.w3.org/2000/svg" 
-                      viewBox="0 0 24 24" 
-                      width="24" height="24"
-                      fill="${image.isBookmarked ? '#FF7710' : '#aaa'}"
-                      class="bookmark-icon">
-                      <title>북마크</title>
-                      <path d="M2.3999 2.4C2.3999 1.08 3.4799 0 4.7999 0H19.1999C19.8364 0 20.4469 0.252856 20.897 0.702944C21.347 1.15303 21.5999 1.76348 21.5999 2.4V24L11.9999 19.2L2.3999 24V2.4Z" />
-
-                    </svg>
+                    <button
+                      aria-label="${image.isBookmarked ? '북마크에서 제외' : '북마크 추가'}"
+                      @click="${() => this.toggleBookmark(index)}">
+                      <svg 
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 24 24" 
+                        width="24" height="24"
+                        fill="${image.isBookmarked ? '#FF7710' : '#aaa'}"
+                        class="bookmark-icon">
+                        <title>북마크</title>
+                        <path d="M2.3999 2.4C2.3999 1.08 3.4799 0 4.7999 0H19.1999C19.8364 0 20.4469 0.252856 20.897 0.702944C21.347 1.15303 21.5999 1.76348 21.5999 2.4V24L11.9999 19.2L2.3999 24V2.4Z" />
+                      </svg>
+                    </button>
 
                     <div class="image-wrap">
                       <img src="${image.img}" alt="${image.title}" />
@@ -130,5 +141,3 @@ class HorizonImage extends LitElement {
     `;
   }
 }
-
-customElements.define('horizon-image', HorizonImage);

@@ -1,0 +1,372 @@
+@import "../../styles/sass/variables.scss";
+
+// 메인 wrapper 스타일
+.review-plus-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-xs); /* 여백을 줄이기 위해 padding을 줄임 */
+    background-color: var(--background-light);
+    border-radius: var(--space-md);
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
+}
+
+// 상단 리뷰 관련 콘텐츠
+.review-plus-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xs); /* 상단 여백 줄임 */
+    padding: var(--space-xs);
+    background-color: var(--background-light);
+}
+
+// 리뷰 카운트 텍스트
+.review-count {
+    font-size: var(--font-size-sm); /* 폰트 크기 줄임 */
+    font-weight: 600;
+    color: var(--content-secondary-color);
+    margin-right: var(--space-sm); /* 여백 줄임 */
+    font-size:$font-size-md;
+
+    span {
+        font-weight: 700;
+        color: var(--foundation-primary-color);
+    }
+}
+
+// 버튼 스타일
+.review-plus-top button {
+    font-size: var(--font-size-sm);
+    border: none;
+    background-color: transparent;
+    color: var(--content-primary-color);
+    cursor: pointer;
+    font-size:$font-size-md;
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 400;
+
+    &:hover {
+        color: $foundation-primary-color;
+    }
+}
+
+.review-plus-top button:disabled {
+    cursor: not-allowed;
+}
+
+// 가운데 텍스트 콘텐츠
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: var(--space-sm); /* 상단 여백을 줄임 */
+    padding: var(--space-xs);
+    background-color: var(--background-light);
+    border-radius: var(--space-sm);
+    padding-top: 4rem;  /* 위 여백 줄임 */
+    padding-bottom: 4rem; /* 아래 여백 줄임 */
+
+    .center-text {
+        font-size: var(--font-size-sm); /* 폰트 크기 줄임 */
+        font-weight: 600;
+        color: var(--content-primary-color);
+        margin-bottom: var(--space-xs); /* 여백 줄임 */
+    }
+
+    .review-choice-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-xs) var(--space-sm); /* padding 줄임 */
+        font-size: var(--font-size-sm); /* 폰트 크기 줄임 */
+        background-color: $content-tertiary-color;
+        border: none;
+        color: var(--text-light);
+        border-radius: var(--space-lg);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-family: "Paperlogy", sans-serif;
+        font-weight: 700;
+
+        svg {
+            margin-right: var(--space-xs);
+        }
+
+        &:hover {
+            background-color: var(--foundation-primary-color);
+        }
+
+        &:active {
+            background-color: var(--foundation-primary-color);
+        }
+    }
+}
+
+// 메인 화면 버튼 중앙 정렬 추가
+.center-content .review-choice-button {
+    margin: 0 auto; /* 버튼을 중앙에 정렬 */
+}
+
+// 팝업 배경 스타일
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+// 팝업 내용 스타일
+.modal-content {
+    background-color: #fff;
+    border-radius: var(--space-sm);
+    width: 80%;
+    max-width: 600px;
+    height: 60%; /* 팝업 높이 줄임 */
+    padding: var(--space-xs); /* padding 줄여서 공간 절약 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
+    font-size: var(--font-size-xs); /* 팝업 폰트 크기 줄이기 */
+}
+
+// 팝업 닫기 버튼
+.modal-content button {
+    position: absolute;
+    top: 5px; /* 상단 여백 줄이기 */
+    right: 5px; /* 우측 여백 줄이기 */
+    font-size: var(--font-size-md);
+    background-color: transparent;
+    color: var(--content-primary-color);
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-family: "Paperlogy", sans-serif;
+
+    &:hover {
+        color: var(--foundation-primary-color);
+    }
+}
+
+// 팝업 제목 스타일 (h2 폰트 크기 키우기)
+.modal-content h2 {
+    position: relative;
+    top: -15px; /* 여백 줄이기 */
+    font-size: var(--font-size-lg); /* 제목 폰트 크기 키우기 */
+    font-weight: 700; /* 제목 강조를 위해 폰트 굵기 증가 */
+    color: var(--content-primary-color); /* 텍스트 색상 */
+    margin-bottom: var(--space-xs); /* 아래 여백을 줄임 */
+}
+
+// 리뷰 목록 스타일 (스크롤 추가)
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-sm); /* 여백 줄임 */
+    max-height: 50vh; /* 리뷰 목록의 최대 높이를 50%로 줄임 */
+    overflow-y: auto;
+}
+
+// 리뷰 항목 스타일
+.modal-content li {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-xs); /* 여백 줄임 */
+    padding: var(--space-xs);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-content img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: var(--space-xs);
+}
+
+.modal-content p {
+    font-size: var(--font-size-xs);
+    color: var(--content-secondary-color);
+}
+
+.selected-reviews li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px; /* padding 줄임 */
+    margin: 6px 0; /* 여백 줄임 */
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.selected-reviews li:hover {
+    background-color: #FF7710;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.selected-reviews li img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.selected-reviews li p {
+    flex: 1;
+    font-size: 12px; /* 텍스트 폰트 크기 줄임 */
+    font-weight: 500;
+    margin: 0;
+    color: #333;
+}
+
+.selected-reviews li input[type="checkbox"] {
+    accent-color: #FF7710;
+    cursor: pointer;
+}
+
+/* .plus-review-content3 button 스타일 */
+.plus-review-content3 button {
+    border-radius: 3rem; /* 버튼의 둥근 모서리 */
+    font-size: 1.3em; /* 폰트 크기 키우기 */
+    line-height: 35px; /* 텍스트 줄 높이 */
+    padding: 12px 24px; /* 버튼 안의 여백 */
+    background-color: var(--foundation-primary-color); /* 배경색 설정 */
+    color: white; /* 텍스트 색상 */
+    border: none; /* 테두리 제거 */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+}
+
+.plus-review-content3 button:hover {
+    background-color: $foundation-primary-color;
+}
+
+.selected-reviews li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .selected-reviews li.active {
+    background-color: #FF7710; /* 클릭 시 주황색 */
+    color: white; /* 텍스트 색 변경 */
+    transform: translateY(-2px); /* 애니메이션 효과 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 강조된 그림자 */
+  }
+  
+  .selected-reviews li:hover {
+    background-color: #FF7710;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .change-order {
+    /* 기본 스타일 */
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+  }
+  
+  .change-order.active {
+    background-color: orange; /* 주황색 배경 */
+  }
+  
+  /* 선택된 항목에 보더와 배경색을 추가 */
+.selected {
+    border: 2px solid #ffa500; /* 주황색 보더 */
+    background-color: rgba(255, 165, 0, 0.2); /* 주황색 배경 */
+  }
+  
+  .selected-reviews ul {
+    padding: 0;  // 기본 padding 제거
+    margin: 0;   // 기본 margin 제거
+    list-style-type: none;  // 기본 리스트 스타일 제거
+  }
+  
+  .selected-reviews li {
+    display: flex;  // 플렉스박스를 사용하여 이미지와 텍스트 정렬
+    align-items: center;  // 아이템들을 세로로 중앙 정렬
+    margin-bottom: 8px;  // 항목 간 간격 설정
+  }
+  
+  .selected-reviews li img {
+    width: 50px;  // 이미지 크기 조정
+    height: 50px; // 이미지 크기 조정
+    margin-right: 10px;  // 이미지와 텍스트 간 간격 설정
+    object-fit: cover;   // 이미지 비율을 맞춰 잘라내기
+  }
+  
+  .selected-reviews li p {
+    margin: 0;   // 텍스트의 불필요한 여백 제거
+    flex: 1;     // 텍스트가 남는 공간을 차지하게 하기
+  }
+  
+  .review-choice-button {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #000; /* 검정색 보더 */
+    padding: 1rem 3rem; /* 패딩 */
+    font-size: 1.3em; /* 글자 크기 */
+    border-radius: 3rem; /* 둥근 모서리 */
+    line-height: 35px; /* 텍스트 라인 높이 */
+    cursor: pointer; /* 커서 스타일 */
+    outline: none; /* 외곽선 제거 */
+    background-color: transparent; /* 기본 배경 색상 투명 */
+    color: #000; /* 기본 텍스트 색상 검정 */
+    transition: background-color 0.3s, color 0.3s, border 0.3s ease; /* 애니메이션 효과 */
+  }
+  
+  .review-choice-button:hover {
+    background-color: $foundation-primary-color; /* 호버 시 배경 색상 주황색 */
+    color: #fff; /* 호버 시 텍스트 색상 흰색 */
+    border: 1px solid #fff; /* 호버 시 보더 흰색 */
+  }
+  
+  .review-choice-button svg {
+    width: 2rem; /* 아이콘 크기 */
+    height: 2rem; /* 아이콘 크기 */
+    position: relative;
+    top: 0.4rem; /* 아이콘 위치 조정 */
+    left: -1rem; /* 아이콘 위치 조정 */
+    background-color: transparent; /* 기본 아이콘 배경색 투명 */
+    transition: background-color 0.3s ease; /* 아이콘 배경 색상 애니메이션 */
+  }
+  
+  .review-choice-button:hover svg {
+    background-color: $foundation-primary-color; /* 호버 시 아이콘 배경색 주황색 */
+  }
+  
+  .review-choice-button:focus {
+    outline: none; /* 포커스 시 외곽선 제거 */
+  }
+  
+  .review-choice-button:active {
+    background-color: $foundation-primary-color; /* 클릭 시 배경 색상 어두운 주황색 */
+    transform: scale(0.98); /* 클릭 시 크기 축소 */
+  }
+  

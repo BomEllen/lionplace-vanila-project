@@ -1,19 +1,19 @@
 /* CSS Custom Properties (전역 변수) */
 :root {
   /* 색상 팔레트 */
-  --foundation-primary-color: #FF7710;  
-  --foundation-secondary-color: #19172E; 
-  --foundation-accent-color: #FFFFFF;    
-  --content-primary-color: #19172E;    
-  --content-secondary-color: #6B6B6B;   
-  --content-tertiary-color: #A6A6A6;    
+  --foundation-primary-color: #ff8324;
+  --foundation-secondary-color: #19172e;
+  --foundation-accent-color: #ffffff;
+  --content-primary-color: #19172e;
+  --content-secondary-color: #6b6b6b;
+  --content-tertiary-color: #a6a6a6;
 
   /* 배경 및 텍스트 색상 */
-  --background-light: #fff; 
-  --background-dark: #19172E;
+  --background-light: #fff;
+  --background-dark: #19172e;
   --text-light: #fff;
-  --text-dark: #19172E;
-  
+  --text-dark: #19172e;
+
   /* 그림자 색상 */
   --shadow-color: #a4a4a4;
 
@@ -23,7 +23,7 @@
   --font-size-md: 20px;
   --font-size-lg: 24px;
   --font-size-xl: 28px;
-  
+
   /* 라인 높이 */
   --line-height: 1.5;
 
@@ -36,21 +36,20 @@
   /* 버튼 스타일 */
   --btn-padding: 10px 20px;
   --btn-border-radius: 5px;
-
 }
 
 /* SASS 변수 (컴파일 타임에 사용) */
-$foundation-primary-color: #FF7710;   
-$foundation-secondary-color: #19172E; 
-$foundation-accent-color: #FFFFFF;    
-$content-primary-color: #19172E;      
-$content-secondary-color: #6B6B6B;  
-$content-tertiary-color: #A6A6A6;    
+$foundation-primary-color: #ff8324;
+$foundation-secondary-color: #19172e;
+$foundation-accent-color: #ffffff;
+$content-primary-color: #19172e;
+$content-secondary-color: #6b6b6b;
+$content-tertiary-color: #a6a6a6;
 
-$background-light: #fff;              
-$background-dark: #19172E;           
-$text-light: #fff;                    
-$text-dark: #19172E;                
+$background-light: #fff;
+$background-dark: #19172e;
+$text-light: #fff;
+$text-dark: #19172e;
 
 $shadow-color: #a4a4a4;
 
