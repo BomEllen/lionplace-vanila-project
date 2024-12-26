@@ -1,0 +1,38 @@
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/font.scss" as *;
+@use "../../styles/sass/reset.scss";
+
+
+.textonly-review-box {
+  display: grid; 
+  grid-template-rows: 1fr 1fr; 
+  width: 90%;
+  height: 6.5625rem;
+  margin: 0.625rem auto;
+  background-color: $background-light;
+  border-radius: 0.625rem;
+  border: 1px solid rgb(231, 231, 231);
+  font-family: "Paperlogy", sans-serif;
+
+  h4 {
+    color: $text-dark;
+    text-decoration: underline;
+    margin: 0; 
+    display: flex; 
+    align-items: center; 
+    border-bottom: 2px dotted #d4d4d4; 
+    padding-left: 20px;
+  }
+
+  p {
+    margin: 0; 
+    padding-left: 20px; 
+
+     /* 말 줄임표 설정 */
+    display: flex;
+    align-items: center;
+    white-space: nowrap; 
+    overflow: hidden;    
+    text-overflow: ellipsis; 
+  }
+}
