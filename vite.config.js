@@ -21,6 +21,7 @@ export default defineConfig({
         review: resolve(__dirname, "src/pages/review/index.html"),
         visitRecord: resolve(__dirname, "src/pages/visit-record/index.html"),
         reserved: resolve(__dirname, "src/pages/reserved/index.html"),
+        order: resolve(__dirname, "src/pages/order/index.html"),
       },
     },
   },
