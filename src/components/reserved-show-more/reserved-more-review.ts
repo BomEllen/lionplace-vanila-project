@@ -25,8 +25,8 @@ class ReservationMoreReview extends LitElement {
             <span>+2</span>
           </div>
         </div>
-        <div class="img-area">
-          <img src="./../../../public/hot-mint-choco.png" alt="사용자 리뷰 이미지" />
+        <div class="img-area">       
+          <img src="/hot-mint-choco.png" alt="사용자 리뷰 이미지" />
         </div>
       </div>
     `;
