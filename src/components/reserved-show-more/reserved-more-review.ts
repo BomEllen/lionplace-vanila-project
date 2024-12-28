@@ -1,5 +1,5 @@
 import { html, css, LitElement, unsafeCSS } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import "../../styles/sass/reset.scss";
 import "../../styles/sass/variables.scss";
 import "../../styles/sass/font.scss";
@@ -11,24 +11,32 @@ class ReservationMoreReview extends LitElement {
     ${unsafeCSS(styles)}
   `;
 
-
+  @property({ type: Array })
+  reviews: { text: string; img: string }[] = [];
 
   render() {
     return html`
-      <div class="reserved-show-more-container">
-        <div class="text-area">
-          <h4>첫 번째 예약</h4>
-          <p>뭘 해도 사진에 머리가 안 담겨요ㅜㅜㅜ 진짜 너무 예뻐요 제가 원하는 스타일로 딱 해주셔서 얼마나 깜짝놀랐는지 몰라요! 여러분들도 추천합니다!</p>
-
-          <div>
-            <span>💚 원하는 스타일로 잘해줘요</span>
-            <span>+2</span>
+      ${this.reviews.map(
+        (review) => html`
+          <div class="reserved-show-more-container">
+            <div class="text-area">
+              <p>${review.text}</p>
+              <div>
+                <span>💚 원하는 스타일로 잘해줘요</span>
+                <span>+2</span>
+              </div>
+            </div>
+            <div class="img-area">
+              <img src="${review.img}" alt="사용자 리뷰 이미지" />
+            </div>
           </div>
-        </div>
-        <div class="img-area">       
-          <img src="/hot-mint-choco.png" alt="사용자 리뷰 이미지" />
-        </div>
-      </div>
+        `
+      )}
     `;
   }
 }
+
+
+
+
+
