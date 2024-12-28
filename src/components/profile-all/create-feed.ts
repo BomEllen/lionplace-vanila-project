@@ -1,18 +1,18 @@
 import { css, CSSResultGroup, html, LitElement, PropertyValues, unsafeCSS } from "lit";
-import { customElement, property } from "lit/decorators.js";
-import styles from "./profile-popup.scss?inline";
+import { customElement, property, state } from "lit/decorators.js";
+import styles from "./create-feed.scss?inline";
 import pb from "../../api/pocketbase";
 import { User } from "../../@types/type";
+import { debounce } from "../../utils/form-utils";
 
-@customElement("profile-popup")
-export class ProfilePopup extends LitElement {
+@customElement("create-feed")
+export class CreateFeed extends LitElement {
   @property() fileImage: { image: string; label: string } = {
     image: "",
     label: "",
   };
   @property() isVisible: boolean = false;
 
-  private contentArea: HTMLElement | null = null;
   private focusableContents: HTMLElement[] | null = null;
   private previousFocus: HTMLElement | null = null;
 
@@ -21,8 +21,7 @@ export class ProfilePopup extends LitElement {
   `;
 
   firstUpdated(): void {
-    this.contentArea = this.renderRoot.querySelector(".popup-content") as HTMLElement;
-    this.focusableContents = Array.from(this.contentArea.querySelectorAll('button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+    this.focusableContents = Array.from(this.renderRoot.querySelectorAll('button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'));
     this.previousFocus = document.activeElement as HTMLElement;
   }
 
@@ -34,14 +33,12 @@ export class ProfilePopup extends LitElement {
     }
   }
 
-  restoreFocus() {
-    if (this.previousFocus) {
-      this.previousFocus.focus();
-    }
+  get textInput() {
+    return this.renderRoot.querySelector("#text-input") as HTMLInputElement;
   }
 
-  get input() {
-    return this.renderRoot.querySelector("input") as HTMLInputElement;
+  get imageInput() {
+    return this.renderRoot.querySelector("#image-input") as HTMLInputElement;
   }
 
   get saveButton() {
@@ -51,6 +48,12 @@ export class ProfilePopup extends LitElement {
   toggleVisibility() {
     this.isVisible = !this.isVisible;
     this.dispatchEvent(new CustomEvent("popup-changed", { detail: { isVisible: this.isVisible } }));
+  }
+
+  restoreFocus() {
+    if (this.previousFocus) {
+      this.previousFocus.focus();
+    }
   }
 
   handleUpload(e: Event) {
@@ -65,14 +68,17 @@ export class ProfilePopup extends LitElement {
 
     this.fileImage = fileImage;
 
-    this.saveButton.disabled = false;
-    if (this.focusableContents !== null) this.focusableContents.push(this.saveButton);
+    if (this.saveButton.disabled && this.textInput.value.length >= 10) {
+      this.saveButton.disabled = false;
+      if (this.focusableContents !== null) this.focusableContents.push(this.saveButton);
+    }
   }
 
   handleClose() {
     this.isVisible = false;
     this.fileImage = { image: "", label: "" };
-    this.input.value = "";
+    this.imageInput.value = "";
+    this.textInput.value = "";
     this.saveButton.disabled = true;
     if (this.focusableContents?.length === 3) this.focusableContents.pop();
 
@@ -83,28 +89,22 @@ export class ProfilePopup extends LitElement {
     e.preventDefault();
 
     const localData = JSON.parse(localStorage.getItem("auth") as string);
-    const localRecord = localData.record as User;
     const formData = new FormData();
+    const imageInput = this.imageInput;
 
-    if (this.input.files && this.input.files.length > 0) {
-      const inputFile = this.input.files[0];
+    if (imageInput.files && imageInput.files.length > 0) {
+      const inputFile = imageInput.files[0];
 
-      for (const [key, value] of Object.entries(localRecord)) {
-        if (key === "avatar") {
-          formData.append("avatar", inputFile);
-        } else {
-          formData.append(key, value);
-        }
+      formData.append("image", inputFile);
+      formData.append("text", this.textInput.value);
+      formData.append("editedUser", (localData.record as User).id);
+      try {
+        const record = await pb.collection("feeds").create(formData);
+
+        location.href = "/src/pages/feed/";
+      } catch (err) {
+        throw err;
       }
-
-      const record = await pb.collection("users").update(localRecord.id, formData);
-
-      localRecord.avatar = record.avatar;
-      localData.record = localRecord;
-
-      localStorage.setItem("auth", JSON.stringify(localData));
-
-      location.reload();
     }
   }
 
@@ -132,6 +132,19 @@ export class ProfilePopup extends LitElement {
     }
   }
 
+  handleTextAreaInput() {
+    const input = this.textInput.value;
+    const length = input.length;
+
+    if (this.saveButton.disabled && this.imageInput.files?.length && length >= 10) {
+      this.saveButton.disabled = false;
+      if (this.focusableContents !== null) this.focusableContents.push(this.saveButton);
+    } else if (!this.saveButton.disabled && length < 10) {
+      this.saveButton.disabled = true;
+      if (this.focusableContents?.length === 3) this.focusableContents.pop();
+    }
+  }
+
   render() {
     const { image, label } = this.fileImage;
 
@@ -139,7 +152,7 @@ export class ProfilePopup extends LitElement {
       <div @click=${this.handleBackDropClick} role="dialog" class="popup-container ${this.isVisible ? "visible" : ""}" aria-modal="true">
         <div class="popup-content" @keydown=${this.handleKeyEvent}>
           <button @click=${this.handleClose} type="button" class="close-btn">X</button>
-          <h2>프로필 이미지 수정</h2>
+          <h2>피드 작성</h2>
           <form class="img-field">
             <label for="image-input">
               <div class="btn-upload">
@@ -149,11 +162,13 @@ export class ProfilePopup extends LitElement {
                     fill="#19172E"
                   />
                 </svg>
-                변경할 이미지 업로드
+                피드 이미지 업로드
               </div>
             </label>
             <input @change=${this.handleUpload} type="file" id="image-input" accept=".png,.jpg,.webp" />
             <div id="image-preview-container">${image ? html`<img src="${image}" alt="파일명 : ${label}" />` : ""}</div>
+            <label for="text-input">내용</label>
+            <textarea @input=${debounce(() => this.handleTextAreaInput(), 300)} id="text-input" rows="10" cols="45" placeholder="최소 10자 이상 써주세요."></textarea>
             <button @click=${this.handleSave} type="submit" id="save-profile-image" disabled>저장</button>
           </form>
         </div>

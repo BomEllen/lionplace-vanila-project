@@ -16,23 +16,27 @@
 
   .profile-all-wrap {
     display: flex;
+    font-display: row;
+    align-items: center;
     gap: 1.3rem;
 
     .profile-edit-button {
       position: relative;
       border-radius: 50%;
-      inline-size: 3.125rem;
-      block-size: 3.125rem;
+      inline-size: 2.8125rem;
+      block-size: 2.8125rem;
       text-decoration: none;
       @include flex-center();
       cursor: pointer;
+      margin-inline-start: 5px;
 
       img {
         border: 5px solid #fff;
         object-fit: cover;
         width: inherit;
         height: inherit;
-        border-radius: inherit;
+        aspect-ratio: 1;
+        border-radius: 50%;
       }
 
       span:nth-child(2) {
@@ -125,6 +129,10 @@
     border: none;
     font-family: "Paperlogy", sans-serif;
     font-weight: 300;
+
+    &:focus {
+      outline: 1px solid $foundation-accent-color;
+    }
 
     svg {
       display: inline-block;

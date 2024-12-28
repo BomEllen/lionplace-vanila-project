@@ -20,7 +20,7 @@ class Timegps extends LitElement {
     const authData = localStorage.getItem("auth");
     if (authData === null) {
       alertAndProceed("로그인 후 사이트에 방문해 주세요.").then(() => {
-        location.href = "/src/pages/register/";
+        location.href = "/src/pages/login/";
       });
     }
   }
