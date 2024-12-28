@@ -27,6 +27,16 @@ footer {
     gap: 0.625rem;
   }
 
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0 0;
+    font-family: "Paperlogy", sans-serif;
+    font-size: $font-size-sm;
+    line-height: 1.5;
+  }
+
   p {
     line-height: 1.5;
   }

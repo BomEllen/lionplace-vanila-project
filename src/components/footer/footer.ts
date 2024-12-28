@@ -11,6 +11,13 @@ class CustomFooter extends LitElement {
     ${unsafeCSS(styles)}
   `;
 
+  handleLogout() {
+    if (confirm("정말 로그아웃 하시겠습니까?")) {
+      localStorage.removeItem("auth");
+      localStorage.removeItem("pocketbase_auth");
+      location.href = "/src/pages/login/";
+    }
+  }
 
   render() {
     return html`
@@ -22,6 +29,7 @@ class CustomFooter extends LitElement {
         </select>
 
         <div>
+          <button @click=${this.handleLogout} type="button" class="btn-logout">로그아웃</button>
           <ul>
             <li><a href="https://help.naver.com/service/30026/category/bookmark?lang=ko" rel="external">네이버 예약 고객센터</a></li>
             <li><a href="https://new.smartplace.naver.com/help/policy" rel="external">이용약관</a></li>
