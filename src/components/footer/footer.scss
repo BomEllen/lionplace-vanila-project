@@ -2,10 +2,9 @@
 @import "../../styles/sass/variables.scss";
 @import "../../styles/sass/font.scss";
 
-
 footer {
   background-color: $content-tertiary-color;
-  width: 100vw;
+  width: 100%;
   height: 14.875rem;
   font-family: "Paperlogy", sans-serif;
   font-size: $font-size-sm;
@@ -13,8 +12,6 @@ footer {
   flex-direction: column;
   align-items: center;
 
-
-  
   select {
     margin: 1rem;
     border: none;
@@ -33,7 +30,7 @@ footer {
   p {
     line-height: 1.5;
   }
-  
+
   ul {
     display: flex;
 
@@ -52,11 +49,7 @@ footer {
     }
 
     li:last-child::after {
-      content: '';
-    } 
+      content: "";
+    }
   }
-
-
-
 }
-
