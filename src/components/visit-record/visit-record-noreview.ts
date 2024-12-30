@@ -12,7 +12,7 @@ class visitRecordNoReview extends LitElement {
   `;
 
   handleWriteReview() {
-    location.href = `${location.origin}/src/pages/visit-like/?id=${this.data?.id}`;
+    location.href = `${location.origin}/src/pages/visit-like/?id=${this.data?.id}&type=${this.data?.type}`;
   }
 
   render() {

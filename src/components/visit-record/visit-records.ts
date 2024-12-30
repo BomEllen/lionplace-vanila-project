@@ -46,6 +46,7 @@ class visitRecord extends LitElement {
             price: item.expand!.place.price,
             date: this.formatToDate(item.created),
             placeName: item.expand!.place.placeName,
+            type: item.expand!.place.type,
             reviewText: "",
             reviewImg: "",
             reviewTags: [],
@@ -54,6 +55,7 @@ class visitRecord extends LitElement {
           const tags = item.expand!.review.expand!.tags.map((i: { text: string }) => i.text);
           return {
             id: "",
+            type: "",
             price: item.expand!.place.price,
             date: this.formatToDate(item.created),
             placeName: item.expand!.place.placeName,
