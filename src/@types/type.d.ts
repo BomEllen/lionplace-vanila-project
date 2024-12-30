@@ -87,8 +87,10 @@ export interface PostData {
 }
 
 export interface VisitData {
+  id: string;
   price: number;
   date: string;
+  type: string;
   placeName: string;
   reviewText: string;
   reviewImg: string;

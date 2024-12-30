@@ -15,6 +15,7 @@ class VisitLikeKeyword extends LitElement {
   private scrollPosition: number | null = null;
   private lastMouseDownTarget: HTMLElement | null = null;
   private likeKeyword: HTMLElement | null = null;
+  private type: string = "";
 
   static styles?: CSSResultGroup | undefined = css`
     ${unsafeCSS(styles)}
@@ -27,26 +28,12 @@ class VisitLikeKeyword extends LitElement {
   }
 
   protected firstUpdated(): void {
-    this.likeKeyword = this.renderRoot.querySelector(
-      ".like-keyword-check-wrap"
-    );
+    this.likeKeyword = this.renderRoot.querySelector(".like-keyword-check-wrap");
     if (this.likeKeyword) {
-      this.likeKeyword.addEventListener(
-        "mousedown",
-        this.handleMouseDown.bind(this)
-      );
-      this.likeKeyword.addEventListener(
-        "mousemove",
-        this.handleMouseMove.bind(this)
-      );
-      this.likeKeyword.addEventListener(
-        "mouseup",
-        this.handleMouseUp.bind(this)
-      );
-      this.likeKeyword.addEventListener(
-        "mouseleave",
-        this.handleMouseLeave.bind(this)
-      );
+      this.likeKeyword.addEventListener("mousedown", this.handleMouseDown.bind(this));
+      this.likeKeyword.addEventListener("mousemove", this.handleMouseMove.bind(this));
+      this.likeKeyword.addEventListener("mouseup", this.handleMouseUp.bind(this));
+      this.likeKeyword.addEventListener("mouseleave", this.handleMouseLeave.bind(this));
     }
   }
 
@@ -61,9 +48,7 @@ class VisitLikeKeyword extends LitElement {
     likeKeyword.style.cursor = "grabbing";
 
     // 클릭 이벤트를 위해 lastMouseDownTarget에 현재 태그를 기록(마우스가 Up될때 같은 태그면 클릭됨)
-    target.tagName === "BUTTON"
-      ? (this.lastMouseDownTarget = target)
-      : (this.lastMouseDownTarget = null);
+    target.tagName === "BUTTON" ? (this.lastMouseDownTarget = target) : (this.lastMouseDownTarget = null);
   }
 
   handleMouseMove(e: MouseEvent) {
@@ -115,130 +100,52 @@ class VisitLikeKeyword extends LitElement {
     const likeKeyword = this.likeKeyword as HTMLElement;
 
     // 포커스된 항목이 화면 오른쪽에 있다면, 해당 항목을 화면에 보이도록 스크롤
-    if (
-      focusedElement &&
-      focusedElement.offsetLeft + focusedElement.offsetWidth >
-        likeKeyword.scrollLeft + likeKeyword.offsetWidth
-    ) {
-      likeKeyword.scrollLeft =
-        focusedElement.offsetLeft +
-        focusedElement.offsetWidth -
-        likeKeyword.offsetWidth;
+    if (focusedElement && focusedElement.offsetLeft + focusedElement.offsetWidth > likeKeyword.scrollLeft + likeKeyword.offsetWidth) {
+      likeKeyword.scrollLeft = focusedElement.offsetLeft + focusedElement.offsetWidth - likeKeyword.offsetWidth;
     }
   }
 
   async fetchData() {
     // expand 옵션을 통해 연결된 릴레이션(editedUser, = 피드 작성 유저정보)까지 받아서 한번에 확인 가능
     try {
-      const tags = await pb.collection("tags").getFullList(); //
-      console.log(tags);
-      this.tags = tags.map((item): LikeKeywordData => {
-        return {
-          keywordText: item.text, // 배열을 문자열로 변환
-        };
-      });
-      console.log(this.tags);
+      const queryString = location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const type = urlParams.get("type");
+
+      if (type != null) {
+        this.type = type;
+
+        const tags = await pb.collection("tags").getFullList({ filter: `type~'${this.type}'` });
+        this.tags = tags.map((item): LikeKeywordData => {
+          return {
+            keywordText: item.text, // 배열을 문자열로 변환
+          };
+        });
+      }
     } catch (err) {
       // 통신 실패 시 에러 메시지 출력
       console.log(err);
     }
   }
+
   render() {
-    const { keywordText } = this.tags as LikeKeywordData[];
     return html`
       <div class="like-keyword-check-container">
-        <div
-          class="like-keyword-check-wrap"
-          @mousedown=${this.handleMouseDown}
-          @mousemove=${this.handleMouseMove}
-          @mouseup=${this.handleMouseUp}
-          @mouseleave=${this.handleMouseLeave}
-          @focusin=${this.handleFocus}
-        >
+        <div class="like-keyword-check-wrap" @mousedown=${this.handleMouseDown} @mousemove=${this.handleMouseMove} @mouseup=${this.handleMouseUp} @mouseleave=${this.handleMouseLeave} @focusin=${this.handleFocus}>
           <div class="like-keyword-check-list">
             <ul>
               ${(this.tags || []).map(
                 (tag) => html`
                   <li>
                     <div class="primary-btn">
-                      <input
-                        type="checkbox"
-                        id="keyword-${tag.keywordText}"
-                        class="like-input"
-                      />
-                      <label
-                        for="keyword-${tag.keywordText}"
-                        class="like-label"
-                      >
-                        <!--<span>💚 원하는 스타일로 잘해줘요</span>-->
+                      <input type="checkbox" id="keyword-${tag.keywordText}" class="like-input" />
+                      <label for="keyword-${tag.keywordText}" class="like-label">
                         <span>${tag.keywordText}</span>
                       </label>
                     </div>
                   </li>
                 `
               )}
-
-              <!--<li>
-                <div class="primary-btn">
-                  <input type="checkbox" id="keyword02" class="like-input" />
-                  <label for="keyword02" class="like-label">
-                  <span>💇‍♀️ 스타일 추천을 잘해줘요</span>
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div class="primary-btn">
-                  //
-                  <input type="checkbox" id="keyword03" class="like-input" />
-                  <label for="keyword03" class="like-label">
-                    <span>🌹 고급스러워요</span>
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div class="primary-btn">
-                  <input type="checkbox" id="keyword04" class="like-input" />
-                  <label for="keyword04" class="like-label">
-                    <span>😎 트렌디해요</span>
-                  </label>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="like-keyword-check-list">
-            <ul>
-              <li>
-                <div class="primary-btn">
-                  <input type="checkbox" id="keyword01" class="like-input" />
-                  <label for="keyword01" class="like-label">
-                    <span>💚 원하는 스타일로 잘해줘요</span>
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div class="primary-btn">
-                  <input type="checkbox" id="keyword02" class="like-input" />
-                  <label for="keyword02" class="like-label">
-                    <span>💇‍♀️ 스타일 추천을 잘해줘요</span>
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div class="primary-btn">
-                  <input type="checkbox" id="keyword03" class="like-input" />
-                  <label for="keyword03" class="like-label">
-                    <span>🌹 고급스러워요</span>
-                  </label>
-                </div>
-              </li>
-              <li>
-                <div class="primary-btn">
-                  <input type="checkbox" id="keyword04" class="like-input" />
-                  <label for="keyword04" class="like-label">
-                    <span>😎 트렌디해요</span>
-                  </label>
-                </div>
-              </li>-->
             </ul>
           </div>
         </div>
