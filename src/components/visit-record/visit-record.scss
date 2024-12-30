@@ -100,6 +100,10 @@
   }
 
   .more-btn {
+    background: none;
+    border: none;
+    padding: 0;
+
     span {
       @include sr-only-styles();
     }

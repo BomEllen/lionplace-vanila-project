@@ -94,3 +94,7 @@ export interface VisitData {
   reviewImg: string;
   reviewTags: string[];
 }
+
+export interface LikeKeywordData {
+  keywordText: string;
+}
