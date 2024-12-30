@@ -141,7 +141,7 @@ class VisitLikeKeyword extends LitElement {
   async fetchData() {
     // expand 옵션을 통해 연결된 릴레이션(editedUser, = 피드 작성 유저정보)까지 받아서 한번에 확인 가능
     try {
-      const tags = await pb.collection("tags").getFullList();
+      const tags = await pb.collection("tags").getFullList(); //
       console.log(tags);
       this.tags = tags.map((item): LikeKeywordData => {
         return {
