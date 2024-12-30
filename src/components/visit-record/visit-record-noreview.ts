@@ -12,7 +12,19 @@ class visitRecordNoReview extends LitElement {
   `;
 
   handleWriteReview() {
-    location.href = `${location.origin}/src/pages/visit-like/?id=${this.data?.id}&type=${this.data?.type}`;
+    if (this.data != null) {
+      const data = {
+        id: this.data?.id,
+        type: this.data?.type,
+        placeName: this.data?.placeName,
+        date: this.data?.date,
+        price: `${this.data.price.toLocaleString()}원`,
+      };
+
+      const queryParams = new URLSearchParams(data).toString();
+
+      location.href = `${location.origin}/src/pages/visit-like/?${queryParams}`;
+    }
   }
 
   render() {
