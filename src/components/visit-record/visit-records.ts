@@ -1,9 +1,9 @@
 import { html, css, LitElement, CSSResultGroup, unsafeCSS } from "lit";
 import { customElement, state } from "lit/decorators.js";
-import styles from "./visit-record.scss?inline";
-import pb from "../../api/pocketbase";
-import { VisitData } from "../../@types/type";
 import { getImageURL } from "./../../api/getImageURL";
+import styles from "./visit-record.scss?inline";
+import { VisitData } from "../../@types/type";
+import pb from "../../api/pocketbase";
 
 @customElement("visit-records")
 class visitRecord extends LitElement {
@@ -42,6 +42,7 @@ class visitRecord extends LitElement {
       this.visitRecords = visitRecords.map((item): VisitData => {
         if (item.review === "") {
           return {
+            id: item.id,
             price: item.expand!.place.price,
             date: this.formatToDate(item.created),
             placeName: item.expand!.place.placeName,
@@ -52,11 +53,12 @@ class visitRecord extends LitElement {
         } else {
           const tags = item.expand!.review.expand!.tags.map((i: { text: string }) => i.text);
           return {
+            id: "",
             price: item.expand!.place.price,
             date: this.formatToDate(item.created),
             placeName: item.expand!.place.placeName,
             reviewText: item.expand!.review.text,
-            reviewImg: getImageURL(item.collectionId, item.id, item.expand!.review.img),
+            reviewImg: getImageURL(item.expand!.review.collectionId, item.expand!.review.id, item.expand!.review.img),
             reviewTags: tags,
           };
         }
