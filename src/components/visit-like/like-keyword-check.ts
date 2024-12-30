@@ -126,17 +126,6 @@ class VisitLikeKeyword extends LitElement {
         likeKeyword.offsetWidth;
     }
   }
-  // {
-  //   "collectionId": "pbc_1219621782",
-  //   "collectionName": "tags",
-  //   "created": "2024-12-24 16:06:36.033Z",
-  //   "id": "1aczn435qfuj6t6",
-  //   "text": "😋 맛있어요",
-  //   "type": [
-  //     "restaurant"
-  //   ],
-  //   "updated": "2024-12-24 16:06:36.033Z"
-  // }
 
   async fetchData() {
     // expand 옵션을 통해 연결된 릴레이션(editedUser, = 피드 작성 유저정보)까지 받아서 한번에 확인 가능

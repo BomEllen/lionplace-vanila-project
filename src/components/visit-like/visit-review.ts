@@ -1,14 +1,29 @@
 import { html, css, LitElement, CSSResultGroup, unsafeCSS } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import "../../styles/sass/reset.scss";
 import styles from "./visit-like.scss?inline";
 
 @customElement("visit-review")
 class VisitReview extends LitElement {
+  private focusableContents: HTMLElement[] | null = null;
   private textCount: HTMLElement | null = null;
+  @property() fileImage: { image: string; label: string } = {
+    image: "",
+    label: "",
+  };
   static styles?: CSSResultGroup | undefined = css`
     ${unsafeCSS(styles)}
   `;
+
+  get textInput() {
+    return this.renderRoot.querySelector("#review-area") as HTMLInputElement;
+  }
+
+  get submitButton() {
+    return this.renderRoot.querySelector(
+      ".review-submit-btn"
+    ) as HTMLButtonElement;
+  }
 
   firstUpdated(): void {
     this.textCount = this.renderRoot.querySelector(
@@ -22,15 +37,63 @@ class VisitReview extends LitElement {
     if (this.textCount != null) {
       this.textCount.innerHTML = `${target.value.length}<span>/400</span>`;
     }
-
-    //console.log(target.value);
   }
+
+  handleUpload(e: Event) {
+    const file = (e.target as HTMLInputElement).files?.[0];
+
+    if (!file) throw new Error("file값이 존재하지 않습니다.");
+
+    const fileImage = {
+      image: URL.createObjectURL(file),
+      label: file.name,
+    };
+
+    this.fileImage = fileImage;
+
+    if (this.submitButton.disabled && this.textInput.value.length >= 10) {
+      this.submitButton.disabled = false;
+      if (this.focusableContents !== null)
+        this.focusableContents.push(this.submitButton);
+    }
+  }
+
+  async handleSave(e: Event) {
+    e.preventDefault();
+
+    const localData = JSON.parse(localStorage.getItem("auth") as string);
+    const formData = new FormData();
+    const imageInput = this.imageInput;
+
+    if (imageInput.files && imageInput.files.length > 0) {
+      const inputFile = imageInput.files[0];
+
+      formData.append("image", inputFile);
+      formData.append("text", this.textInput.value);
+      formData.append("editedUser", (localData.record as User).id);
+      try {
+        const record = await pb.collection("feeds").create(formData);
+
+        location.href = "/src/pages/feed/";
+      } catch (err) {
+        throw err;
+      }
+    }
+  }
+
   render() {
+    const { image, label } = this.fileImage;
     return html`
       <div class="visit-review-section">
         <h3>리뷰를 남겨주세요</h3>
         <div class="review-photo-btn">
-          <input type="file" name="file" id="file" accept="image/*" />
+          <input
+            @change=${this.handleUpload}
+            type="file"
+            name="file"
+            id="file"
+            accept=".png,.jpg,.webp"
+          />
           <label for="file">
             <svg
               width="16"
@@ -46,6 +109,9 @@ class VisitReview extends LitElement {
             </svg>
             사진추가
           </label>
+        </div>
+        <div id="review-image-preview">
+          ${image ? html`<img src="${image}" alt="파일명 : ${label}" />` : ""}
         </div>
         <div class="review-area-wrap">
           <textarea
@@ -63,7 +129,11 @@ class VisitReview extends LitElement {
           <button type="button" class="review-notes-btn">
             <span>리뷰 작성 유의사항</span>
           </button>
-          <button type="button" class="review-submit-btn">
+          <button
+            @click=${this.handleSave}
+            type="button"
+            class="review-submit-btn"
+          >
             <span>등록하기</span>
           </button>
         </div>

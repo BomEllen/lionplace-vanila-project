@@ -197,6 +197,14 @@
       display: none;
     }
   }
+
+  #review-image-preview {
+    img {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
   .review-area-wrap {
     background-color: #f9f9f9;
     height: 4.6875rem;
