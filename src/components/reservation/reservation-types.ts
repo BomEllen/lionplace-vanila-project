@@ -28,7 +28,6 @@ class ReservationTypes extends LitElement {
         const selectedType = button.getAttribute("data-type");
         if (selectedType) {
           localStorage.setItem("selectedReservationType", selectedType);
-          console.log(`Selected type saved to localStorage: ${selectedType}`);
 
           // 선택된 타입을 부모에게 전달
           this.dispatchEvent(
