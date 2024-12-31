@@ -5,6 +5,7 @@ const pwRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/; // pw 정규식, 특수�
 // id, email, pw, check-pw 필드들을 정규식 처리해 검사한 뒤 T/F를 반환하는 함수
 function isSignUpValid(inputList: HTMLInputElement[]): boolean {
   let count = 0;
+  let pwField;
 
   for (let item of inputList) {
     switch (item.id) {
@@ -19,12 +20,13 @@ function isSignUpValid(inputList: HTMLInputElement[]): boolean {
         }
         break;
       case "pw-field":
+        pwField = item;
         if (pwRegex.test(item.value)) {
           count++;
         }
         break;
       case "check-pw-field":
-        if (inputList[2].value === item.value) {
+        if (pwField?.value === item.value) {
           count++;
         }
         break;
