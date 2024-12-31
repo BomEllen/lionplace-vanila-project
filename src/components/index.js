@@ -12,9 +12,9 @@ import "./review-plus/review-plus.ts";
 import "./reservation";
 import "./visit-record";
 import "./feed";
-import "./order-page/order-table.ts";
-import "./reserved-show-more/reserved-more-review.ts";
-import "./reserved-show-more/reserved-more-title.ts";
-import "./reserved-show-more/reserved-more-review-textonly.ts";
-import "./footer/footer.ts";
 import "./visit-like";
+import "./order-page/order-table.ts"
+import "./reserved-show-more/reserved-more-review.ts"
+import "./reserved-show-more/reserved-more-title.ts"
+import "./reserved-show-more/reserved-more-review-textonly.ts"
+import "./loading-spinner/loading-spinner.ts"

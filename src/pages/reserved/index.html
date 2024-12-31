@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
   <head>
-    <title>Reservation</title>
+    <title>LionPlace | 예약 하기</title>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Tags -->
+    <meta name="description" content="LionPlace는 예약, 리뷰 및 방문 기록을 관리할 수 있는 플랫폼입니다." />
+    <meta property="og:title" content="LionPlace | 예약 하기" />
+    <meta property="og:description" content="LionPlace에서 예약과 방문 리뷰를 한곳에서 관리하세요!" />
+    <meta property="og:image" content="/meta-img.png" />
+    <meta property="og:url" content="https://superb-zuccutto-1a45bc.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+
     <script type="module" src="../../components/index.js"></script>
     <script type="module" src="../../layout/index.js"></script>
-    <script type="module" src="./reserved.js"></script>
+    <script type="module" src="./reserved.ts"></script>
   </head>
 
   <body>
@@ -26,8 +36,6 @@
     <!-- 예약업체 리스트 -->
     <div class="visit-list-container">
       <reservation-visit-list></reservation-visit-list>
-      <reservation-visit-list></reservation-visit-list>
-      <reservation-visit-list></reservation-visit-list>
     </div>
 
     <!-- 더보기 버튼 -->
@@ -35,12 +43,6 @@
 
     <!-- 숨겨진 컨텐츠 (더보기 누르면 나옴) -->
     <div id="hiddenContent" class="hidden-content">
-      <reservation-more-title></reservation-more-title>
-      <reservation-more-review></reservation-more-review>
-      <reservation-more-title></reservation-more-title>
-      <reservation-more-review></reservation-more-review>
-      <reservation-more-title></reservation-more-title>
-      <reservation-more-review></reservation-more-review>
       <reservation-more-title></reservation-more-title>
       <reservation-more-review></reservation-more-review>
     </div>
