@@ -37,11 +37,17 @@ class PostList extends LitElement {
   async fetchData() {
     // expand 옵션을 통해 연결된 릴레이션(editedUser, = 피드 작성 유저정보)까지 받아서 한번에 확인 가능
     try {
-      const feeds = await pb.collection("feeds").getFullList({ expand: "editedUser" });
+      const feeds = await pb
+        .collection("feeds")
+        .getFullList({ expand: "editedUser" });
 
       this.dataList = feeds.map(
         (item): PostData => ({
-          userImg: getImageURL(item.expand!.editedUser.collectionId, item.expand!.editedUser.id, item.expand!.editedUser.avatar),
+          userImg: getImageURL(
+            item.expand!.editedUser.collectionId,
+            item.expand!.editedUser.id,
+            item.expand!.editedUser.avatar
+          ),
           date: this.formatToDate(item.created),
           image: getImageURL(item.collectionId, item.id, item.image),
           text: item.text,
@@ -58,7 +64,12 @@ class PostList extends LitElement {
   render() {
     return html`
       <ul>
-        ${this.dataList?.map((_, index, arr) => html`<custom-post .data=${arr[arr.length - 1 - index]}></custom-post>`)}
+        ${this.dataList?.map(
+          (_, index, arr) =>
+            html`<custom-post
+              .data=${arr[arr.length - 1 - index]}
+            ></custom-post>`
+        )}
       </ul>
     `;
   }

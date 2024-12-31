@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>visit record</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../../components/index.js"></script>
+    <script type="module" src="../../layout/index.js"></script>
+  </head>
+  <body>
+    <section class="visit-like-section">
+      <h2>방문 리뷰 페이지</h2>
+      <button type="button" class="popup-close-btn">
+        <span>이 페이지 나가기</span>
+      </button>
+      <visit-like-popup></visit-like-popup>
+
+      <div class="like-keyword-section">
+        <div class="like-keyword-title">
+          <h3>어떤 점이 좋았나요? (1개~5개)</h3>
+          <p>이 장소에 어울리는 키워드를 골라주세요.</p>
+        </div>
+        <like-keyword-check></like-keyword-check>
+      </div>
+      <visit-review></visit-review>
+    </section>
+  </body>
+</html>
