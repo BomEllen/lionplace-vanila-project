@@ -30,7 +30,9 @@ async function handleLogin(e: Event) {
       location.href = "/src/pages/feed/"; // 피드 페이지로 이동
     });
   } catch (err) {
-    // 차후 로그인 실패 시 알림 처리 예정
+    alert("로그인에 실패했습니다. 아이디나 비밀번호를 확인해주세요.");
+    inputList[1].value = "";
+
     console.log("로그인 실패");
     console.log(err);
   }
