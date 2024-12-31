@@ -6,7 +6,7 @@ import "../../styles/sass/font.scss";
 import styles from "./loading-spinner.scss?inline";
 
 @customElement("loading-spinner")
-class LoadingSpinner extends LitElement {
+export class LoadingSpinner extends LitElement {
   // CSS 스타일 정의
   static styles = css`
     ${unsafeCSS(styles)}
@@ -34,9 +34,6 @@ class LoadingSpinner extends LitElement {
     this.hidden = true;
   }
 }
-
-
-
 
 /*
 컴포넌트 사용법
