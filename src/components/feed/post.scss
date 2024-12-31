@@ -14,9 +14,8 @@
   @include flex-center(column);
   gap: 0.5rem;
   color: $content-tertiary-color;
-  max-width: 40rem;
-  min-width: 20rem;
   margin-inline: auto;
+  background-color: $background-light;
 }
 
 .profile-follow {

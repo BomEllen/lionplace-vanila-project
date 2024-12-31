@@ -23,11 +23,13 @@
 }
 
 .popup-content {
+  box-sizing: border-box;
   background-color: white;
   padding: 1.25rem;
   border-radius: 5px;
   position: relative;
-  min-width: 400px;
+  max-width: $max-content-width;
+  min-width: $min-content-width;
   width: 100%;
 }
 

@@ -11,6 +11,7 @@
   /* 배경 및 텍스트 색상 */
   --background-light: #fff;
   --background-dark: #19172e;
+  --background-gray: #ebebeb;
   --text-light: #fff;
   --text-dark: #19172e;
 
@@ -36,6 +37,9 @@
   /* 버튼 스타일 */
   --btn-padding: 10px 20px;
   --btn-border-radius: 5px;
+
+  --min-content-width: 360px;
+  --max-content-width: 480px;
 }
 
 /* SASS 변수 (컴파일 타임에 사용) */
@@ -48,6 +52,7 @@ $content-tertiary-color: #a6a6a6;
 
 $background-light: #fff;
 $background-dark: #19172e;
+$background-gray: #ebebeb;
 $text-light: #fff;
 $text-dark: #19172e;
 
@@ -68,3 +73,6 @@ $space-lg: 32px;
 
 $btn-padding: 10px 20px;
 $btn-border-radius: 5px;
+
+$min-content-width: 360px;
+$max-content-width: 480px;

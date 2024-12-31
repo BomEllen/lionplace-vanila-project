@@ -17,7 +17,6 @@
   z-index: 1000;
   font-size: 1rem;
   overflow: auto;
-  min-width: 360px;
 }
 
 .visible {
@@ -30,7 +29,8 @@
   padding: 1.25rem;
   border-radius: 5px;
   position: relative;
-  min-width: 360px;
+  max-width: $max-content-width;
+  min-width: $min-content-width;
   width: 100%;
 }
 

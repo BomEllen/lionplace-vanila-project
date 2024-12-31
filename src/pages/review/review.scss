@@ -3,8 +3,16 @@
 @use "../../styles/sass/font.scss";
 @use "../../styles/sass/reset.scss";
 
+html {
+  box-sizing: border-box;
+  background-color: $background-light;
+}
+
 body {
-  background-color: rgb(235, 235, 235);
+  background-color: $background-gray;
+  min-width: $min-content-width;
+  max-width: $max-content-width;
+  margin-inline: auto !important;
 }
 
 theme-component {
