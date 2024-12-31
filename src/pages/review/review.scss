@@ -1,7 +1,7 @@
 @use "../../styles/sass/variables.scss" as *;
 @use "../../styles/sass/mixins.scss" as *;
-@use "../../styles/sass/font.scss" as *;
-@use "../../styles/sass/reset.scss" as *;
+@use "../../styles/sass/font.scss";
+@use "../../styles/sass/reset.scss";
 
 body {
   background-color: rgb(235, 235, 235);
@@ -24,4 +24,8 @@ h2 {
 nav-items {
   position: sticky;
   bottom: 0;
+}
+
+.sr-only {
+  @include sr-only-styles();
 }

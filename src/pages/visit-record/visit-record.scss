@@ -22,3 +22,7 @@ nav-items {
   position: sticky;
   bottom: 0;
 }
+
+.sr-only {
+  @include sr-only-styles();
+}

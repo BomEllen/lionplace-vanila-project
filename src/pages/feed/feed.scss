@@ -10,6 +10,7 @@ body {
 .sr-only {
   @include sr-only-styles();
 }
+
 time-gps {
   position: sticky;
   top: 0;

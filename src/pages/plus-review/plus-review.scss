@@ -1,8 +1,12 @@
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
 
-@import "../../styles/sass/variables.scss";
+body {
+  width: 100%;
+  height: 100%;
+  background-color: $foundation-primary-color;
+}
 
-body{
-    width:100vw;
-    height:100vh;
-    background-color: var(--foundation-primary-color);
+.sr-only {
+  @include sr-only-styles();
 }
