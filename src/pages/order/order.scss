@@ -1,6 +1,7 @@
 @use "./../../styles/sass/font.scss";
 @use "./../../styles/sass/reset.scss";
 @use "./../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
 
 body {
   height: 100vh;
@@ -18,7 +19,7 @@ body {
     background-color: rgb(221, 220, 220);
     text-align: center;
     font-family: Paperlogy, sans-serif;
-  
+
     h2 {
       font-size: $font-size-sm;
 
@@ -27,4 +28,8 @@ body {
       }
     }
   }
+}
+
+.sr-only {
+  @include sr-only-styles();
 }

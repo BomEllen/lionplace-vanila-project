@@ -1,6 +1,7 @@
 @use "./../../styles/sass/font.scss";
 @use "./../../styles/sass/reset.scss";
 @use "./../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
 
 body {
   height: 100vh;
@@ -20,7 +21,6 @@ body {
     font-family: Paperlogy, sans-serif;
     font-size: $font-size-base;
     color: $text-dark;
-
 
     .text-decorate {
       color: $text-dark;
@@ -46,15 +46,17 @@ body {
     height: 3.0625rem;
   }
 
-
   .hidden-content {
-  max-height: 0; /* 숨김 */
-  overflow: hidden;
-  background-color: rgb(247, 247, 247);
-  transition: max-height 0.5s ease; /* 펼쳐지는 애니메이션 */
+    max-height: 0; /* 숨김 */
+    overflow: hidden;
+    background-color: rgb(247, 247, 247);
+    transition: max-height 0.5s ease; /* 펼쳐지는 애니메이션 */
   }
   .hidden-content.active {
     max-height: 50000px; /* 대충 큰 값 */
   }
+}
 
+.sr-only {
+  @include sr-only-styles();
 }

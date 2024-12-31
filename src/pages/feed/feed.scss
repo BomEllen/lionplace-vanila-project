@@ -7,6 +7,9 @@ body {
   min-width: 20rem;
 }
 
+.sr-only {
+  @include sr-only-styles();
+}
 time-gps {
   position: sticky;
   top: 0;
