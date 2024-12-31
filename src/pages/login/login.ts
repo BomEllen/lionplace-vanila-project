@@ -3,9 +3,11 @@ import "../../styles/sass/font.scss";
 import "./login.scss";
 import pb from "../../api/pocketbase";
 import { handleInput, debounce, alertAndProceed } from "../../utils/form-utils";
+import { LoadingSpinner } from "../../components/loading-spinner/loading-spinner";
 
 const inputList = [...document.querySelectorAll("input")];
 const loginBtn = document.querySelector(".btn-login") as HTMLButtonElement;
+const loadingSpinner = document.querySelector("loading-spinner") as LoadingSpinner;
 
 async function handleLogin(e: Event) {
   e.preventDefault();
@@ -14,6 +16,8 @@ async function handleLogin(e: Event) {
   const [userName, pw] = [inputList[0].value, inputList[1].value];
 
   try {
+    loadingSpinner.show();
+
     const { record, token } = await pb.collection("users").authWithPassword(userName, pw);
 
     localStorage.setItem(
@@ -24,12 +28,16 @@ async function handleLogin(e: Event) {
       })
     );
 
+    loadingSpinner.hide();
+
     console.log("로그인 성공");
 
     alertAndProceed("로그인 성공! 확인 버튼을 누르시면 메인 페이지로 이동합니다.").then(() => {
       location.href = "/src/pages/feed/"; // 피드 페이지로 이동
     });
   } catch (err) {
+    loadingSpinner.hide();
+
     alert("로그인에 실패했습니다. 아이디나 비밀번호를 확인해주세요.");
     inputList[1].value = "";
 

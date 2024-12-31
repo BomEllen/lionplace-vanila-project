@@ -10,14 +10,15 @@ import { LoadingSpinner } from "../loading-spinner/loading-spinner.ts";
 class PostList extends LitElement {
   @state() dataList: PostData[] | null = null;
 
-  private spinner: LoadingSpinner | null = null;
-
   static styles?: CSSResultGroup | undefined = css`
     ${unsafeCSS(styles)}
   `;
 
+  get spinner() {
+    return this.renderRoot.querySelector("loading-spinner") as LoadingSpinner;
+  }
+
   firstUpdated(): void {
-    this.spinner = this.renderRoot.querySelector("loading-spinner");
     // 연결 시 데이터 불러옴
     this.fetchData();
   }

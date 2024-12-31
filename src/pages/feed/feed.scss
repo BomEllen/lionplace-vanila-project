@@ -5,6 +5,12 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 20rem;
+
+  nav-items {
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+  }
 }
 
 .sr-only {
@@ -15,9 +21,4 @@ time-gps {
   position: sticky;
   top: 0;
   z-index: 1000;
-}
-
-nav-items {
-  position: sticky;
-  bottom: 0;
 }

@@ -14,11 +14,16 @@ export class LoadingSpinner extends LitElement {
 
   // hidden 속성: true이면 스피너가 숨겨짐
   @property({ type: Boolean, reflect: true }) hidden = false;
+  @property({ type: Boolean }) transparent = false;
+
+  connectedCallback(): void {
+    super.connectedCallback();
+  }
 
   // 렌더링: hidden 속성에 따라 클래스 동적 추가
   render() {
     return html`
-      <div class="loader-wrapper ${this.hidden ? "hidden" : ""}">
+      <div class="loader-wrapper ${this.hidden ? "hidden" : ""} ${this.transparent ? "transparent" : ""}">
         <span class="loader"></span>
       </div>
     `;
