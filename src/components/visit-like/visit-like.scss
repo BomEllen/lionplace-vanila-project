@@ -199,9 +199,9 @@
   }
 
   #review-image-preview {
+    margin-top: $space-sm;
     img {
       max-width: 100%;
-      width: 100%;
     }
   }
 
@@ -258,7 +258,7 @@
     .review-submit-btn {
       min-width: 6.3125rem;
       height: 2.625rem;
-      background-color: $foundation-primary-color;
+      @include button-styles($foundation-primary-color, $text-dark, 0 0);
       border-radius: 0.25rem;
       border: none;
 

@@ -1,5 +1,7 @@
 import { html, css, LitElement, CSSResultGroup, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { User } from "../../@types/type";
+import pb from "../../api/pocketbase";
 import "../../styles/sass/reset.scss";
 import styles from "./visit-like.scss?inline";
 
@@ -23,6 +25,10 @@ class VisitReview extends LitElement {
     return this.renderRoot.querySelector(
       ".review-submit-btn"
     ) as HTMLButtonElement;
+  }
+
+  get imageInput() {
+    return this.renderRoot.querySelector("#file") as HTMLInputElement;
   }
 
   firstUpdated(): void {
@@ -68,11 +74,11 @@ class VisitReview extends LitElement {
     if (imageInput.files && imageInput.files.length > 0) {
       const inputFile = imageInput.files[0];
 
-      formData.append("image", inputFile);
+      formData.append("img", inputFile);
       formData.append("text", this.textInput.value);
-      formData.append("editedUser", (localData.record as User).id);
+      formData.append("userName", (localData.record as User).userName);
       try {
-        const record = await pb.collection("feeds").create(formData);
+        const record = await pb.collection("reviews").create(formData);
 
         location.href = "/src/pages/feed/";
       } catch (err) {
@@ -116,7 +122,7 @@ class VisitReview extends LitElement {
         <div class="review-area-wrap">
           <textarea
             id="review-area"
-            placeholder="리뷰 작성하기"
+            placeholder="최소 10자 이상 써주세요."
             maxlength="400"
             @input=${this.handleTextCount}
           ></textarea>

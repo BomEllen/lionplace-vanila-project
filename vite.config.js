@@ -22,6 +22,7 @@ export default defineConfig({
         visitRecord: resolve(__dirname, "src/pages/visit-record/index.html"),
         reserved: resolve(__dirname, "src/pages/reserved/index.html"),
         order: resolve(__dirname, "src/pages/order/index.html"),
+        visitLike: resolve(__dirname, "src/pages/visit-like/index.html"),
       },
     },
   },
