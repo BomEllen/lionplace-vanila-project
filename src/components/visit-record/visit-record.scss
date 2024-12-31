@@ -54,7 +54,7 @@
         line-height: 1.6;
         height: 1.4375rem;
         padding: 0 0.5rem;
-        background-color: #f9f9f9;
+        background-color: $foundation-accent-color;
       }
     }
   }
@@ -95,7 +95,7 @@
       }
     }
     .bookmark-input:checked + .bookmark-label .check-fill {
-      fill: var(--foundation-primary-color, #ff7710);
+      fill: $foundation-primary-color;
     }
   }
 

@@ -3,7 +3,7 @@ import { customElement, state } from "lit/decorators.js";
 import pb from "../../api/pocketbase";
 import styles from "./post-list.scss?inline";
 import { PostData } from "../../@types/type";
-import { getImageURL } from "../../api/getImageURL";
+import { getImageURL } from "../../api/get-image-url";
 
 @customElement("post-list")
 class PostList extends LitElement {

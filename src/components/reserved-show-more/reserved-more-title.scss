@@ -66,7 +66,7 @@
 
       // 체크된 상태에서의 색상 변경
       .bookmark-input:checked + .bookmark-label .check-fill {
-        fill: var(--foundation-primary-color, #ff7710);
+        fill: $foundation-primary-color;
       }
     }
 

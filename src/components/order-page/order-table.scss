@@ -24,7 +24,7 @@
       background-color: $foundation-accent-color;
       border-bottom: 1px solid $content-tertiary-color;
       border-right: 1px solid $content-tertiary-color;
-      font-size: 12px;
+      font-size: $font-size-sm;
       text-align: center;
       text-decoration: none;
       color: $text-dark;
@@ -62,8 +62,8 @@
 
     img {
       width: 35%;
-      height: 85px;
-      padding-right: 10px;
+      height: 5.3125rem;
+      padding-right: 0.625rem;
     }
   }
 }

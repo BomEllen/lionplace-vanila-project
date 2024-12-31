@@ -3,7 +3,7 @@ import { customElement, state } from "lit/decorators.js";
 import styles from "./visit-record.scss?inline";
 import pb from "../../api/pocketbase";
 import { VisitData } from "../../@types/type";
-import { getImageURL } from "./../../api/getImageURL";
+import { getImageURL } from "../../api/get-image-url";
 
 @customElement("visit-records")
 class visitRecord extends LitElement {

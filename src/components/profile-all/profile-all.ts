@@ -1,6 +1,6 @@
 import { html, css, LitElement, CSSResultGroup, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { getImageURL } from "./../../api/getImageURL";
+import { getImageURL } from "../../api/get-image-url.ts";
 import { ProfilePopup } from "./profile-popup.ts";
 import styles from "./profile-all.scss?inline";
 import { CreateFeed } from "./create-feed.ts";

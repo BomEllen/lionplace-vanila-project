@@ -32,9 +32,9 @@ button:hover {
 
 .visually-hidden {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  margin: -0.0625rem;
   padding: 0;
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -44,7 +44,7 @@ button:hover {
 input {
   display: block;
   width: 90vw;
-  height: 50px;
+  height: 3.125rem;
   margin: 0 auto 1.5rem; // 하단에만 마진
   border: none;
   border-bottom: 1px solid $content-tertiary-color;
@@ -53,7 +53,7 @@ input {
 }
 
 .plus-review-wrap {
-  height: 400px;
+  height: 25rem;
   margin-bottom: 2rem; // 아래 여백 추가
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@ input {
 }
 
 .plus-review-content1 input {
-  font-size: 40px;
+  font-size: 2.5rem;
   padding: 0 1rem; // 좌우 여백 추가
 }
 
@@ -80,7 +80,7 @@ input {
 .plus-review-content3 button {
   border-radius: 3rem;
   font-size: 1.3em;
-  line-height: 35px;
+  line-height: 2.1875rem;
   padding: 1rem 3rem; // 버튼에 여백 추가
 }
 
@@ -112,7 +112,7 @@ input {
 
 .error-message {
   color: red;
-  font-size: 12px;
+  font-size: 0.75rem;
   margin-top: 0.5rem; // 상단에 여백 추가
   margin-left: 1rem; // 왼쪽 여백 추가
 }
