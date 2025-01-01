@@ -21,7 +21,7 @@
   -webkit-overflow-scrolling: touch;
 
   & li button {
-    @include button-styles($background-light, $content-primary-color, 0.25rem 0.25rem);
+    @include button-styles($background-light, $text-dark, 0.25rem 0.25rem);
     width: 3.375rem;
     height: 2.25rem;
     font-family: "Paperlogy", sans-serif;
@@ -32,7 +32,6 @@
 
     &.active {
       background-color: $foundation-primary-color;
-      color: $foundation-accent-color;
     }
 
     &:focus {

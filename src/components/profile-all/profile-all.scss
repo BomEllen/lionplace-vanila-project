@@ -120,7 +120,7 @@
   margin-top: 0.75rem;
 
   button {
-    @include button-styles($foundation-primary-color, $text-light, 0 0);
+    @include button-styles($foundation-primary-color, $text-dark, 0 0);
     width: 100%;
     // 2개였을 때 : width: 50%;
     height: 1.875rem;
@@ -128,7 +128,7 @@
     border-radius: 0.5rem;
     border: none;
     font-family: "Paperlogy", sans-serif;
-    font-weight: 300;
+    font-weight: 500;
 
     &:focus {
       outline: 1px solid $foundation-accent-color;

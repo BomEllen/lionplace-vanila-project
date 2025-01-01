@@ -2,3 +2,11 @@
 @use "../../styles/sass/variables.scss" as *;
 @use "../../styles/sass/mixins.scss" as *;
 @use "../../styles/sass/font.scss";
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: $background-gray;
+  padding-inline: 1rem;
+}

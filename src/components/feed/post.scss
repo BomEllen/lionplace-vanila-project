@@ -13,9 +13,10 @@
   line-height: 1.5;
   @include flex-center(column);
   gap: 0.5rem;
-  color: $content-tertiary-color;
+  color: $text-dark;
   margin-inline: auto;
   background-color: $background-light;
+  border-radius: 0.5rem;
 }
 
 .profile-follow {
@@ -49,9 +50,9 @@
 }
 
 .btn-follow {
-  @include button-styles($foundation-primary-color, $text-light, 0.25rem 0.5rem);
+  @include button-styles($foundation-primary-color, $text-dark, 0.25rem 0.5rem);
   font-family: "Paperlogy", sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 0.75rem;
   height: 1.625rem;
   border-radius: 1rem;
