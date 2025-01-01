@@ -68,7 +68,7 @@ class PostList extends LitElement {
     return html`
       <loading-spinner hidden></loading-spinner>
       <ul>
-        ${this.dataList?.map((_, index, arr) => html`<custom-post .data=${arr[arr.length - 1 - index]}></custom-post>`)}
+        ${this.dataList?.map((_, index, arr) => html`<li><custom-post .data=${arr[arr.length - 1 - index]}></custom-post></li>`)}
       </ul>
     `;
   }
