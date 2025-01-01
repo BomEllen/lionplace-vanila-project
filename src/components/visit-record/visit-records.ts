@@ -1,6 +1,6 @@
 import { html, css, LitElement, CSSResultGroup, unsafeCSS } from "lit";
 import { customElement, state } from "lit/decorators.js";
-import { getImageURL } from "./../../api/getImageURL";
+import { getImageURL } from "./../../api/get-image-url";
 import styles from "./visit-record.scss?inline";
 import { VisitData } from "../../@types/type";
 import pb from "../../api/pocketbase";
