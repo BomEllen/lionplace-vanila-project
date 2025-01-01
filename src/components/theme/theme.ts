@@ -2,7 +2,6 @@ import { html, css, LitElement, CSSResultGroup, unsafeCSS, TemplateResult } from
 import styles from "../theme/theme.scss?inline";
 import eye from "../../assets/images/eye.svg";
 import button from "../../assets/images/plus-btn.svg";
-// import "../../styles/sass/base.scss"
 import { customElement } from "lit/decorators.js";
 import "../loading-spinner/loading-spinner.ts";
 import { LoadingSpinner } from "../loading-spinner/loading-spinner.ts";
@@ -20,6 +19,7 @@ interface Item {
   subItems: SubItem[];
   isAddButton?: boolean; // 플러스 버튼 여부를 나타내는 속성 추가
 }
+
 @customElement("theme-component")
 class Theme extends LitElement {
   static styles: CSSResultGroup = css`
@@ -33,7 +33,7 @@ class Theme extends LitElement {
   test: Item[] = [
     {
       id: 1,
-      name: "Item 1",
+      name: "연남동 / 성수동 카페",
       description: html`
         <div>
           <p>
@@ -80,13 +80,17 @@ class Theme extends LitElement {
       }
       const data = await response.json();
       console.log("API 응답 데이터:", data); // 응답 데이터 로그
-
+  
       // 'items' 배열을 추출하고, 이미지 경로를 절대 경로로 변환
       if (data.items && Array.isArray(data.items)) {
-        const imgFieldName = data.items[0].img; // 이미지 필드 이름 (실제 이미지 필드의 이름 사용)
-        const imgUrl = `https://compass-mighty.pockethost.io/api/files/reviews/${data.items[0].id}/${imgFieldName}`;
+        const imgFieldName = data.items[0].backgroundImage; // 이미지 필드 이름 (실제 이미지 필드의 이름 사용)
+        
+        // imgFieldName 값이 정상적으로 추출되었는지 확인
+        console.log("이미지 필드 이름:", imgFieldName); // imgFieldName 확인용 로그
+        
+        const imgUrl = `https://compass-mighty.pockethost.io/api/files/themes/${data.items[0].id}/${imgFieldName}`;
         console.log("이미지 URL:", imgUrl);
-
+  
         this.backgroundImageUrl = imgUrl; // 가져온 이미지 URL 저장
         this.requestUpdate(); // URL이 갱신되면 다시 렌더링
       }
@@ -171,7 +175,7 @@ class Theme extends LitElement {
       <div class="theme-wrap">
         ${this.test.map(
           (item: Item, itemIndex: number) => html`
-            <div class="sub-image" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 50)), url('${this.backgroundImageUrl}');">
+            <div class="sub-image" @click="${this.handleMoveButtonClick}" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 50)), url('${this.backgroundImageUrl}');">
               <button>임시저장</button>
               <div class="text-box">
                 <h2>${item.name}</h2>

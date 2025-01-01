@@ -103,8 +103,7 @@ class ReceipePaper extends LitElement {
               </div>
               <!-- 리뷰 정보 -->
               <div class="text-wrap">
-                <h3 class="title">${review.title}</h3>
-                <p class="review">${review.subtitle}</p>
+                <p class="review">${review.text}</p>
               </div>
             </div>
           `)}

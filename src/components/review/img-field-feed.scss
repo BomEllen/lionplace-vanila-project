@@ -1,72 +1,99 @@
 @use '../../styles/sass/variables.scss' as *;
 
-.image-container-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $space-sm; /* 0.5rem */
-  font-family: "Paperlogy", sans-serif;
-  font-weight: 300;
+.image-field-feed-container {
+  padding: $space-md; /* 여백 추가 */
 }
 
-.image-text-container {
+.image-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2개씩 그리드 레이아웃 */
+  gap: $space-sm; /* 0.5rem */
+  justify-items: center; /* 아이템들을 중앙 정렬 */
+}
+
+.image-item {
   position: relative;
-  width: 48%; /* 48% */
-  margin-bottom: $space-sm; /* 0.5rem */
   overflow: hidden;
   background-color: $background-light;
-  box-sizing: border-box;
-  transition: transform 0.3s ease; /* 부드러운 전환 추가 */
-
-  &:hover {
-    transform: scale(1.05); /* 호버시 이미지가 약간 커지는 효과 */
-  }
+  border-radius: 0.5rem; /* 모서리 둥글게 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 섬세한 그림자 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 전환 효과 */
 }
 
-.image-text-container img {
+.image-item:hover {
+  transform: scale(1.05); /* 호버시 이미지가 커짐 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 호버시 그림자 효과 */
+}
+
+.image-wrap {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  alt: '이미지 설명을 여기에 추가'; /* 이미지를 시각적으로 볼 수 없는 사용자에게 대체 텍스트 제공 */
+  height: 200px; /* 고정된 높이 설정 */
 }
 
-#bookmark {
-  width: 1.875rem; /* 30px */
-  height: 1.875rem; /* 30px */
-  display: block;
-  position: absolute;
-  top: $space-sm; /* 0.5rem */
-  right: $space-sm; /* 0.5rem */
-  transition: transform 0.3s ease, fill 0.3s ease; /* 애니메이션 효과 추가 */
-  background: none;
-  border: none;
-  // outline: none;
-  cursor: pointer; /* 클릭할 수 있다는 시각적 단서를 제공 */
-}
-
-#bookmark:hover {
-  transform: scale(1.2); /* 북마크 아이콘이 커지는 효과 */
+.image-wrap img {
+  width: 100%; /* 너비 100% */
+  height: 100%; /* 고정된 높이로 이미지가 늘어남 */
+  object-fit: cover; /* 이미지 비율을 유지하며 영역을 채우도록 */
 }
 
 .text-overlay {
   position: absolute;
-  bottom: $space-sm; /* 0.5rem */
-  left: $space-sm; /* 0.5rem */
-  color: $text-light;
-  font-size: $font-size-sm; /* 0.875rem */
-  text-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.7); /* 1px 1px 3px */
-  text-align: left;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 1rem;
   font-weight: 700;
+  z-index: 1;
+  text-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.7); /* 텍스트 그림자 */
+}
+
+.bookmark-btn {
+  position: absolute;
+  top: 10px; /* 상단에서 10px */
+  right: 10px; /* 우측에서 10px */
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2; /* 북마크 버튼이 이미지 위에 오도록 설정 */
+  transition: transform 0.3s ease, fill 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2); /* 북마크 버튼이 커지는 효과 */
+  }
+}
+
+.bookmark-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #aaa; /* 기본 색상 */
+  transition: fill 0.3s ease;
+}
+
+.bookmark-btn svg:hover {
+  fill: #FF7710; /* 호버 시 색상 변경 */
+}
+
+button{
+  position:absolute;
+  top:0;
+  right:0;
+  width:30px;
+  height:30px;
+  z-index: 999999999999999999999999999999999999;
+  background-color: #ffffff00;
+  border:none;
 }
 
 .bookmark-message {
   position: fixed;
   bottom: 1.25rem; /* 20px */
   left: 50%;
-  bottom: 7%;
+  bottom:7%;
   transform: translateX(-50%);
   color: white;
-  padding: 0.625rem 1.25rem; /* 10px 20px */
-  border-radius: 0.3125rem; /* 5px */
+  padding: 0.625rem 1.25rem; /* 0.625rem 1.25rem (10px 20px) */
+  border-radius: 0.3125rem; /* 0.3125rem (5px) */
   font-size: 1rem; /* 16px */
   z-index: 1000000000000;
   opacity: 0;
@@ -93,16 +120,5 @@
   }
   100% {
     opacity: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .image-text-container {
-    width: 100%; /* 작은 화면에서 이미지가 100% 너비를 차지하도록 변경 */
-  }
-
-  .bookmark-message {
-    font-size: 0.875rem; /* 모바일에서 메시지 폰트 크기 조정 */
-    padding: 0.5rem 1rem; /* 모바일에서 메시지 패딩 조정 */
   }
 }

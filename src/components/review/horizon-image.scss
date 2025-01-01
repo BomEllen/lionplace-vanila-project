@@ -34,11 +34,13 @@ body {
 }
 
 .image-wrap {
+  width:140px;
   flex-shrink: 0;
   margin-right: $space-md; /* 1rem */
 }
 
 .image-wrap img {
+  width:100%;
   object-fit: cover;
   border-radius: 0.5rem; /* 0.5rem */
 }
@@ -111,4 +113,13 @@ body {
   100% {
     opacity: 0;
   }
+}
+
+
+button{
+  position:absolute;
+  top:7px;
+  right:5px;
+  width:20px;
+  height:20px;
 }
