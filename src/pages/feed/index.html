@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
   <head>
-    <title>LionPlace</title>
+    <title>LionPlace | 피드</title>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Tags -->
+    <meta name="description" content="LionPlace는 예약, 리뷰 및 방문 기록을 관리할 수 있는 플랫폼입니다." />
+    <meta property="og:title" content="LionPlace | 피드" />
+    <meta property="og:description" content="LionPlace에서 예약과 방문 리뷰를 한곳에서 관리하세요!" />
+    <meta property="og:image" content="/meta-img.png" />
+    <meta property="og:url" content="https://superb-zuccutto-1a45bc.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+
     <script type="module" src="../../components/index.js"></script>
     <script type="module" src="../../layout/index.js"></script>
     <link rel="stylesheet" href="feed.scss" />
+    <link rel="preconnect" href="https://compass-mighty.pockethost.io" />
+    <link rel="preconnect" href="https://fastly.jsdelivr.net/" />
   </head>
   <body>
+    <h1 class="sr-only">LionPlace 피드</h1>
     <time-gps></time-gps>
     <profile-all></profile-all>
     <custom-navigation></custom-navigation>

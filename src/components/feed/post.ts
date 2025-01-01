@@ -21,10 +21,10 @@ class Post extends LitElement {
     const { userImg, date, image, text, userName, reviewCount } = this.data as PostData;
 
     return html`
-      <li class="post-item">
+      <div class="post-item">
         <div class="profile-follow">
           <div class="post-profile">
-            <img src="${userImg}" alt="${userName}의 profile 사진" class="profile-img" />
+            <img src="${userImg}" alt="${userName}의 profile 사진" class="profile-img" width="28px" height="28px" />
             <span class="profile-name">${userName}</span>
             <span class="review-info">사진리뷰 ${reviewCount} | ${date}</span>
           </div>
@@ -35,7 +35,7 @@ class Post extends LitElement {
         <img src="${image}" alt="${userName}의 리뷰 사진" class="review-img" />
 
         <span class="review-text">${text}</span>
-      </li>
+      </div>
     `;
   }
 }

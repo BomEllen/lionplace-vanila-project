@@ -14,7 +14,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
-  z-index: 1000;
+  z-index: 1001;
   font-size: 1rem;
 }
 
@@ -23,11 +23,13 @@
 }
 
 .popup-content {
+  box-sizing: border-box;
   background-color: white;
   padding: 1.25rem;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   position: relative;
-  min-width: 400px;
+  max-width: $max-content-width;
+  min-width: $min-content-width;
   width: 100%;
 }
 
@@ -65,7 +67,7 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 0.25rem;
   padding: 2rem;
   position: relative;
 
@@ -76,17 +78,16 @@ button {
 
   input {
     width: 11.25rem;
-    height: 42px;
+    height: 2.625rem;
     position: absolute;
     pointer-events: none;
-    top: 32px;
+    top: 2rem;
     :focus {
       outline: 1px solid $text-dark;
     }
   }
 
-  label {
-  }
+
 }
 
 .btn-upload {

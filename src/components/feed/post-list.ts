@@ -1,9 +1,11 @@
-import { css, CSSResultGroup, html, LitElement, unsafeCSS } from "lit";
+import { css, CSSResultGroup, html, LitElement, PropertyValues, unsafeCSS } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import pb from "../../api/pocketbase";
 import styles from "./post-list.scss?inline";
 import { PostData } from "../../@types/type";
-import { getImageURL } from "../../api/getImageURL";
+import { getImageURL } from "../../api/get-image-url.ts";
+import "../loading-spinner/loading-spinner.ts";
+import { LoadingSpinner } from "../loading-spinner/loading-spinner.ts";
 
 @customElement("post-list")
 class PostList extends LitElement {
@@ -13,8 +15,11 @@ class PostList extends LitElement {
     ${unsafeCSS(styles)}
   `;
 
-  connectedCallback(): void {
-    super.connectedCallback();
+  get spinner() {
+    return this.renderRoot.querySelector("loading-spinner") as LoadingSpinner;
+  }
+
+  firstUpdated(): void {
     // 연결 시 데이터 불러옴
     this.fetchData();
   }
@@ -37,6 +42,8 @@ class PostList extends LitElement {
   async fetchData() {
     // expand 옵션을 통해 연결된 릴레이션(editedUser, = 피드 작성 유저정보)까지 받아서 한번에 확인 가능
     try {
+      this.spinner?.show();
+
       const feeds = await pb.collection("feeds").getFullList({ expand: "editedUser" });
 
       this.dataList = feeds.map(
@@ -49,6 +56,8 @@ class PostList extends LitElement {
           reviewCount: 0,
         })
       );
+
+      this.spinner?.hide();
     } catch (err) {
       // 통신 실패 시 에러 메시지 출력
       console.log(err);
@@ -57,8 +66,9 @@ class PostList extends LitElement {
 
   render() {
     return html`
+      <loading-spinner hidden></loading-spinner>
       <ul>
-        ${this.dataList?.map((_, index, arr) => html`<custom-post .data=${arr[arr.length - 1 - index]}></custom-post>`)}
+        ${this.dataList?.map((_, index, arr) => html`<li><custom-post .data=${arr[arr.length - 1 - index]}></custom-post></li>`)}
       </ul>
     `;
   }

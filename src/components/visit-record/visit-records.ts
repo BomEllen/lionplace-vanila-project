@@ -1,9 +1,11 @@
 import { html, css, LitElement, CSSResultGroup, unsafeCSS } from "lit";
 import { customElement, state } from "lit/decorators.js";
+import { getImageURL } from "./../../api/get-image-url";
 import styles from "./visit-record.scss?inline";
-import pb from "../../api/pocketbase";
 import { VisitData } from "../../@types/type";
-import { getImageURL } from "./../../api/getImageURL";
+import pb from "../../api/pocketbase";
+import "../loading-spinner/loading-spinner.ts";
+import { LoadingSpinner } from "../loading-spinner/loading-spinner.ts";
 
 @customElement("visit-records")
 class visitRecord extends LitElement {
@@ -13,10 +15,13 @@ class visitRecord extends LitElement {
     ${unsafeCSS(styles)}
   `;
 
-  connectedCallback(): void {
-    super.connectedCallback();
+  firstUpdated(): void {
     // 연결 시 데이터 불러옴
     this.fetchData();
+  }
+
+  get spinner() {
+    return this.renderRoot.querySelector("loading-spinner") as LoadingSpinner;
   }
 
   // isoString("2024-12-16 05:20:58.524Z")을 "12.16.월"로 바꿔주는 함수
@@ -37,14 +42,18 @@ class visitRecord extends LitElement {
   async fetchData() {
     // expand 옵션을 통해 연결된 릴레이션(editedUser, = 피드 작성 유저정보)까지 받아서 한번에 확인 가능
     try {
+      this.spinner?.show();
+
       const visitRecords = await pb.collection("visitRecords").getFullList({ expand: "place,review.tags", sort: "+date" });
 
       this.visitRecords = visitRecords.map((item): VisitData => {
         if (item.review === "") {
           return {
+            id: item.id,
             price: item.expand!.place.price,
             date: this.formatToDate(item.created),
             placeName: item.expand!.place.placeName,
+            type: item.expand!.place.type,
             reviewText: "",
             reviewImg: "",
             reviewTags: [],
@@ -52,15 +61,19 @@ class visitRecord extends LitElement {
         } else {
           const tags = item.expand!.review.expand!.tags.map((i: { text: string }) => i.text);
           return {
+            id: "",
+            type: "",
             price: item.expand!.place.price,
             date: this.formatToDate(item.created),
             placeName: item.expand!.place.placeName,
             reviewText: item.expand!.review.text,
-            reviewImg: getImageURL(item.collectionId, item.id, item.expand!.review.img),
+            reviewImg: getImageURL(item.expand!.review.collectionId, item.expand!.review.id, item.expand!.review.img),
             reviewTags: tags,
           };
         }
       });
+
+      this.spinner?.hide();
     } catch (err) {
       // 통신 실패 시 에러 메시지 출력
       console.log(err);
@@ -69,6 +82,7 @@ class visitRecord extends LitElement {
 
   render() {
     return html`
+      <loading-spinner hidden></loading-spinner>
       <div class="review-visit-record-wrap">
         ${this.visitRecords?.map((item) => {
           if (item.reviewText !== "") {

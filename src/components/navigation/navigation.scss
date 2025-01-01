@@ -12,11 +12,11 @@ li {
 }
 
 ul {
-  height: 32px;
+  height: 2rem;
   display: flex;
   justify-content: space-around;
   background-color: $foundation-secondary-color;
-  padding: 10px 10px;
+  padding: 0.625rem 0.625rem;
   box-sizing: border-box;
   overflow: hidden;
   line-height: 0.8;
@@ -31,7 +31,7 @@ ul li a {
 ul li:hover {
   color: $foundation-primary-color;
   border-bottom: 3px solid $foundation-primary-color;
-  height: 20px;
+  height: 1.25rem;
 }
 
 a {

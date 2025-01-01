@@ -1,0 +1,113 @@
+/* SCSS 변수 */
+@import '../../styles/sass/mixins.scss';
+@import '../../styles/sass/variables.scss';
+
+.receipe-paper-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: space-around;
+  }
+  
+  .receipe-paper {
+    position: relative;
+    width: 16.25rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    // overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 300;
+  }
+  
+  .image-wrap img {
+    width: 100%;
+    height: 12.5rem;
+    object-fit: cover;
+  }
+  
+  .text-wrap {
+    padding: 0.625rem;
+  }
+  
+  .title {
+    font-size: $font-size-md;
+    font-weight: bold;
+    margin-bottom: 0.625rem;
+  }
+  
+  .review {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  .bookmark-icon {
+    position: absolute;
+    top: 0.625rem;
+    right: 0.625rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .bookmark-icon:hover {
+    transform: scale(1.2);
+  }
+  
+.bookmark-message {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.3125rem;
+  font-size: $font-size-base;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeInOut 1s forwards;
+
+  &.success {
+    background-color: #28a745; /* 초록색 */
+  }
+
+  &.error {
+    background-color: #dc3545; /* 빨간색 */
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.receipe-paper {
+  position: relative;
+  /* 기존 스타일 추가 */
+
+  .close-button {
+    position: absolute;
+    top:-8px;
+    right:-15px;
+    background: none;
+    border: none;
+    font-size: $font-size-md;
+    background-color: $foundation-primary-color;
+    color:$text-light;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}

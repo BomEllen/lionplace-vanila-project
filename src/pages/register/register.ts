@@ -4,9 +4,11 @@ import "./register.scss";
 import pb from "../../api/pocketbase";
 import { User } from "../../@types/type";
 import { alertAndProceed, debounce, handleInput } from "../../utils/form-utils";
+import { LoadingSpinner } from "../../components/loading-spinner/loading-spinner";
 
 const inputList = [...document.querySelectorAll("input")];
 const loginBtn = document.querySelector(".btn-login") as HTMLButtonElement;
+const loadingSpinner = document.querySelector("loading-spinner") as LoadingSpinner;
 
 // 중복된 아이디(userName)가 존재하는지 확인하는 함수(T/F를 반환)
 function isInputUnique(userArray: User[], inputId: string, inputEmail: string): boolean {
@@ -39,7 +41,7 @@ function isInputUnique(userArray: User[], inputId: string, inputEmail: string): 
 // UserRecord를 만들어 포켓베이스에 저장하는 함수
 async function createUserRecord() {
   try {
-    const response = await fetch("/defaultUserImage.png");
+    const response = await fetch("/default-user-image.png");
     if (!response.ok) {
       throw new Error("Failed to fetch default image.");
     }
@@ -65,7 +67,9 @@ async function createUserRecord() {
 
     const record = await pb.collection("users").create(formData);
     console.log("User record created:", record);
+    loadingSpinner.hide();
   } catch (err) {
+    loadingSpinner.hide();
     throw err;
   }
 }
@@ -74,10 +78,13 @@ async function handleReg(e: Event) {
   e.preventDefault();
 
   try {
+    loadingSpinner.show();
     const record = (await pb.collection("users").getFullList()) as User[];
     console.log(record);
 
+    loadingSpinner.hide();
     if (isInputUnique(record, inputList[0].value, inputList[1].value)) {
+      loadingSpinner.show();
       await createUserRecord();
 
       await alertAndProceed("회원가입이 완료되었습니다. 확인 버튼을 누르시면 로그인 페이지로 이동합니다.");
@@ -85,6 +92,7 @@ async function handleReg(e: Event) {
       location.href = "/src/pages/login/"; // 로그인 페이지로 이동
     }
   } catch (err) {
+    loadingSpinner.hide();
     console.log(err);
   }
 }

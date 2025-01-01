@@ -4,6 +4,7 @@ import "../../styles/sass/reset.scss";
 import "../../styles/sass/variables.scss";
 import "../../styles/sass/font.scss";
 import styles from "./footer.scss?inline";
+import { User } from "../../@types/type";
 
 @customElement("custom-footer")
 class CustomFooter extends LitElement {
@@ -19,6 +20,16 @@ class CustomFooter extends LitElement {
     }
   }
 
+  handleDeleteAccount() {
+    const record = JSON.parse(localStorage.getItem("auth") as string).record as User;
+
+    if (record.id === "0k5scs578ifjs9w") {
+      alert("testbot12는 회원 탈퇴가 불가능합니다. 관리자에게 문의하세요.");
+    } else if (confirm("정말 회원 탈퇴 하시겠습니까?")) {
+      location.href = "/src/pages/delete-account/";
+    }
+  }
+
   render() {
     return html`
       <footer>
@@ -29,7 +40,10 @@ class CustomFooter extends LitElement {
         </select>
 
         <div>
-          <button @click=${this.handleLogout} type="button" class="btn-logout">로그아웃</button>
+          <div class="account-btns">
+            <button @click=${this.handleLogout} type="button" class="btn-logout">로그아웃</button>
+            <button @click=${this.handleDeleteAccount} type="button" class="btn-delete-account">회원탈퇴</button>
+          </div>
           <ul>
             <li><a href="https://help.naver.com/service/30026/category/bookmark?lang=ko" rel="external">네이버 예약 고객센터</a></li>
             <li><a href="https://new.smartplace.naver.com/help/policy" rel="external">이용약관</a></li>

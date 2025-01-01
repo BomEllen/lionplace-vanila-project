@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>visit record</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../../components/index.js"></script>
+    <script type="module" src="../../layout/index.js"></script>
+    <link rel="stylesheet" href="./visit-like.scss" />
+    <link rel="preconnect" href="https://compass-mighty.pockethost.io" />
+    <link rel="preconnect" href="https://fastly.jsdelivr.net/" />
+  </head>
+  <body>
+    <time-gps></time-gps>
+    <section class="visit-like-section">
+      <h1 class="sr-only">리뷰 작성 페이지</h1>
+
+      <visit-like-popup></visit-like-popup>
+      <like-recommend></like-recommend>
+      <div class="like-keyword-section">
+        <div class="like-keyword-title">
+          <h3>어떤 점이 좋았나요? (1개~5개)</h3>
+          <p>이 장소에 어울리는 키워드를 골라주세요.</p>
+        </div>
+        <like-keyword-check></like-keyword-check>
+      </div>
+      <visit-review></visit-review>
+    </section>
+    <nav-items></nav-items>
+  </body>
+</html>

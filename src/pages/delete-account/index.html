@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>LionPlace | 회원탈퇴</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Tags -->
+    <meta name="description" content="LionPlace는 예약, 리뷰 및 방문 기록을 관리할 수 있는 플랫폼입니다." />
+    <meta property="og:title" content="LionPlace | 회원탈퇴" />
+    <meta property="og:description" content="LionPlace에서 예약과 방문 리뷰를 한곳에서 관리하세요!" />
+    <meta property="og:image" content="/meta-img.png" />
+    <meta property="og:url" content="https://superb-zuccutto-1a45bc.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+
+    <script type="module" src="../../components/index.js"></script>
+    <script type="module" src="../../layout/index.js"></script>
+    <script type="module" src="./delete-account.ts"></script>
+    <link rel="preconnect" href="https://compass-mighty.pockethost.io" />
+    <link rel="preconnect" href="https://fastly.jsdelivr.net/" />
+  </head>
+  <body>
+    <h1><img src="../../assets/login/logo.svg" alt="lion place logo" width="110px" /></h1>
+
+    <main class="delete-account-main">
+      <h2>회원탈퇴</h2>
+      <form class="delete-account-form">
+        <div class="delete-account-pw">
+          <label for="pw-field">비밀번호</label>
+          <input type="password" id="pw-field" placeholder="8문자 이상, 특수 문자 포함" />
+        </div>
+        <div class="delete-account-check-pw">
+          <label for="check-pw-field">비밀번호 확인</label>
+          <input type="password" id="check-pw-field" placeholder="8문자 이상, 특수 문자 포함" />
+        </div>
+        <button type="submit" class="btn-delete-account" disabled>회원탈퇴</button>
+      </form>
+    </main>
+  </body>
+</html>

@@ -3,8 +3,8 @@ import styles from "./category.scss?inline"; // SCSS를 인라인으로 불러�
 import "../../styles/sass/reset.scss";
 import "../../styles/sass/variables.scss";
 import "../../styles/sass/font.scss";
-import "../horizon-image/horizon-image.ts"; // <horizon-image> 컴포넌트 임포트
-import "../image-field-feed/image-field-feed.ts"; // <image-field-feed> 컴포넌트 임포트
+import "../review/horizon-image.ts"; // <horizon-image> 컴포넌트 임포트
+import "../review/image-field-feed.ts"; // <image-field-feed> 컴포넌트 임포트
 import { customElement } from "lit/decorators.js";
 @customElement("cate-gory")
 class Category extends LitElement {
