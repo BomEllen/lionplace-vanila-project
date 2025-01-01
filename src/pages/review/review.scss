@@ -1,10 +1,18 @@
 @use "../../styles/sass/variables.scss" as *;
 @use "../../styles/sass/mixins.scss" as *;
-@use "../../styles/sass/font.scss" as *;
-@use "../../styles/sass/reset.scss" as *;
+@use "../../styles/sass/font.scss";
+@use "../../styles/sass/reset.scss";
+
+html {
+  box-sizing: border-box;
+  background-color: $background-light;
+}
 
 body {
-  background-color: rgb(235, 235, 235);
+  background-color: $background-gray;
+  min-width: $min-content-width;
+  max-width: $max-content-width;
+  margin-inline: auto !important;
 }
 
 theme-component {
@@ -24,4 +32,9 @@ h2 {
 nav-items {
   position: sticky;
   bottom: 0;
+  z-index: 1000;
+}
+
+.sr-only {
+  @include sr-only-styles();
 }

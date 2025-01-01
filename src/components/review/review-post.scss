@@ -1,4 +1,4 @@
-@import "../../styles/sass/variables.scss";
+@use "../../styles/sass/variables.scss" as *;
 
 * {
   background-color: $foundation-secondary-color;
@@ -18,8 +18,8 @@ button {
   border: 1px solid $foundation-accent-color;
   padding: 1rem 3rem;
   transition: background-color 0.3s ease;
-  position:relative;
-  top:-2rem;
+  position: relative;
+  top: -2rem;
 }
 
 button:hover {
@@ -43,7 +43,7 @@ button:hover {
 
 input {
   display: block;
-  width: 90vw;
+  width: 90%;
   height: 3.125rem;
   margin: 0 auto 1.5rem; // 하단에만 마진
   border: none;
@@ -93,7 +93,7 @@ input {
 }
 
 .text-count {
-  width: 90vw;
+  width: 90%;
   margin: 0 auto;
   padding: 0.5rem 0; // 위아래 여백 추가
 }

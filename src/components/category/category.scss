@@ -30,6 +30,7 @@
 
 .tab-content,
 .container {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem; /* 8px */

@@ -4,7 +4,8 @@
 @use "../../styles/sass/font.scss";
 
 .theme-nav {
-  padding: 1.125rem;
+  padding-block-end: 1.125rem;
+  background-color: $background-light;
 }
 
 .theme-menu {

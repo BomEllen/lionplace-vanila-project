@@ -18,8 +18,10 @@ class ReservationToggle extends LitElement {
 
     // 현재 URL을 기반으로 버튼의 active 상태 설정
     const currentPath = window.location.pathname;
+
     buttons.forEach((button) => {
       const href = button.getAttribute("href");
+
       if (href && currentPath.includes(href)) {
         button.classList.add("active");
       } else {
@@ -42,8 +44,8 @@ class ReservationToggle extends LitElement {
         <div class="toggle-wrapper">
           <div class="toggle-switch">
             <!-- 버튼 링크 -->
-            <a href="/src/pages/reserved/index.html" class="toggle active" data-direction="left">예약</a>
-            <a href="/src/pages/order/index.html" class="toggle" data-direction="right">주문</a>
+            <a href="/src/pages/reserved/" class="toggle active" data-direction="left">예약</a>
+            <a href="/src/pages/order/" class="toggle" data-direction="right">주문</a>
           </div>
         </div>
       </div>

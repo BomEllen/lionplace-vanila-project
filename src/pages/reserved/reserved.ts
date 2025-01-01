@@ -1,16 +1,13 @@
 import "./reserved.scss";
 import { ReservationVisitList } from "../../components/reservation/reservation-visit-list.ts";
 import { UserData, PaginatedVisitRecordsType, PaginatedPlacesType } from "../../@types/type";
-
-
+import { LoadingSpinner } from "../../components/loading-spinner/loading-spinner.ts";
 
 let userData: UserData = {
   userName: "loading...",
   reservationCount: 0,
   payCount: 0,
 };
-
-
 
 // DOM 요소 캐싱
 const userNameElement = document.getElementById("userName");
@@ -19,8 +16,7 @@ const payCountElement = document.getElementById("payCount");
 const hiddenContent = document.getElementById("hiddenContent") as HTMLElement;
 const showMoreButton = document.getElementById("showMoreButton") as HTMLElement;
 const reservationTypes = document.querySelector("reservation-types") as HTMLElement;
-
-
+const loadingSpinner = document.querySelector("loading-spinner") as LoadingSpinner;
 
 // DOM 업데이트 함수
 function updateDOM() {
@@ -28,8 +24,6 @@ function updateDOM() {
   if (reservationCountElement) reservationCountElement.innerText = userData.reservationCount.toString();
   if (payCountElement) payCountElement.innerText = userData.payCount.toLocaleString();
 }
-
-
 
 // 유저 데이터 가져오기
 async function fetchUserData() {
@@ -39,15 +33,11 @@ async function fetchUserData() {
   updateDOM();
 }
 
-
-
 // 데이터 가져오기
 async function fetchData() {
   const [placeData, reviewData] = await Promise.all([fetch("https://compass-mighty.pockethost.io/api/collections/places/records").then((res) => res.json()), fetch("https://compass-mighty.pockethost.io/api/collections/reviews/records").then((res) => res.json())]);
   return { placeData, reviewData };
 }
-
-
 
 // 리뷰 필터링 및 렌더링
 function filterAndRenderReviews(reviewData: { items: { place: string; text: string; img: string; id: string }[] }, placeData: { items: { id: string; placeName: string; price: number; type: string; updated: string }[] }) {
@@ -67,8 +57,6 @@ function filterAndRenderReviews(reviewData: { items: { place: string; text: stri
   updateTop3Places(filteredReviews);
 }
 
-
-
 // 숨겨진 콘텐츠 업데이트
 function updateHiddenContent(filteredReviews: any[]) {
   if (hiddenContent) {
@@ -86,8 +74,6 @@ function updateHiddenContent(filteredReviews: any[]) {
   }
 }
 
-
-
 // 예약 요약글 업데이트 하기
 function updateReservationSummary(filteredReviews: any[]) {
   const reservationCount = filteredReviews.length;
@@ -96,8 +82,6 @@ function updateReservationSummary(filteredReviews: any[]) {
   if (reservationCountElement) reservationCountElement.innerText = reservationCount.toString();
   if (payCountElement) payCountElement.innerText = totalPay.toLocaleString();
 }
-
-
 
 // 상위 3개 장소 업데이트 (visit-list)
 function updateTop3Places(filteredReviews: any[]) {
@@ -114,8 +98,6 @@ function updateTop3Places(filteredReviews: any[]) {
   const reservationList = document.querySelector("reservation-visit-list") as ReservationVisitList;
   if (reservationList) reservationList.top3Places = top3Places;
 }
-
-
 
 // 이벤트 바인딩
 function bindEvents() {
@@ -137,7 +119,7 @@ function bindEvents() {
   }
 }
 
-
+loadingSpinner.show();
 
 // 초기화
 document.addEventListener("DOMContentLoaded", async () => {
@@ -146,5 +128,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   const { placeData, reviewData } = await fetchData();
   filterAndRenderReviews(reviewData, placeData);
   bindEvents();
+  loadingSpinner.hide();
 });
-

@@ -1,21 +1,24 @@
 @use "../../styles/sass/variables.scss" as *;
 @use "../../styles/sass/mixins.scss" as *;
-@use "../../styles/sass/font.scss" as *;
+@use "../../styles/sass/font.scss";
 @use "../../styles/sass/reset.scss";
 
 .visit-like-section {
   position: relative;
 }
+
 .popup-close-btn {
-  position: fixed;
-  top: 1.25rem;
-  right: 0.875rem;
-  background: url("../../assets/visit-like/popup-close-btn.svg") center
-    no-repeat;
-  width: 0.75rem;
-  height: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 3px;
+  right: 2px;
+  top: 2px;
+  background-color: inherit;
   border: none;
   z-index: 2;
+  cursor: pointer;
 
   span {
     @include sr-only-styles();
@@ -23,14 +26,14 @@
 }
 
 .visit-like-popup {
+  box-sizing: border-box;
+  position: relative;
   background-color: #fff;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  // height: 5.375rem;
+  min-width: $min-content-width;
+  max-width: $max-content-width;
   border-bottom: 1px solid $content-tertiary-color;
-  padding: 1.25rem 0.875rem 0.875rem;
+  padding-inline: 0.875rem;
+  padding-block-end: 0.875rem;
 
   ul {
     li {
@@ -55,7 +58,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 5.5rem;
   height: 12.3125rem;
   transition: transform 0.3s ease;
 
@@ -85,11 +87,14 @@
       font-size: $font-size-sm;
     }
   }
+
   .like-input {
     @include sr-only-styles();
     margin: 0;
     appearance: none;
+    outline: 1px solid $text-dark;
   }
+
   .like-input:checked + .like-label {
     background-color: $foundation-accent-color;
     box-sizing: border-box;
@@ -131,31 +136,40 @@
     width: 100%;
     gap: 20px;
     overflow-x: hidden;
+  }
+}
 
-    .like-keyword-check-list {
-      display: inline-block;
-      text-align: center;
-      flex-shrink: 0;
+.like-keyword-check-list {
+  display: inline-block;
+  text-align: center;
+  flex-shrink: 0;
 
-      ul {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        gap: 0.5rem;
-        width: 100%;
-      }
+  ul {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-inline: 1rem;
+    margin: 0;
+    gap: 0.75rem;
+    width: 100%;
+    height: 200px;
+  }
 
-      .more-keyword-btn {
-        background-color: transparent;
-        border: none;
-        display: inline-flex;
-        padding: 0;
-        margin-top: 0.5rem;
+  li {
+    box-sizing: border-box;
+  }
 
-        span {
-          @include sr-only-styles();
-        }
-      }
+  .more-keyword-btn {
+    background-color: transparent;
+    border: none;
+    display: inline-flex;
+    padding: 0;
+    margin-top: 0.5rem;
+
+    span {
+      @include sr-only-styles();
     }
   }
 }
@@ -256,15 +270,17 @@
     }
 
     .review-submit-btn {
-      min-width: 6.3125rem;
-      height: 2.625rem;
       @include button-styles($foundation-primary-color, $text-dark, 0 0);
+      height: 2.625rem;
+      min-width: 6.3125rem;
       border-radius: 0.25rem;
       border: none;
+      color: $foundation-accent-color;
+      font-size: $font-size-sm;
 
-      span {
-        color: $foundation-accent-color;
-        font-size: $font-size-sm;
+      &:disabled {
+        background-color: darken($foundation-primary-color, 20%);
+        cursor: not-allowed;
       }
     }
   }

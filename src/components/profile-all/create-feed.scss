@@ -14,10 +14,9 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
-  z-index: 1000;
+  z-index: 1001;
   font-size: 1rem;
   overflow: auto;
-  min-width: 22.5rem;
 }
 
 .visible {
@@ -30,7 +29,8 @@
   padding: 1.25rem;
   border-radius: 0.3125rem;
   position: relative;
-  min-width: 22.5rem;
+  max-width: $max-content-width;
+  min-width: $min-content-width;
   width: 100%;
 }
 
@@ -82,7 +82,11 @@ button {
     height: 2.625rem;
     position: absolute;
     pointer-events: none;
-    top: 2rem;
+    top: 32px;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    align-items: center;
     :focus {
       outline: 1px solid $text-dark;
     }
