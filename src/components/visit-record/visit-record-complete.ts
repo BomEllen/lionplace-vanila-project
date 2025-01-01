@@ -16,7 +16,7 @@ class visitRecordComplete extends LitElement {
 
     return html`
       <div class="visit-record-wrap">
-        <h4>${placeName}</h4>
+        <h2>${placeName}</h2>
         <span class="visit-date">${date}</span>
         <div class="visit-place-wrap">
           <div class="visit-review-wrap">
