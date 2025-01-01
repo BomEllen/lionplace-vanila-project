@@ -4,7 +4,7 @@ import styles from './theme-enroll.scss?inline'; // SCSS를 인라인으로 불�
 import '../../styles/sass/reset.scss';
 import '../../styles/sass/variables.scss';
 import '../../styles/sass/font.scss';
-import '../review-post/review-post.ts'; // review-post 컴포넌트 추가
+import './review-post.ts'; // review-post 컴포넌트 추가
 import { customElement } from "lit/decorators.js";
 
 @customElement("theme-enroll")

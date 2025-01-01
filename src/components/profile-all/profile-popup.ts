@@ -82,10 +82,30 @@ export class ProfilePopup extends LitElement {
   async handleSave(e: Event) {
     e.preventDefault();
 
-    const localData = JSON.parse(localStorage.getItem("auth") as string);
-    const localRecord = localData.record as User;
-    const formData = new FormData();
+    const localDataString = localStorage.getItem("auth");
+    if (!localDataString) {
+      console.error("localStorage에 'auth' 데이터가 없습니다."); 
+      alert("로그인이 필요합니다. 다시 로그인해주세요."); 
+      return;
+    }
 
+    let localData;
+    try {
+      localData = JSON.parse(localDataString);
+    } catch {
+      console.error("localStorage 'auth' 데이터가 올바른 JSON 형식이 아닙니다."); 
+      alert("데이터를 불러오는 데 실패했습니다. 다시 로그인해주세요."); 
+      return;
+    }
+
+    const localRecord = localData.record as User;
+    if (!localRecord) {
+      console.error("'auth' 데이터에 record 속성이 없습니다."); 
+      alert("사용자 데이터를 불러오는 데 실패했습니다. 다시 로그인해주세요."); 
+      return;
+    }
+
+    const formData = new FormData();
     if (this.input.files && this.input.files.length > 0) {
       const inputFile = this.input.files[0];
 
@@ -97,14 +117,18 @@ export class ProfilePopup extends LitElement {
         }
       }
 
-      const record = await pb.collection("users").update(localRecord.id, formData);
+      try {
+        const record = await pb.collection("users").update(localRecord.id, formData);
 
-      localRecord.avatar = record.avatar;
-      localData.record = localRecord;
+        localRecord.avatar = record.avatar;
+        localData.record = localRecord;
 
-      localStorage.setItem("auth", JSON.stringify(localData));
-
-      location.reload();
+        localStorage.setItem("auth", JSON.stringify(localData));
+        location.reload();
+      } catch (error) {
+        console.error("서버에 데이터를 저장하는 도중 오류가 발생했습니다.", error); 
+        alert("저장에 실패했습니다. 다시 시도해주세요."); 
+      }
     }
   }
 
@@ -119,12 +143,10 @@ export class ProfilePopup extends LitElement {
       this.handleClose();
     }
     if (e.key === "Tab" && this.focusableContents != null) {
-      // 현재 focus중인 element는 shadowRoot로만 찾을 수 있어 임의로 사용했습니다.
       const activeElement = this.shadowRoot?.activeElement;
       const first = this.focusableContents[0] as HTMLElement;
       const last = this.focusableContents[this.focusableContents.length - 1] as HTMLElement;
 
-      // Tab
       if (activeElement === last) {
         e.preventDefault();
         first.focus();
