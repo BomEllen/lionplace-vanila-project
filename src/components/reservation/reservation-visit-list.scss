@@ -57,13 +57,13 @@
       /* progress bar 배경 요소 */
       &::-webkit-progress-bar {
         background: $content-tertiary-color;
-        border-radius:10px;
+        border-radius:0.625rem;
         box-shadow: inset 3px 3px 10px #ccc;
       }
       
       /* progress bar 진행바 요소 */
       &::-webkit-progress-value {
-        border-radius:10px;
+        border-radius:0.625rem;
         background: $foundation-primary-color;
       }
   }

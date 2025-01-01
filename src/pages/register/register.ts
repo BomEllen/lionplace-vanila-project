@@ -39,7 +39,7 @@ function isInputUnique(userArray: User[], inputId: string, inputEmail: string): 
 // UserRecord를 만들어 포켓베이스에 저장하는 함수
 async function createUserRecord() {
   try {
-    const response = await fetch("/defaultUserImage.png");
+    const response = await fetch("/default-user-image.png");
     if (!response.ok) {
       throw new Error("Failed to fetch default image.");
     }

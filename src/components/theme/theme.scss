@@ -14,7 +14,7 @@ $card-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: $background-light;
   color: #333;
   line-height: 1.6;
 }
@@ -25,15 +25,15 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;  /* 상하좌우 패딩 */
-  background-color: #ffffff;
+  background-color: $background-light;
   border-bottom: 0.0625rem solid #ddd;
   box-shadow: $card-shadow;
 }
 
 .header .button {
   background-color: transparent;
-  border: 0.0625rem solid #FF7710;  /* 실제 색상으로 변경 */
-  color: #FF7710;  /* 실제 색상으로 변경 */
+  border: 0.0625rem solid $foundation-primary-color;  /* 실제 색상으로 변경 */
+  color: $foundation-primary-color;  /* 실제 색상으로 변경 */
   padding: 0.5rem 1rem;  /* 버튼 패딩 */
   font-size: 1rem;  /* 폰트 크기 */
   cursor: pointer;
@@ -42,8 +42,8 @@ body {
 }
 
 .header .button:hover {
-  background-color: #e66c00; /* 파랑색 어두운 색으로 변경 (어두운 파랑 대체) */
-  color: #fff;
+  background-color: $foundation-primary-color; /* 파랑색 어두운 색으로 변경 (어두운 파랑 대체) */
+  color: $foundation-accent-color;
 }
 
 /* 기본 아이템 카드 스타일 */
@@ -65,7 +65,7 @@ body {
   box-shadow: $card-shadow;
   width: 100%;  /* 양쪽 공간을 50%로 나누도록 설정 */
   height: 20rem;
-  background-color: #ffffff;
+  background-color: $background-light;
   text-align: left;  /* 텍스트 왼쪽 정렬 */
   padding: 0.1875rem;
   box-sizing: border-box;
@@ -137,7 +137,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.3);
-  color: #fff;
+  color: $foundation-accent-color;
   border: none;
   padding: 0.3125rem;
   cursor: pointer;
@@ -167,7 +167,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem dashed #FF7710;  /* 실제 색상으로 변경 */
+  border: 0.0625rem dashed $foundation-primary-color;  /* 실제 색상으로 변경 */
   border-radius: 0.5rem;  /* 둥근 모서리 */
   padding: 3.125rem;
   cursor: pointer;
