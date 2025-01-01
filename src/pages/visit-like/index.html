@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="../../components/index.js"></script>
     <script type="module" src="../../layout/index.js"></script>
+    <link rel="stylesheet" href="./visit-like.scss" />
   </head>
   <body>
+    <time-gps></time-gps>
     <section class="visit-like-section">
-      <h2>방문 리뷰 페이지</h2>
-      <button type="button" class="popup-close-btn">
-        <span>이 페이지 나가기</span>
-      </button>
-      <visit-like-popup></visit-like-popup>
+      <h1 class="sr-only">리뷰 작성 페이지</h1>
 
+      <visit-like-popup></visit-like-popup>
+      <like-recommend></like-recommend>
       <div class="like-keyword-section">
         <div class="like-keyword-title">
           <h3>어떤 점이 좋았나요? (1개~5개)</h3>
@@ -25,5 +25,6 @@
       </div>
       <visit-review></visit-review>
     </section>
+    <nav-items></nav-items>
   </body>
 </html>
