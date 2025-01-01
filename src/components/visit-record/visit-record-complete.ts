@@ -26,10 +26,7 @@ class visitRecordComplete extends LitElement {
               <span>✨ +${reviewTags.length - 1}</span>
             </p>
           </div>
-          <figure>
-            <img src="${reviewImg}" alt="" />
-            <figcaption><span class="sr-only">${placeName}의 리뷰 사진</span></figcaption>
-          </figure>
+          <img src="${reviewImg}" alt="${placeName}의 리뷰 사진" />
         </div>
         <p class="visit-default-text">${price.toLocaleString()}원</p>
         <div class="bookmark-more-wrap">

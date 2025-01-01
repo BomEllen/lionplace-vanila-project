@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>visit record</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+    <section class="visit-like-section">
+      <h2>방문 리뷰 페이지</h2>
+      <button type="button" class="popup-close-btn">
+        <span>이 페이지 나가기</span>
+      </button>
+      <visit-like-popup></visit-like-popup>
+      <!-- <div class="visit-like-popup">
+      <ul>
+        <li>미랑컬헤어 상동점</li>
+        <li>2023.1.18 (수) 9번째 방문</li>
+        <li>인봉 실장</li>
+      </ul>
+      <button type="button" class="popup-close-btn"><span>닫기</span></span></button>
+    </div> -->
+      <like-recommend></like-recommend>
+      <!-- <div class="like-recommend-section">
+      <h3>이 곳이 마음에 든다면,</h3>
+      <p>‘좋아요' 누르고 취향이 비슷한 사람을<br />추천받으세요.</p>
+      <div class="primary-btn">
+        <input type="checkbox" id="like-check" class="like-input" />
+        <label for="like-check" class="like-label">
+          <span>❤️️ 이런 곳 좋아요!</span>
+        </label>
+      </div>
+    </div> -->
+      <div class="like-keyword-section">
+        <div class="like-keyword-title">
+          <h3>어떤 점이 좋았나요? (1개~5개)</h3>
+          <p>이 장소에 어울리는 키워드를 골라주세요.</p>
+        </div>
+        <like-keyword-check></like-keyword-check>
+        <!-- <div class="like-keyword-check-container">
+        <div class="like-keyword-check-wrap">
+          <div class="like-keyword-check-list">
+            <ul>
+              <li>
+                <div class="primary-btn">
+                  <input type="checkbox" id="keyword01" class="like-input" />
+                  <label for="keyword01" class="like-label">
+                    <span>💚 원하는 스타일로 잘해줘요</span>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="primary-btn">
+                  <input type="checkbox" id="keyword02" class="like-input" />
+                  <label for="keyword02" class="like-label">
+                    <span>💇‍♀️ 스타일 추천을 잘해줘요</span>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="primary-btn">
+                  <input type="checkbox" id="keyword03" class="like-input" />
+                  <label for="keyword03" class="like-label">
+                    <span>🌹 고급스러워요</span>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="primary-btn">
+                  <input type="checkbox" id="keyword04" class="like-input" />
+                  <label for="keyword04" class="like-label">
+                    <span>😎 트렌디해요</span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+            <button class="more-keyword-btn">
+              <svg
+                width="45"
+                height="44"
+                viewBox="0 0 45 44"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g filter="url(#filter0_d_3395_123)">
+                  <rect
+                    x="4.5"
+                    width="36"
+                    height="36"
+                    rx="18"
+                    fill="white"
+                    shape-rendering="crispEdges"
+                  />
+                  <path
+                    d="M22.5 24.4627C22.3 24.4627 22.1065 24.4252 21.9195 24.3502C21.7315 24.2752 21.575 24.1752 21.45 24.0502L14.55 17.1502C14.275 16.8752 14.1375 16.5252 14.1375 16.1002C14.1375 15.6752 14.275 15.3252 14.55 15.0502C14.825 14.7752 15.175 14.6377 15.6 14.6377C16.025 14.6377 16.375 14.7752 16.65 15.0502L22.5 20.9002L28.35 15.0502C28.625 14.7752 28.975 14.6377 29.4 14.6377C29.825 14.6377 30.1749 14.7752 30.4499 15.0502C30.7249 15.3252 30.8625 15.6752 30.8625 16.1002C30.8625 16.5252 30.7249 16.8752 30.4499 17.1502L23.55 24.0502C23.4 24.2002 23.2375 24.3062 23.0625 24.3682C22.8875 24.4312 22.7 24.4627 22.5 24.4627Z"
+                    fill="#A6A6A6"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_d_3395_123"
+                    x="0.5"
+                    y="0"
+                    width="44"
+                    height="44"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_3395_123"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_3395_123"
+                      result="shape"
+                    />
+                  </filter>
+                </defs>
+              </svg>
+              <span>키워드 더보기 버튼</span>
+            </button>
+          </div>
+          <div class="like-keyword-check-list">
+            <ul>
+              <li>
+                <div class="primary-btn">
+                  <input type="checkbox" id="keyword01" class="like-input" />
+                  <label for="keyword01" class="like-label">
+                    <span>💚 원하는 스타일로 잘해줘요</span>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="primary-btn">
+                  <input type="checkbox" id="keyword02" class="like-input" />
+                  <label for="keyword02" class="like-label">
+                    <span>💇‍♀️ 스타일 추천을 잘해줘요</span>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="primary-btn">
+                  <input type="checkbox" id="keyword03" class="like-input" />
+                  <label for="keyword03" class="like-label">
+                    <span>🌹 고급스러워요</span>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="primary-btn">
+                  <input type="checkbox" id="keyword04" class="like-input" />
+                  <label for="keyword04" class="like-label">
+                    <span>😎 트렌디해요</span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+            <button class="more-keyword-btn">
+              <svg
+                width="45"
+                height="44"
+                viewBox="0 0 45 44"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g filter="url(#filter0_d_3395_123)">
+                  <rect
+                    x="4.5"
+                    width="36"
+                    height="36"
+                    rx="18"
+                    fill="white"
+                    shape-rendering="crispEdges"
+                  />
+                  <path
+                    d="M22.5 24.4627C22.3 24.4627 22.1065 24.4252 21.9195 24.3502C21.7315 24.2752 21.575 24.1752 21.45 24.0502L14.55 17.1502C14.275 16.8752 14.1375 16.5252 14.1375 16.1002C14.1375 15.6752 14.275 15.3252 14.55 15.0502C14.825 14.7752 15.175 14.6377 15.6 14.6377C16.025 14.6377 16.375 14.7752 16.65 15.0502L22.5 20.9002L28.35 15.0502C28.625 14.7752 28.975 14.6377 29.4 14.6377C29.825 14.6377 30.1749 14.7752 30.4499 15.0502C30.7249 15.3252 30.8625 15.6752 30.8625 16.1002C30.8625 16.5252 30.7249 16.8752 30.4499 17.1502L23.55 24.0502C23.4 24.2002 23.2375 24.3062 23.0625 24.3682C22.8875 24.4312 22.7 24.4627 22.5 24.4627Z"
+                    fill="#A6A6A6"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_d_3395_123"
+                    x="0.5"
+                    y="0"
+                    width="44"
+                    height="44"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                      in="SourceAlpha"
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                      result="hardAlpha"
+                    />
+                    <feOffset dy="4" />
+                    <feGaussianBlur stdDeviation="2" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                      type="matrix"
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in2="BackgroundImageFix"
+                      result="effect1_dropShadow_3395_123"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_dropShadow_3395_123"
+                      result="shape"
+                    />
+                  </filter>
+                </defs>
+              </svg>
+              <span>키워드 더보기 버튼</span>
+            </button>
+          </div>
+        </div>
+      </div> -->
+      </div>
+      <visit-review></visit-review>
+      <!-- <div class="visit-review-section">
+      <h3>리뷰를 남겨주세요</h3>
+      <div class="review-photo-btn">
+        <input type="file" name="file" id="file" accept="image/*" multiple />
+        <label for="file">
+          <svg
+            width="16"
+            height="14"
+            viewBox="0 0 16 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.5 10.75H12.5L9.6875 7L7.4375 10L5.75 7.75L3.5 10.75ZM2 13.75C1.5875 13.75 1.2345 13.6033 0.941 13.3097C0.647 13.0157 0.5 12.6625 0.5 12.25V3.25C0.5 2.8375 0.647 2.4845 0.941 2.191C1.2345 1.897 1.5875 1.75 2 1.75H4.3625L5.75 0.25H10.25L11.6375 1.75H14C14.4125 1.75 14.7657 1.897 15.0597 2.191C15.3533 2.4845 15.5 2.8375 15.5 3.25V12.25C15.5 12.6625 15.3533 13.0157 15.0597 13.3097C14.7657 13.6033 14.4125 13.75 14 13.75H2ZM14 12.25V3.25H10.9625L9.59375 1.75H6.40625L5.0375 3.25H2V12.25H14Z"
+              fill="#19172E"
+            />
+          </svg>
+          사진추가
+          <span>(최대 20장)</span>
+        </label>
+      </div>
+      <div class="review-area-wrap">
+        <textarea
+          id="review-area"
+          placeholder="리뷰 작성하기"
+          maxlength="400"
+        ></textarea>
+        <p>
+          <span id="text-count">0<span>/400</span></span>
+        </p>
+      </div>
+
+      <div class="review-btn-wrap">
+        <button type="button" class="review-notes-btn">
+          <span>리뷰 작성 유의사항</span>
+        </button>
+        <button type="button" class="review-submit-btn">
+          <span>등록하기</span>
+        </button>
+      </div>
+    </div> -->
+    </section>
+  </body>
+</html>

@@ -159,10 +159,16 @@ interface ReviewItemType {
 }
 
 export interface VisitData {
+  id: string;
   price: number;
   date: string;
+  type: string;
   placeName: string;
   reviewText: string;
   reviewImg: string;
   reviewTags: string[];
+}
+
+export interface LikeKeywordData {
+  keywordText: string;
 }
