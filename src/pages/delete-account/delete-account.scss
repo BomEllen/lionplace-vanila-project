@@ -21,36 +21,40 @@ input:-webkit-autofill {
   -webkit-text-fill-color: $text-light !important;
 }
 
-.login-main {
-  margin-block-start: 6.25rem;
+.delete-account-main {
+  margin-block-start: 4.625rem;
   @include form-container-styles();
+  font-size: $font-size-sm;
 
   & h2 {
-    font-weight: 400;
     font-size: $font-size-xl;
     margin-block-end: 0.75rem;
   }
 
-  .login-form {
+  .delete-account-form {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.6875rem;
   }
 
-  .login-id,
-  .login-pw {
+  & div {
     display: flex;
     flex-direction: column;
+
+    & label {
+      line-height: 160%;
+    }
 
     & input {
       @include input-styles();
+      @include smooth-transition();
     }
   }
 }
 
-.btn-login {
-  @include login-button-styles($foundation-primary-color, $content-primary-color);
-  margin-block-start: 1.5625rem;
+.btn-delete-account {
+  @include login-button-styles($foundation-primary-color, $foundation-secondary-color);
+  margin-block-start: 4rem;
 
   &:disabled {
     background-color: darken($foundation-primary-color, 20%);
@@ -58,33 +62,6 @@ input:-webkit-autofill {
   }
 }
 
-.register {
-  @include border-radius(0.25rem);
-  @include button-styles($foundation-secondary-color, $foundation-primary-color, 0 0);
-  border: 1px solid $foundation-primary-color;
-  text-decoration: none;
-  height: 3.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 15.625rem;
-
-  &:focus {
-    border: 1px solid $foundation-accent-color;
-  }
-}
-
-.find-account {
-  align-self: flex-end;
-  display: flex;
-  gap: 0.25rem;
-
-  & a {
-    color: inherit;
-    text-decoration: none;
-  }
-}
-
-loading-spinner:host {
-  background-color: transparent;
+input.error:focus {
+  @include shake-animation();
 }

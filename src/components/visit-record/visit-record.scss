@@ -134,3 +134,12 @@
     outline: 1px solid $foundation-primary-color;
   }
 }
+
+.review-visit-record-wrap {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 0.75rem;
+  padding-block: 1rem;
+  gap: 1rem;
+  background-color: $background-gray;
+}

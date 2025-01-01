@@ -54,8 +54,10 @@ class ThemeBar extends LitElement {
     if (target.tagName === "BUTTON" && target === this.lastMouseDownTarget) {
       if (target.classList.contains("active")) {
         target.classList.remove("active");
+        target.ariaPressed = "false";
       } else {
         target.classList.add("active");
+        target.ariaPressed = "true";
       }
     }
 
@@ -91,7 +93,7 @@ class ThemeBar extends LitElement {
     return html`
       <nav class="theme-nav">
         <ul class="theme-menu" @mousedown=${this.handleMouseDown} @mousemove=${this.handleMouseMove} @mouseup=${this.handleMouseUp} @mouseleave=${this.handleMouseLeave} @focusin=${this.handleFocus}>
-          <li><button class="active" type="button">한식</button></li>
+          <li><button class="active" type="button" aria-pressed="true">한식</button></li>
           <li><button type="button">아이와 함께</button></li>
           <li><button type="button">양식</button></li>
           <li><button type="button">문화예술</button></li>

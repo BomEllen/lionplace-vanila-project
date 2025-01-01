@@ -4,6 +4,8 @@ import eye from "../../assets/images/eye.svg";
 import button from "../../assets/images/plus-btn.svg";
 // import "../../styles/sass/base.scss"
 import { customElement } from "lit/decorators.js";
+import "../loading-spinner/loading-spinner.ts";
+import { LoadingSpinner } from "../loading-spinner/loading-spinner.ts";
 
 // Item 및 SubItem 인터페이스 정의
 interface SubItem {
@@ -45,7 +47,9 @@ class Theme extends LitElement {
               </svg>
             </span>
           </p>
-          <p>뚜비 디저트 카페<span> <img src="${eye}" alt="조회수수" /></span> <span>12</span></p>
+          <p>
+            뚜비 디저트 카페<span> <img src="${eye}" alt="조회수수" /></span> <span>12</span>
+          </p>
         </div>
       `,
       subItems: [
@@ -61,9 +65,15 @@ class Theme extends LitElement {
   private slideWidth: number[] = [];
   private backgroundImageUrl: string = ""; // 백그라운드 이미지 URL 저장
 
+  get spinner() {
+    return this.renderRoot.querySelector("loading-spinner") as LoadingSpinner;
+  }
+
   // 데이터 요청을 위한 비동기 함수
   async fetchBackgroundImage() {
     try {
+      this.spinner?.show();
+
       const response = await fetch("https://compass-mighty.pockethost.io/api/collections/reviews/records"); // 실제 API로 교체
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -80,6 +90,8 @@ class Theme extends LitElement {
         this.backgroundImageUrl = imgUrl; // 가져온 이미지 URL 저장
         this.requestUpdate(); // URL이 갱신되면 다시 렌더링
       }
+
+      this.spinner?.hide();
     } catch (error) {
       console.error("배경 이미지 요청 실패:", error);
     }
@@ -130,12 +142,12 @@ class Theme extends LitElement {
     });
   }
 
-// 플러스 버튼 클릭 핸들러
-private handleAddButtonClick() {
-  console.log("플러스 버튼 클릭됨!");
-  // plus-review 페이지로 이동
-  window.location.href = "/src/pages/plus-review/"; // 또는 window.location.assign("/plus-review");
-}
+  // 플러스 버튼 클릭 핸들러
+  private handleAddButtonClick() {
+    console.log("플러스 버튼 클릭됨!");
+    // plus-review 페이지로 이동
+    window.location.href = "/src/pages/plus-review/"; // 또는 window.location.assign("/plus-review");
+  }
 
   firstUpdated() {
     this.fetchBackgroundImage(); // 컴포넌트가 처음 렌더링될 때 백그라운드 이미지 요청
@@ -155,6 +167,7 @@ private handleAddButtonClick() {
 
   render() {
     return html`
+      <loading-spinner></loading-spinner>
       <div class="theme-wrap">
         ${this.test.map(
           (item: Item, itemIndex: number) => html`
@@ -186,7 +199,6 @@ private handleAddButtonClick() {
           `
         )}
 
-        
         <!-- 플러스 버튼 기능 영역 -->
         <div class="theme-wrap">
           <div class="sub-image">
@@ -198,8 +210,10 @@ private handleAddButtonClick() {
                   <path d="M6.1875 8.4375H11.8125C11.9617 8.4375 12.1048 8.49676 12.2102 8.60225C12.3157 8.70774 12.375 8.85082 12.375 9C12.375 9.14918 12.3157 9.29226 12.2102 9.39775C12.1048 9.50324 11.9617 9.5625 11.8125 9.5625H6.1875C6.03832 9.5625 5.89524 9.50324 5.78975 9.39775C5.68426 9.29226 5.625 9.14918 5.625 9C5.625 8.85082 5.68426 8.70774 5.78975 8.60225C5.89524 8.49676 6.03832 8.4375 6.1875 8.4375Z" fill="white" />
                   <path d="M8.4375 11.8125V6.1875C8.4375 6.03832 8.49676 5.89524 8.60225 5.78975C8.70774 5.68426 8.85082 5.625 9 5.625C9.14918 5.625 9.29226 5.68426 9.39775 5.78975C9.50324 5.89524 9.5625 6.03832 9.5625 6.1875V11.8125C9.5625 11.9617 9.50324 12.1048 9.39775 12.2102C9.29226 12.3157 9.14918 12.375 9 12.375C8.85082 12.375 8.70774 12.3157 8.60225 12.2102C8.49676 12.1048 8.4375 11.9617 8.4375 11.8125Z" fill="white" />
                 </svg>
-                <p>내 리뷰만<br /> 모아
-                <br/>테마만들기</p>
+                <p>
+                  내 리뷰만<br />
+                  모아 <br />테마만들기
+                </p>
               </button>
             </div>
           </div>
@@ -208,4 +222,3 @@ private handleAddButtonClick() {
     `;
   }
 }
-
