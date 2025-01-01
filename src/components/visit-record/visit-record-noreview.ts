@@ -32,7 +32,7 @@ class visitRecordNoReview extends LitElement {
 
     return html`
       <div class="visit-record-wrap">
-        <h4>${placeName}</h4>
+        <h2>${placeName}</h2>
         <span class="visit-date">${date}</span>
         <p class="visit-default-text">${price.toLocaleString()}원</p>
         <div class="bookmark-more-wrap">
