@@ -27,8 +27,8 @@
     font-family: "Paperlogy", sans-serif;
     font-weight: 600;
     font-size: 0.75rem;
-    border-radius: 4px;
     border: 1px solid $content-tertiary-color;
+    border-radius: 0.25rem;
 
     &.active {
       background-color: $foundation-primary-color;
@@ -36,7 +36,7 @@
     }
 
     &:focus {
-      border: 1px solid $foundation-secondary-color;
+      border: 0.0625rem solid $foundation-secondary-color;
     }
   }
 }

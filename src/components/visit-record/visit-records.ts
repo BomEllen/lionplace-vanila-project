@@ -6,6 +6,7 @@ import { VisitData } from "../../@types/type";
 import pb from "../../api/pocketbase";
 import "../loading-spinner/loading-spinner.ts";
 import { LoadingSpinner } from "../loading-spinner/loading-spinner.ts";
+
 @customElement("visit-records")
 class visitRecord extends LitElement {
   @state() visitRecords: VisitData[] | null = null;

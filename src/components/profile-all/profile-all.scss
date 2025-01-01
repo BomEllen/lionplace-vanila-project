@@ -28,10 +28,10 @@
       text-decoration: none;
       @include flex-center();
       cursor: pointer;
-      margin-inline-start: 5px;
+      margin-inline-start: 0.3125rem;
 
       img {
-        border: 5px solid #fff;
+        border: 5px solid $foundation-accent-color;
         object-fit: cover;
         width: inherit;
         height: inherit;

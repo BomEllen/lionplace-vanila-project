@@ -6,6 +6,7 @@ import { PostData } from "../../@types/type";
 import { getImageURL } from "../../api/getImageURL";
 import "../loading-spinner/loading-spinner.ts";
 import { LoadingSpinner } from "../loading-spinner/loading-spinner.ts";
+
 @customElement("post-list")
 class PostList extends LitElement {
   @state() dataList: PostData[] | null = null;

@@ -54,7 +54,7 @@
   font-weight: 300;
   font-size: 0.75rem;
   height: 1.625rem;
-  border-radius: 16px;
+  border-radius: 1rem;
 
   &:focus {
     outline: 1px solid $foundation-secondary-color;
@@ -66,7 +66,7 @@
   width: 100%;
   max-width: 30rem;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 0.75rem;
 }
 
 .review-text {

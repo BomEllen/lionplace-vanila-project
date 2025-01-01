@@ -59,7 +59,7 @@ body {
     transition: max-height 0.5s ease; /* 펼쳐지는 애니메이션 */
   }
   .hidden-content.active {
-    max-height: 50000px; /* 대충 큰 값 */
+    max-height: 3125rem; /* 대충 큰 값 */
   }
 }
 
