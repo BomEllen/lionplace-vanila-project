@@ -105,8 +105,36 @@ class VisitLikeKeyword extends LitElement {
     }
   }
 
+  // 아래 세 함수들은 모바일 환경에서 터치로도 목록들을 넘겨볼 수 있도록 구현한 함수입니다.
+  // 큰 내용들은 같으나 e.pageX대신 e.touches[0].pageX를 사용했습니다.
+  handleTouchStart(e: TouchEvent) {
+    const likeKeyword = this.likeKeyword as HTMLElement;
+
+    this.isDragging = true;
+    this.startX = e.touches[0].pageX - likeKeyword.offsetLeft;
+    this.scrollPosition = likeKeyword.scrollLeft;
+    likeKeyword.style.cursor = "grabbing";
+  }
+
+  handleTouchMove(e: TouchEvent) {
+    if (this.isDragging === true) {
+      const likeKeyword = this.likeKeyword as HTMLElement;
+
+      const x = e.touches[0].pageX - likeKeyword.offsetLeft;
+      const walk = x - this.startX!;
+      likeKeyword.scrollLeft = this.scrollPosition! - walk;
+    }
+  }
+
+  handleTouchEnd() {
+    const likeKeyword = this.likeKeyword as HTMLElement;
+
+    this.isDragging = false;
+    likeKeyword.style.cursor = "grab";
+  }
+
+  // 데이터를 fecth받고 다듬는 함수
   async fetchData() {
-    // expand 옵션을 통해 연결된 릴레이션(editedUser, = 피드 작성 유저정보)까지 받아서 한번에 확인 가능
     try {
       const queryString = location.search;
       const urlParams = new URLSearchParams(queryString);
@@ -118,7 +146,7 @@ class VisitLikeKeyword extends LitElement {
         const tags = await pb.collection("tags").getFullList({ filter: `type~'${this.type}'` });
         this.tags = tags.map((item): LikeKeywordData => {
           return {
-            keywordText: item.text, // 배열을 문자열로 변환
+            keywordText: item.text,
           };
         });
       }
@@ -131,7 +159,7 @@ class VisitLikeKeyword extends LitElement {
   render() {
     return html`
       <div class="like-keyword-check-container">
-        <div class="like-keyword-check-wrap" @mousedown=${this.handleMouseDown} @mousemove=${this.handleMouseMove} @mouseup=${this.handleMouseUp} @mouseleave=${this.handleMouseLeave} @focusin=${this.handleFocus}>
+        <div class="like-keyword-check-wrap" @mousedown=${this.handleMouseDown} @mousemove=${this.handleMouseMove} @mouseup=${this.handleMouseUp} @mouseleave=${this.handleMouseLeave} @focusin=${this.handleFocus} @touchstart=${this.handleTouchStart} @touchmove=${this.handleTouchMove} @touchend=${this.handleTouchEnd}>
           <div class="like-keyword-check-list">
             <ul>
               ${(this.tags || []).map(

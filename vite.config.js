@@ -26,6 +26,7 @@ export default defineConfig({
         themeEnroll: resolve(__dirname, "src/pages/theme-enroll/index.html"),
         plusReview: resolve(__dirname, "src/pages/plus-review/index.html"),
         visitLike: resolve(__dirname, "src/pages/visit-like/index.html"),
+        deleteAccount: resolve(__dirname, "src/pages/delete-account/index.html"),
       },
     },
   },
