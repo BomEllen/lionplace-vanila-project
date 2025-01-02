@@ -89,6 +89,8 @@ class ThemeBar extends LitElement {
     }
   }
 
+  // 아래 세 함수들은 모바일 환경에서 터치로도 목록들을 넘겨볼 수 있도록 구현한 함수입니다.
+  // 큰 내용들은 같으나 e.pageX대신 e.touches[0].pageX를 사용했습니다.
   handleTouchStart(e: TouchEvent) {
     const themeMenu = this.themeMenu as HTMLElement;
 

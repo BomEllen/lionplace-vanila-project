@@ -9,6 +9,7 @@ const inputList = [...document.querySelectorAll("input")];
 const loginBtn = document.querySelector(".btn-login") as HTMLButtonElement;
 const loadingSpinner = document.querySelector("loading-spinner") as LoadingSpinner;
 
+// 로그인 버튼을 눌렀을 때 서버와 통신하는 함수
 async function handleLogin(e: Event) {
   e.preventDefault();
 
