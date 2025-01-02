@@ -84,10 +84,36 @@ class Location extends LitElement {
     }
   }
 
+  handleTouchStart(e: TouchEvent) {
+    const locationMenu = this.locationMenu as HTMLElement;
+
+    this.isDragging = true;
+    this.startX = e.touches[0].pageX - locationMenu.offsetLeft;
+    this.scrollPosition = locationMenu.scrollLeft;
+    locationMenu.style.cursor = "grabbing";
+  }
+
+  handleTouchMove(e: TouchEvent) {
+    if (this.isDragging === true) {
+      const locationMenu = this.locationMenu as HTMLElement;
+
+      const x = e.touches[0].pageX - locationMenu.offsetLeft;
+      const walk = x - this.startX!;
+      locationMenu.scrollLeft = this.scrollPosition! - walk;
+    }
+  }
+
+  handleTouchEnd() {
+    const locationMenu = this.locationMenu as HTMLElement;
+
+    this.isDragging = false;
+    locationMenu.style.cursor = "grab";
+  }
+
   render() {
     return html`
       <nav class="location-nav">
-        <ul class="location-menu" @focusin=${this.handleFocus} @mousedown=${this.handleMouseDown} @mousemove=${this.handleMouseMove} @mouseup=${this.handleMouseUp} @mouseleave=${this.handleMouseLeave}>
+        <ul class="location-menu" @focusin=${this.handleFocus} @mousedown=${this.handleMouseDown} @mousemove=${this.handleMouseMove} @mouseup=${this.handleMouseUp} @mouseleave=${this.handleMouseLeave} @touchstart=${this.handleTouchStart} @touchmove=${this.handleTouchMove} @touchend=${this.handleTouchEnd}>
           <li><button class="active" type="button">전체</button></li>
           <li><button type="button">팔로잉</button></li>
           <li><button type="button">현위치</button></li>
