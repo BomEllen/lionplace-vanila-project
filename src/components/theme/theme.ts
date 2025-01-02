@@ -79,17 +79,14 @@ class Theme extends LitElement {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      console.log("API 응답 데이터:", data); // 응답 데이터 로그
   
       // 'items' 배열을 추출하고, 이미지 경로를 절대 경로로 변환
       if (data.items && Array.isArray(data.items)) {
         const imgFieldName = data.items[0].backgroundImage; // 이미지 필드 이름 (실제 이미지 필드의 이름 사용)
         
         // imgFieldName 값이 정상적으로 추출되었는지 확인
-        console.log("이미지 필드 이름:", imgFieldName); // imgFieldName 확인용 로그
         
-        const imgUrl = `https://compass-mighty.pockethost.io/api/files/themes/${data.items[0].id}/${imgFieldName}`;
-        console.log("이미지 URL:", imgUrl);
+        const imgUrl = `https://compass-mighty.pockethost.io/api/files/pbc_2649913063/1gy3b3v0ba3rc5z/image01_acznxbmutf.jpg?token=`;
   
         this.backgroundImageUrl = imgUrl; // 가져온 이미지 URL 저장
         this.requestUpdate(); // URL이 갱신되면 다시 렌더링
@@ -148,9 +145,11 @@ class Theme extends LitElement {
 
   // 플러스 버튼 클릭 핸들러
   private handleAddButtonClick() {
-    console.log("플러스 버튼 클릭됨!");
-    // plus-review 페이지로 이동
     window.location.href = "/src/pages/plus-review/"; // 또는 window.location.assign("/plus-review");
+  }
+
+  private handleMoveButtonClick() {
+    window.location.href = "/src/pages/theme-enroll-wrap/"; // 또는 window.location.assign("/plus-review");
   }
 
   firstUpdated() {
