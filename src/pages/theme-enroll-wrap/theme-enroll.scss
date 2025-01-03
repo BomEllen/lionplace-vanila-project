@@ -3,6 +3,12 @@
 @use "../../styles/sass/font.scss" as *;
 @use "../../styles/sass/reset.scss" as *;
 
+body{
+  min-width: $min-content-width;
+max-width: $max-content-width;
+margin-inline: auto !important;
+}
+
 .theme-enroll-wrap {
   position: relative;
   font-family: 'Arial', sans-serif;

@@ -7,6 +7,9 @@
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
+    min-width: $min-content-width;
+    max-width: $max-content-width;
+    margin-inline: auto !important;
   }
   
   .header {
