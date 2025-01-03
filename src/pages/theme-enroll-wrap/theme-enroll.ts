@@ -6,12 +6,13 @@ import '../../styles/sass/reset.scss';
 import '../../styles/sass/variables.scss';
 import '../../styles/sass/font.scss';
 
+
 @customElement("theme-enroll-wrap")
 class ThemeEnrollWrap extends LitElement {
   @property({ type: Object }) userData = { avatar: "", userName: "" };
-  @property({ type: String }) backgroundImageUrl: string = ''; // 배경 이미지 URL
-  @property({ type: String }) title: string = ''; // 제목을 저장할 변수
-  @property({ type: String }) text: string = ''; // 제목을 저장할 변수
+  @property({ type: String }) backgroundImageUrl: string = ""; // 배경 이미지 URL
+  @property({ type: String }) title: string = ""; // 제목을 저장할 변수
+  @property({ type: String }) text: string = ""; // 제목을 저장할 변수
 
   static styles: CSSResultGroup = css`
     ${unsafeCSS(styles)}
@@ -21,30 +22,30 @@ class ThemeEnrollWrap extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.getUserData();
-    this.fetchTitle();  // 제목 데이터를 불러오는 함수 호출
-    this.fetchBackgroundImage();  // 배경 이미지 요청 함수 호출
+    this.fetchTitle(); // 제목 데이터를 불러오는 함수 호출
+    this.fetchBackgroundImage(); // 배경 이미지 요청 함수 호출
   }
 
   // 사용자 데이터 가져오기
   getUserData() {
     const data = JSON.parse(localStorage.getItem("auth")!).record; // 사용자 데이터를 localStorage에서 가져옴
-    this.userData = { 
+    this.userData = {
       avatar: getImageURL(data.collectionId, data.id, data.avatar), // getImageURL API를 통해 avatar 이미지 URL을 가져옵니다.
-      userName: data.userName // 사용자 이름
+      userName: data.userName, // 사용자 이름
     };
   }
 
   // 서버에서 title 데이터 가져오기
   private async fetchTitle() {
     try {
-      const response = await fetch('https://compass-mighty.pockethost.io/api/collections/themes/records');
-      if (!response.ok) throw new Error('데이터를 가져오는 데 실패했습니다.');
-      
+      const response = await fetch("https://compass-mighty.pockethost.io/api/collections/themes/records");
+      if (!response.ok) throw new Error("데이터를 가져오는 데 실패했습니다.");
+
       const data = await response.json();
-      this.title = data.text || '연남동 / 합정 데이트';
+      this.title = data.text || "연남동 / 합정 데이트";
       this.requestUpdate(); // 데이터 갱신 후 리렌더링
     } catch (error) {
-      console.error('Error fetching title:', error);
+      console.error("Error fetching title:", error);
     }
   }
 
@@ -69,7 +70,7 @@ class ThemeEnrollWrap extends LitElement {
   // 제목 길이 제한 함수
   private truncateTitle(title: string, maxLength: number = 20): string {
     if (title.length > maxLength) {
-      return title.slice(0, maxLength) + '...'; // 제목 길이가 20자를 넘으면 '...'을 추가
+      return title.slice(0, maxLength) + "..."; // 제목 길이가 20자를 넘으면 '...'을 추가
     }
     return title;
   }
@@ -87,7 +88,7 @@ class ThemeEnrollWrap extends LitElement {
           <!-- 뒤로 가기 버튼 -->
           <button class="back-button" @click="${this.goBack}">
             <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15 19l-7-7 7-7" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 19l-7-7 7-7" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
           <!-- 제목 -->
@@ -99,7 +100,7 @@ class ThemeEnrollWrap extends LitElement {
         <!-- 배경 이미지와 텍스트 -->
         <div class="theme-info" style="background-image: url('${this.backgroundImageUrl}')">
           <h2>${this.title}</h2>
-          <P>${this.text}</P>
+          <p>${this.text}</p>
         </div>
 
         <!-- 프로필 정보 -->

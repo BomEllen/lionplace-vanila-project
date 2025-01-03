@@ -174,8 +174,8 @@ class Theme extends LitElement {
       <div class="theme-wrap">
         ${this.test.map(
           (item: Item, itemIndex: number) => html`
-            <div class="sub-image" @click="${this.handleMoveButtonClick}" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 50)), url('${this.backgroundImageUrl}');">
-              <button>임시저장</button>
+            <div class="sub-image" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 50)), url('${this.backgroundImageUrl}');">
+              <button disabled>임시저장</button> <!-- 버튼 클릭 비활성화 -->
               <div class="text-box">
                 <h2>${item.name}</h2>
                 <div>${item.description}</div>
@@ -201,12 +201,11 @@ class Theme extends LitElement {
             </div>
           `
         )}
-
         <!-- 플러스 버튼 기능 영역 -->
         <div class="theme-wrap">
           <div class="sub-image">
             <div class="add-item-card">
-              <button @click="${this.handleAddButtonClick}" class="add-button">
+              <button disabled class="add-button"> <!-- 버튼 클릭 비활성화 -->
                 <svg role="img" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <title>플러스 버튼 이미지</title>
                   <path d="M9 16.875C6.91142 16.875 4.90838 16.0453 3.43153 14.5685C1.95469 13.0916 1.125 11.0886 1.125 9C1.125 6.91142 1.95469 4.90838 3.43153 3.43153C4.90838 1.95469 6.91142 1.125 9 1.125C11.0886 1.125 13.0916 1.95469 14.5685 3.43153C16.0453 4.90838 16.875 6.91142 16.875 9C16.875 11.0886 16.0453 13.0916 14.5685 14.5685C13.0916 16.0453 11.0886 16.875 9 16.875Z" fill="#FF7710" stroke="#FF7710" />

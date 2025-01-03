@@ -11,6 +11,23 @@
     <script type="module" src="./theme-enroll.js"></script>
     <script type="module" src="./theme-enroll.ts"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c3e3d79b0be1307ced79083dd35801b"></script>
+
+    <!-- 고정 스타일을 head에 인라인으로 추가 -->
+    <style>
+      nav-items {
+        width:100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 10px 20px;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        text-align: center;
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
     <time-gps></time-gps>
