@@ -89,10 +89,38 @@ class ThemeBar extends LitElement {
     }
   }
 
+  // 아래 세 함수들은 모바일 환경에서 터치로도 목록들을 넘겨볼 수 있도록 구현한 함수입니다.
+  // 큰 내용들은 같으나 e.pageX대신 e.touches[0].pageX를 사용했습니다.
+  handleTouchStart(e: TouchEvent) {
+    const themeMenu = this.themeMenu as HTMLElement;
+
+    this.isDragging = true;
+    this.startX = e.touches[0].pageX - themeMenu.offsetLeft;
+    this.scrollPosition = themeMenu.scrollLeft;
+    themeMenu.style.cursor = "grabbing";
+  }
+
+  handleTouchMove(e: TouchEvent) {
+    if (this.isDragging === true) {
+      const themeMenu = this.themeMenu as HTMLElement;
+
+      const x = e.touches[0].pageX - themeMenu.offsetLeft;
+      const walk = x - this.startX!;
+      themeMenu.scrollLeft = this.scrollPosition! - walk;
+    }
+  }
+
+  handleTouchEnd() {
+    const themeMenu = this.themeMenu as HTMLElement;
+
+    this.isDragging = false;
+    themeMenu.style.cursor = "grab";
+  }
+
   render() {
     return html`
       <nav class="theme-nav">
-        <ul class="theme-menu" @mousedown=${this.handleMouseDown} @mousemove=${this.handleMouseMove} @mouseup=${this.handleMouseUp} @mouseleave=${this.handleMouseLeave} @focusin=${this.handleFocus}>
+        <ul class="theme-menu" @mousedown=${this.handleMouseDown} @mousemove=${this.handleMouseMove} @mouseup=${this.handleMouseUp} @mouseleave=${this.handleMouseLeave} @focusin=${this.handleFocus} @touchstart=${this.handleTouchStart} @touchmove=${this.handleTouchMove} @touchend=${this.handleTouchEnd}>
           <li><button class="active" type="button" aria-pressed="true">한식</button></li>
           <li><button type="button">아이와 함께</button></li>
           <li><button type="button">양식</button></li>

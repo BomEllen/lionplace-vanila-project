@@ -15,13 +15,13 @@ class PostList extends LitElement {
     ${unsafeCSS(styles)}
   `;
 
-  get spinner() {
-    return this.renderRoot.querySelector("loading-spinner") as LoadingSpinner;
-  }
-
   firstUpdated(): void {
     // 연결 시 데이터 불러옴
     this.fetchData();
+  }
+
+  get spinner() {
+    return this.renderRoot.querySelector("loading-spinner") as LoadingSpinner;
   }
 
   // isoString("2024-12-16 05:20:58.524Z")을 "12.16.월"로 바꿔주는 함수

@@ -4,16 +4,21 @@ import styles from "./create-feed.scss?inline";
 import pb from "../../api/pocketbase";
 import { User } from "../../@types/type";
 import { debounce } from "../../utils/form-utils";
+import { LoadingSpinner } from "../loading-spinner/loading-spinner.ts";
 
 @customElement("create-feed")
 export class CreateFeed extends LitElement {
+  // 파일 입력에 따른 미리보기를 위한 property
   @property() fileImage: { image: string; label: string } = {
     image: "",
     label: "",
   };
+  // 팝업이 활성화 되면 True, 아니면 False
   @property() isVisible: boolean = false;
 
+  // 탭으로 접근되는 모든 요소(버튼, 인풋, textarea 등)를 담음
   private focusableContents: HTMLElement[] | null = null;
+  // 팝업 이전에 포커스를 담음(팝업이 풀리고 돌려주기 위함)
   private previousFocus: HTMLElement | null = null;
 
   static styles?: CSSResultGroup | undefined = css`
@@ -27,10 +32,16 @@ export class CreateFeed extends LitElement {
 
   protected updated(_changedProperties: PropertyValues): void {
     if (!this.isVisible) {
+      // 팝업이 꺼지면 포커스를 돌려줌
       this.restoreFocus();
     } else if (this.focusableContents != null) {
+      // 팝업이 켜지고(팝업이 꺼지면 조건을 위에서 확인했으니), 탭으로 접근 가능한 요소들이 있다면 팝업의 첫 요소에 포커스
       this.focusableContents[0].focus();
     }
+  }
+
+  get spinner() {
+    return this.renderRoot.querySelector("loading-spinner") as LoadingSpinner;
   }
 
   get textInput() {
@@ -45,17 +56,20 @@ export class CreateFeed extends LitElement {
     return this.renderRoot.querySelector("#save-profile-image") as HTMLButtonElement;
   }
 
+  // profile-all에서 사용, 팝업을 활성화하는 버튼을 눌렀을 때 toggle, 이벤트도 발생시켜 해당 요소의 ARIA 속성에 영향을 주기 위함
   toggleVisibility() {
     this.isVisible = !this.isVisible;
     this.dispatchEvent(new CustomEvent("popup-changed", { detail: { isVisible: this.isVisible } }));
   }
 
+  // 팝업이 꺼지고 포커스를 복구해주는 함수
   restoreFocus() {
     if (this.previousFocus) {
       this.previousFocus.focus();
     }
   }
 
+  // 파일 미리보기를 보여주고, 저장 버튼을 활성화/비활성화 해주는 함수
   handleUpload(e: Event) {
     const file = (e.target as HTMLInputElement).files?.[0];
 
@@ -74,6 +88,7 @@ export class CreateFeed extends LitElement {
     }
   }
 
+  // 팝업이 닫혔을 때의 함수
   handleClose() {
     this.isVisible = false;
     this.fileImage = { image: "", label: "" };
@@ -85,6 +100,7 @@ export class CreateFeed extends LitElement {
     this.dispatchEvent(new CustomEvent("popup-changed", { detail: { isVisible: this.isVisible } }));
   }
 
+  // 저장 버튼이 눌리고, DB에 데이터를 전송하고 페이지를 이동해주는 함수
   async handleSave(e: Event) {
     e.preventDefault();
 
@@ -99,8 +115,9 @@ export class CreateFeed extends LitElement {
       formData.append("text", this.textInput.value);
       formData.append("editedUser", (localData.record as User).id);
       try {
+        this.spinner?.show();
         const record = await pb.collection("feeds").create(formData);
-
+        this.spinner?.hide();
         location.href = "/src/pages/feed/";
       } catch (err) {
         throw err;
@@ -108,12 +125,14 @@ export class CreateFeed extends LitElement {
     }
   }
 
+  // 배경을 눌렀을 때, 팝업을 끄는 함수
   handleBackDropClick(e: Event) {
     const target = e.target as HTMLElement;
 
     if (target.tagName === "DIV" && target.classList.contains("popup-container")) this.handleClose();
   }
 
+  // esc키를 누르면 팝업이 꺼지고, tab키를 눌렀을 때 팝업 내부의 요소들에만 포커스되도록 하는 함수
   handleKeyEvent(e: KeyboardEvent) {
     if (e.key === "Escape") {
       this.handleClose();
@@ -132,6 +151,7 @@ export class CreateFeed extends LitElement {
     }
   }
 
+  // textarea의 input을 확인해 저장 버튼을 활성화/비활성화 하는 함수
   handleTextAreaInput() {
     const input = this.textInput.value;
     const length = input.length;
@@ -150,6 +170,7 @@ export class CreateFeed extends LitElement {
 
     return html`
       <div @click=${this.handleBackDropClick} role="dialog" class="popup-container ${this.isVisible ? "visible" : ""}" aria-modal="true">
+        <loading-spinner hidden transparent></loading-spinner>
         <div class="popup-content" @keydown=${this.handleKeyEvent}>
           <button @click=${this.handleClose} type="button" class="close-btn">X</button>
           <h2>피드 작성</h2>

@@ -8,10 +8,14 @@ import { User } from "../../@types/type";
 
 @customElement("custom-footer")
 class CustomFooter extends LitElement {
+  private SUPER_USER_ID = "0k5scs578ifjs9w";
+  // 회원탈퇴가 불가능한 테스트용 아이디
+
   static styles = css`
     ${unsafeCSS(styles)}
   `;
 
+  // 로그아웃 버튼을 눌렀을 때, localStorage에서 정보 삭제 후 로그인 화면으로 이동
   handleLogout() {
     if (confirm("정말 로그아웃 하시겠습니까?")) {
       localStorage.removeItem("auth");
@@ -20,11 +24,13 @@ class CustomFooter extends LitElement {
     }
   }
 
+  // 회원탈퇴 버튼을 눌렀을 때, localStorage에서 유저 정보 확인 후 이동할 지 물어봄
   handleDeleteAccount() {
     const record = JSON.parse(localStorage.getItem("auth") as string).record as User;
 
-    if (record.id === "0k5scs578ifjs9w") {
-      alert("testbot12는 회원 탈퇴가 불가능합니다. 관리자에게 문의하세요.");
+    // 회원탈퇴가 불가능한 테스트용 아이디일 경우, 회원탈퇴 불가능
+    if (record.id === this.SUPER_USER_ID) {
+      alert("해당 계정은 회원 탈퇴가 불가능합니다. 관리자에게 문의하세요.");
     } else if (confirm("정말 회원 탈퇴 하시겠습니까?")) {
       location.href = "/src/pages/delete-account/";
     }

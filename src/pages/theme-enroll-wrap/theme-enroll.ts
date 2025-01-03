@@ -1,10 +1,10 @@
 import { html, css, LitElement, CSSResultGroup, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { getImageURL } from "../../api/get-image-url"; // 이미지 URL을 가져오는 API
-import styles from './theme-enroll.scss?inline'; // SCSS를 인라인으로 불러옵니다.
-import '../../styles/sass/reset.scss';
-import '../../styles/sass/variables.scss';
-import '../../styles/sass/font.scss';
+import { getImageURL } from "./../../api/get-image-url.ts"; // 이미지 URL을 가져오는 API
+import styles from "./theme-enroll.scss?inline"; // SCSS를 인라인으로 불러옵니다.
+import "../../styles/sass/reset.scss";
+import "../../styles/sass/variables.scss";
+import "../../styles/sass/font.scss";
 
 
 @customElement("theme-enroll-wrap")
