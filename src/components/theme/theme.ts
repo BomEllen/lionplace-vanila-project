@@ -79,17 +79,14 @@ class Theme extends LitElement {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      console.log("API 응답 데이터:", data); // 응답 데이터 로그
   
       // 'items' 배열을 추출하고, 이미지 경로를 절대 경로로 변환
       if (data.items && Array.isArray(data.items)) {
         const imgFieldName = data.items[0].backgroundImage; // 이미지 필드 이름 (실제 이미지 필드의 이름 사용)
         
         // imgFieldName 값이 정상적으로 추출되었는지 확인
-        console.log("이미지 필드 이름:", imgFieldName); // imgFieldName 확인용 로그
         
-        const imgUrl = `https://compass-mighty.pockethost.io/api/files/themes/${data.items[0].id}/${imgFieldName}`;
-        console.log("이미지 URL:", imgUrl);
+        const imgUrl = `https://compass-mighty.pockethost.io/api/files/pbc_2649913063/1gy3b3v0ba3rc5z/image01_acznxbmutf.jpg?token=`;
   
         this.backgroundImageUrl = imgUrl; // 가져온 이미지 URL 저장
         this.requestUpdate(); // URL이 갱신되면 다시 렌더링
@@ -148,9 +145,11 @@ class Theme extends LitElement {
 
   // 플러스 버튼 클릭 핸들러
   private handleAddButtonClick() {
-    console.log("플러스 버튼 클릭됨!");
-    // plus-review 페이지로 이동
     window.location.href = "/src/pages/plus-review/"; // 또는 window.location.assign("/plus-review");
+  }
+
+  private handleMoveButtonClick() {
+    window.location.href = "/src/pages/theme-enroll-wrap/"; // 또는 window.location.assign("/plus-review");
   }
 
   firstUpdated() {
@@ -175,8 +174,8 @@ class Theme extends LitElement {
       <div class="theme-wrap">
         ${this.test.map(
           (item: Item, itemIndex: number) => html`
-            <div class="sub-image" @click="${this.handleMoveButtonClick}" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 50)), url('${this.backgroundImageUrl}');">
-              <button>임시저장</button>
+            <div class="sub-image" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 50)), url('${this.backgroundImageUrl}');">
+              <button disabled>임시저장</button> <!-- 버튼 클릭 비활성화 -->
               <div class="text-box">
                 <h2>${item.name}</h2>
                 <div>${item.description}</div>
@@ -202,12 +201,11 @@ class Theme extends LitElement {
             </div>
           `
         )}
-
         <!-- 플러스 버튼 기능 영역 -->
         <div class="theme-wrap">
           <div class="sub-image">
             <div class="add-item-card">
-              <button @click="${this.handleAddButtonClick}" class="add-button">
+              <button disabled class="add-button"> <!-- 버튼 클릭 비활성화 -->
                 <svg role="img" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <title>플러스 버튼 이미지</title>
                   <path d="M9 16.875C6.91142 16.875 4.90838 16.0453 3.43153 14.5685C1.95469 13.0916 1.125 11.0886 1.125 9C1.125 6.91142 1.95469 4.90838 3.43153 3.43153C4.90838 1.95469 6.91142 1.125 9 1.125C11.0886 1.125 13.0916 1.95469 14.5685 3.43153C16.0453 4.90838 16.875 6.91142 16.875 9C16.875 11.0886 16.0453 13.0916 14.5685 14.5685C13.0916 16.0453 11.0886 16.875 9 16.875Z" fill="#FF7710" stroke="#FF7710" />

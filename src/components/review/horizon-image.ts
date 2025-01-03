@@ -77,7 +77,6 @@ class HorizonImage extends LitElement {
         this.places = {};
       }
 
-      console.log('최종 places 데이터:', this.places);
     } catch (error) {
       console.error('Places API 요청 실패:', error);
       this.places = {};
@@ -92,29 +91,35 @@ class HorizonImage extends LitElement {
       const data = await response.json();
 
       if (data.items && Array.isArray(data.items)) {
-        this.images = data.items.map((item: any) => {
-          const imgFieldName = item.img;
-          const imgUrl = `https://compass-mighty.pockethost.io/api/files/reviews/${item.id}/${imgFieldName}`;
-          const placeId = item.place?.id || null;
-          const placeData = this.places[placeId] || { placeName: '정보 없음', address: '정보 없음' };
+        this.images = await Promise.all(
+          data.items.map(async (item: any) => {
+            const imgFieldName = item.img;
+            const imgUrl = `https://compass-mighty.pockethost.io/api/files/reviews/${item.id}/${imgFieldName}`;
+            const placeId = item.place?.id || null;
+            const placeData = this.places[placeId] || { placeName: '정보 없음', address: '정보 없음' };
 
-          return {
-            id: item.id,
-            img: imgUrl,
-            title: item.title || '제목 없음',
-            subtitle: item.subtitle || '',
-            text: item.text || '',
-            isBookmarked: false,
-            placeId,
-            place: item.place || '',
-            price: item.price || '정보 없음',
-          };
-        });
+            // 이미지 프리로드 (이미지를 미리 로드)
+            const img = new Image();
+            img.src = imgUrl;
+            await img.decode(); // 이미지가 디코딩될 때까지 기다림
+
+            return {
+              id: item.id,
+              img: imgUrl,
+              title: item.title || '제목 없음',
+              subtitle: item.subtitle || '',
+              text: item.text || '',
+              isBookmarked: false,
+              placeId,
+              place: item.place || '',
+              price: item.price || '정보 없음',
+            };
+          })
+        );
       } else {
         this.images = [];
       }
 
-      console.log('최종 images:', this.images);
       this.requestUpdate();
     } catch (error) {
       console.error('API 요청 실패:', error);
@@ -143,6 +148,7 @@ class HorizonImage extends LitElement {
   // 컴포넌트가 처음 렌더링된 후 호출
   async firstUpdated() {
     try {
+      // 장소 정보와 이미지 데이터를 병렬로 요청
       await Promise.all([this.fetchPlaces(), this.fetchImages()]);
     } catch (error) {
       console.error('데이터 요청 중 오류 발생:', error);
@@ -159,7 +165,10 @@ class HorizonImage extends LitElement {
             : this.images.map(
                 (image, index) => html`
                   <div class="image-item">
-                    <button @click="${() => this.toggleBookmark(index)}">
+                    <button 
+                      @click="${() => this.toggleBookmark(index)}"
+                      aria-label="${image.isBookmarked ? '북마크 취소' : '북마크 추가'}"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -171,12 +180,16 @@ class HorizonImage extends LitElement {
                       </svg>
                     </button>
                     <div class="image-wrap">
-                      <img src="${image.img}" alt="${image.title}" />
+                      <img 
+                        src="${image.img}" 
+                        alt="${image.title || '이미지'}" 
+                        loading="lazy"
+                      />
                     </div>
                     <div class="text-wrap">
-                      <h3>${this.places[image.place].placeName || '위치 없음'}</h3>
+                      <h3>${this.places[image.place]?.placeName || '위치 없음'}</h3>
                       <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${image.text}</p>
-                      <p style="color: gray; font-size: 14px;">${this.places[image.place].address || '주소 정보 없음'}</p>
+                      <p style="color: gray; font-size: 14px;">${this.places[image.place]?.address || '주소 정보 없음'}</p>
                     </div>
                   </div>
                 `

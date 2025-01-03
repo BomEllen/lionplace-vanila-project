@@ -6,6 +6,7 @@ import "../../styles/sass/reset.scss";
 import "../../styles/sass/variables.scss";
 import "../../styles/sass/font.scss";
 
+
 @customElement("theme-enroll-wrap")
 class ThemeEnrollWrap extends LitElement {
   @property({ type: Object }) userData = { avatar: "", userName: "" };
