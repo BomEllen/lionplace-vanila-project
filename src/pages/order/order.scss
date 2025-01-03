@@ -5,6 +5,9 @@
 
 body {
   height: 100vh;
+  min-width: $min-content-width;
+  max-width: $max-content-width;
+  margin-inline: auto !important;
 
   nav-items {
     position: sticky;
@@ -33,3 +36,4 @@ body {
 .sr-only {
   @include sr-only-styles();
 }
+

@@ -37,18 +37,16 @@ class ReviewPlus extends LitElement {
       const response = await fetch('https://compass-mighty.pockethost.io/api/collections/reviews/records');
       const data = await response.json();
       if (data.items && data.items.length > 0) {
-        // 로그인된 사용자의 리뷰만 필터링
-        this.reviews = data.items
-          .filter((item: any) => item.userName === this.loggedInUserName)
-          .map((item: any) => ({
-            userName: item.userName,
-            text: item.text,
-            img: item.img,
-            id: item.id,
-          }));
+        // 로그인된 사용자의 리뷰만 필터링하는 부분을 제거
+        this.reviews = data.items.map((item: any) => ({
+          userName: item.userName,
+          text: item.text,
+          img: item.img,
+          id: item.id,
+        }));
         
         if (this.reviews.length === 0) {
-          this.noDataMessage = '로그인한 사용자의 리뷰가 없습니다.';
+          this.noDataMessage = '리뷰가 없습니다.';
         } else {
           this.noDataMessage = '';
         }
@@ -181,11 +179,10 @@ class ReviewPlus extends LitElement {
                   </ul>
                 </div>
               `}
+
         </div>
 
-        <button class="review-choice-button" aria-label="리뷰 추가" @click="${this.openReviewPopup}">
-          리뷰 추가하기
-        </button>
+        <button class="review-choice-button" aria-label="리뷰 추가" @click="${this.openReviewPopup}">리뷰 추가하기</button>
 
         ${this.showModal
           ? html`
@@ -217,4 +214,3 @@ class ReviewPlus extends LitElement {
     `;
   }
 }
-
