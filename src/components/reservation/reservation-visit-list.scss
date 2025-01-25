@@ -1,0 +1,72 @@
+@use "./../../styles/sass/reset.scss";
+@use "./../../styles/sass/font.scss";
+@use "./../../styles/sass/variables.scss" as *;
+
+
+
+.reservation-visit-list {
+  width: 320px;
+  height: 2.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Paperlogy, sans-serif;
+  font-size: 0.875rem;
+  
+  
+  
+  .visit-container {
+    width: 100%;
+    margin-top: 0.75rem;
+    display: flex;
+    align-items: center;
+    background-color: $background-light;
+
+    .visit-content {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      width: 80%;
+
+      .visit-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.25rem;
+        height: 1.375rem;
+        margin-left: 1.875rem;
+        border: 1px solid $content-tertiary-color;
+        border-radius: 0.5625rem;
+      }
+    }
+
+    span {
+      color: $content-secondary-color;
+    }
+
+  }
+
+
+  progress {
+      appearance: none;
+      width: 85%;
+      height: 0.125rem;
+      margin-top: auto;
+      
+      
+      /* progress bar 배경 요소 */
+      &::-webkit-progress-bar {
+        background: $content-tertiary-color;
+        border-radius:0.625rem;
+        box-shadow: inset 3px 3px 10px #ccc;
+      }
+      
+      /* progress bar 진행바 요소 */
+      &::-webkit-progress-value {
+        border-radius:0.625rem;
+        background: $foundation-primary-color;
+      }
+  }
+}
+
+

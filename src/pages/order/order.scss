@@ -1,0 +1,39 @@
+@use "./../../styles/sass/font.scss";
+@use "./../../styles/sass/reset.scss";
+@use "./../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+
+body {
+  height: 100vh;
+  min-width: $min-content-width;
+  max-width: $max-content-width;
+  margin-inline: auto !important;
+
+  nav-items {
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+  }
+
+  .reservation-grid-container {
+    width: 100%;
+    height: 307px;
+    padding-top: 1.25rem;
+    background-color: rgb(221, 220, 220);
+    text-align: center;
+    font-family: Paperlogy, sans-serif;
+
+    h2 {
+      font-size: $font-size-sm;
+
+      span {
+        font-size: $font-size-base;
+      }
+    }
+  }
+}
+
+.sr-only {
+  @include sr-only-styles();
+}
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>LionPlace | 로그인</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Meta Tags -->
+    <meta name="description" content="LionPlace는 예약, 리뷰 및 방문 기록을 관리할 수 있는 플랫폼입니다." />
+    <meta property="og:title" content="LionPlace | 로그인" />
+    <meta property="og:description" content="LionPlace에서 예약과 방문 리뷰를 한곳에서 관리하세요!" />
+    <meta property="og:image" content="/meta-img.png" />
+    <meta property="og:url" content="https://superb-zuccutto-1a45bc.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+
+    <script type="module" src="../../components/index.js"></script>
+    <script type="module" src="./login.ts"></script>
+    <link rel="preconnect" href="https://compass-mighty.pockethost.io" />
+    <link rel="preconnect" href="https://fastly.jsdelivr.net/" />
+  </head>
+  <body>
+    <h1><img src="/src/assets/login/logo.svg" alt="lion place logo" width="110px" /></h1>
+    <loading-spinner hidden transparent></loading-spinner>
+    <main class="login-main">
+      <h2>로그인</h2>
+
+      <form class="login-form">
+        <div class="login-id">
+          <label for="id-field" hidden>아이디</label>
+          <input type="text" id="id-field" placeholder="아이디는 최소 3자 이상입니다" />
+        </div>
+        <div class="login-pw">
+          <label for="pw-field" hidden>비밀번호</label>
+          <input type="password" id="pw-field" placeholder="비밀번호는 특수문자 포함, 8자 이상입니다" />
+        </div>
+        <button type="submit" class="btn-login" disabled>로그인</button>
+      </form>
+
+      <a href="/src/pages/register/index.html" class="register">회원가입</a>
+
+      <div class="find-account">
+        <a href="/" rel="noopener noreferrer" class="find-id">아이디 찾기</a>
+        <span aria-hidden="true">|</span>
+        <a href="/" rel="noopener noreferrer" class="find-pw">비밀번호 찾기</a>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+/* CSS Custom Properties (전역 변수) */
+:root {
+  /* 색상 팔레트 */
+  --foundation-primary-color: #ff8324;
+  --foundation-secondary-color: #19172e;
+  --foundation-accent-color: #ffffff;
+  --content-primary-color: #19172e;
+  --content-secondary-color: #6b6b6b;
+  --content-tertiary-color: #a6a6a6;
+
+  /* 배경 및 텍스트 색상 */
+  --background-light: #fff;
+  --background-dark: #19172e;
+  --background-gray: #ebebeb;
+  --text-light: #fff;
+  --text-dark: #19172e;
+
+  /* 그림자 색상 */
+  --shadow-color: #a4a4a4;
+
+  /* 폰트 크기 */
+  --font-size-base: 16px;
+  --font-size-sm: 12px;
+  --font-size-md: 20px;
+  --font-size-lg: 24px;
+  --font-size-xl: 28px;
+
+  /* 라인 높이 */
+  --line-height: 1.5;
+
+  /* 여백 및 패딩 */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+
+  /* 버튼 스타일 */
+  --btn-padding: 10px 20px;
+  --btn-border-radius: 5px;
+
+  --min-content-width: 360px;
+  --max-content-width: 480px;
+}
+
+/* SASS 변수 (컴파일 타임에 사용) */
+$foundation-primary-color: #ff8324;
+$foundation-secondary-color: #19172e;
+$foundation-accent-color: #ffffff;
+$content-primary-color: #19172e;
+$content-secondary-color: #6b6b6b;
+$content-tertiary-color: #a6a6a6;
+
+$background-light: #fff;
+$background-dark: #19172e;
+$background-gray: #ebebeb;
+$text-light: #fff;
+$text-dark: #19172e;
+
+$shadow-color: #a4a4a4;
+
+$font-size-base: 16px;
+$font-size-sm: 12px;
+$font-size-md: 20px;
+$font-size-lg: 24px;
+$font-size-xl: 28px;
+
+$line-height: 1.5;
+
+$space-xs: 8px;
+$space-sm: 16px;
+$space-md: 24px;
+$space-lg: 32px;
+
+$btn-padding: 10px 20px;
+$btn-border-radius: 5px;
+
+$min-content-width: 360px;
+$max-content-width: 480px;

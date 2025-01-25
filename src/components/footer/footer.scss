@@ -1,0 +1,69 @@
+@import "../../styles/sass/reset.scss";
+@import "../../styles/sass/variables.scss";
+@import "../../styles/sass/font.scss";
+
+footer {
+  background-color: $content-tertiary-color;
+  width: 100%;
+  height: 14.875rem;
+  font-family: "Paperlogy", sans-serif;
+  font-size: $font-size-sm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  select {
+    margin: 1rem;
+    border: none;
+  }
+
+  div {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 0.625rem;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0 0;
+    font-family: "Paperlogy", sans-serif;
+    font-size: $font-size-sm;
+    line-height: 1.5;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  ul {
+    display: flex;
+
+    a {
+      text-decoration: none;
+      color: $text-dark;
+      cursor: pointer;
+    }
+
+    li {
+      color: $text-dark;
+    }
+
+    li::after {
+      content: "|";
+    }
+
+    li:last-child::after {
+      content: "";
+    }
+  }
+}
+
+.account-btns {
+  display: inline-block;
+}

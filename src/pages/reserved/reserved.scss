@@ -1,0 +1,68 @@
+@use "./../../styles/sass/font.scss";
+@use "./../../styles/sass/reset.scss";
+@use "./../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  min-width: $min-content-width;
+  max-width: $max-content-width;
+  margin-inline: auto !important;
+  nav-items {
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+  }
+
+  p {
+    text-align: center;
+    // width: 70%;
+    margin: 0.9375rem auto;
+    padding: $space-sm $space-lg;
+    line-height: 1.5rem;
+    font-family: Paperlogy, sans-serif;
+    font-size: $font-size-base;
+    color: $text-dark;
+
+    .text-decorate {
+      color: $text-dark;
+      font-weight: 700;
+      font-size: 1.0938rem;
+    }
+  }
+
+  .visit-list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    position: relative;
+    z-index: 1;
+    border: 0;
+    background-color: transparent;
+    font-size: $font-size-sm;
+    width: 100%;
+    height: 3.0625rem;
+  }
+
+  .hidden-content {
+    max-height: 0; /* 숨김 */
+    overflow: hidden;
+    background-color: rgb(247, 247, 247);
+    transition: max-height 0.5s ease; /* 펼쳐지는 애니메이션 */
+  }
+  .hidden-content.active {
+    max-height: 3125rem; /* 대충 큰 값 */
+  }
+}
+
+.sr-only {
+  @include sr-only-styles();
+}

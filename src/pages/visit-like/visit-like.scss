@@ -1,0 +1,52 @@
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+@use "../../styles/sass/font.scss";
+@use "../../styles/sass/reset.scss";
+
+html {
+  box-sizing: border-box;
+  background-color: $background-light;
+}
+
+body {
+  min-width: $min-content-width;
+  max-width: $max-content-width;
+  margin-inline: auto !important;
+
+  nav-items {
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+  }
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.like-keyword-section {
+  background-color: #f9f9f9;
+
+  .like-keyword-title {
+    text-align: center;
+    padding: 1.5rem 0;
+
+    h3 {
+      color: $foundation-secondary-color;
+      line-height: $line-height;
+    }
+    p {
+      color: $content-tertiary-color;
+      font-size: $font-size-sm;
+      line-height: 1.6;
+      margin-top: $space-xs;
+    }
+  }
+}

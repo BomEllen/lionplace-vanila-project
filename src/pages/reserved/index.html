@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <title>LionPlace | 예약 하기</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg" href="/favicon-pin.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Tags -->
+    <meta name="description" content="LionPlace는 예약, 리뷰 및 방문 기록을 관리할 수 있는 플랫폼입니다." />
+    <meta property="og:title" content="LionPlace | 예약 하기" />
+    <meta property="og:description" content="LionPlace에서 예약과 방문 리뷰를 한곳에서 관리하세요!" />
+    <meta property="og:image" content="/meta-img.png" />
+    <meta property="og:url" content="https://superb-zuccutto-1a45bc.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+
+    <script type="module" src="../../components/index.js"></script>
+    <script type="module" src="../../layout/index.js"></script>
+    <script type="module" src="./reserved.ts"></script>
+    <link rel="stylesheet" href="./reserved.scss" />
+    <link rel="preconnect" href="https://compass-mighty.pockethost.io" />
+    <link rel="preconnect" href="https://fastly.jsdelivr.net/" />
+  </head>
+
+  <body>
+    <h1 class="sr-only">LionPlace 예약</h1>
+    <time-gps></time-gps>
+    <loading-spinner></loading-spinner>
+    <profile-all></profile-all>
+    <custom-navigation></custom-navigation>
+    <reservation-toggle></reservation-toggle>
+    <reservation-types></reservation-types>
+
+    <!-- 예약 정보 표시 글 -->
+    <p>
+      <span id="userName"></span>님은 <span id="reservationCount" class="text-decorate"></span>회 예약하셨고, <br />
+      <span id="payCount" class="text-decorate"></span>원 결제하셨습니다.
+    </p>
+
+    <!-- 예약업체 리스트 -->
+    <div class="visit-list-container">
+      <reservation-visit-list></reservation-visit-list>
+    </div>
+
+    <!-- 더보기 버튼 -->
+    <button id="showMoreButton">더보기 ∨</button>
+
+    <!-- 숨겨진 컨텐츠 (더보기 누르면 나옴) -->
+    <div id="hiddenContent" class="hidden-content">
+      <reservation-more-title></reservation-more-title>
+      <reservation-more-review></reservation-more-review>
+    </div>
+
+    <custom-footer></custom-footer>
+    <!-- 네브바 -->
+    <nav-items></nav-items>
+  </body>
+</html>

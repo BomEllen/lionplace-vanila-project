@@ -1,0 +1,72 @@
+@use "./../../styles/sass/font.scss";
+@use "./../../styles/sass/reset.scss";
+@use "./../../styles/sass/variables.scss" as *;
+
+
+
+.grid-container {
+  min-width: $min-content-width;
+  max-width: $max-content-width;
+  margin-inline: auto !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-rows: repeat(4, 1fr) 2fr; 
+  width: 90vw;
+  height: 15.625rem;
+  margin: 1.25rem auto; 
+  border: 1px solid $content-tertiary-color; 
+  border-radius: 1.25rem; 
+  overflow: hidden; 
+  font-family: "Paperlogy", sans-serif;
+  font-size: $font-size-sm;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $foundation-accent-color;
+      border-bottom: 1px solid $content-tertiary-color;
+      border-right: 1px solid $content-tertiary-color;
+      font-size: $font-size-sm;
+      text-align: center;
+      text-decoration: none;
+      color: $text-dark;
+
+      /* 3의 배수 번째 요소 */
+      &:nth-child(3n) {
+        border-right: none;
+      }
+    }
+
+
+  .advert {
+    grid-column: 1 / -1; /* 전체 열 차지 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(115,73,36);
+    background: linear-gradient(90deg, rgba(115,73,36,1) 0%, rgba(140,109,64,1) 31%, rgba(176,143,96,1) 64%, rgba(235,197,164,1) 93%);
+    grid-column-start: 1;
+    grid-column-end: -1;
+    border-bottom: none;
+    border-right: none;
+
+    div {
+      width: 65%;
+
+      h2 {
+        font-size: $font-size-lg;
+      }
+
+      .mint {
+        color: rgb(46, 171, 175);
+      }
+    }
+
+    img {
+      width: 35%;
+      height: 5.3125rem;
+      padding-right: 0.625rem;
+    }
+  }
+}

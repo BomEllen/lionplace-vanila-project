@@ -1,0 +1,41 @@
+@use "../../styles/sass/reset.scss";
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+@use "../../styles/sass/font.scss";
+
+.location-nav {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding-block: 1.125rem;
+}
+
+.location-menu {
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+  cursor: grab;
+  scroll-snap-type: x mandatory; /* 스냅 스크롤을 통해 각 항목이 한 번에 보여짐 */
+  -webkit-overflow-scrolling: touch;
+
+  & li button {
+    @include button-styles($background-light, $text-dark, 0.25rem 0.25rem);
+    width: 3.375rem;
+    height: 2.25rem;
+    font-family: "Paperlogy", sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    border: 1px solid $content-tertiary-color;
+    border-radius: 0.25rem;
+
+    &.active {
+      background-color: $foundation-primary-color;
+    }
+
+    &:focus {
+      border: 0.0625rem solid $foundation-secondary-color;
+    }
+  }
+}

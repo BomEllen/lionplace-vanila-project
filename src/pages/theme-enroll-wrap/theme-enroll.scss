@@ -1,0 +1,203 @@
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+@use "../../styles/sass/font.scss" as *;
+@use "../../styles/sass/reset.scss" as *;
+
+body{
+  min-width: $min-content-width;
+max-width: $max-content-width;
+margin-inline: auto !important;
+}
+
+.theme-enroll-wrap {
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    svg {
+      fill: #000;
+    }
+  }
+
+  .title-display {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
+  }
+
+  .create-button {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #e85a5a;
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .theme-info {
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      margin-top: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .profile-all-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* 이미지에서 요소가 균등히 배치되어 보이므로 수정 */
+    background-color: #ffffff; /* 밝은 배경으로 변경 */
+    padding: 15px 20px; /* 여백 조정 */
+    border-radius: 12px; /* 둥근 모서리 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 조정 */
+    border: 1px solid #e0e0e0; /* 경계 추가 */
+
+    .profile-image {
+      width: 60px; /* 이미지 크기 증가 */
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .profile-name {
+      font-size: 18px; /* 폰트 크기 증가 */
+      font-weight: bold; /* 가독성을 위해 더 두껍게 */
+      color: #222; /* 어두운 색상으로 변경 */
+      margin-left: 20px;
+    }
+
+    .profile-info {
+      ul {
+        list-style: none;
+        display: flex;
+        gap: 20px; /* 간격 조정 */
+
+        li {
+          font-size: 14px; /* 폰트 크기 증가 */
+          color: #555; /* 색상 조정 */
+          strong {
+            color: #000; /* 더 강한 색상으로 강조 */
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .map-section {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 8px;
+    }
+  }
+}
+
+.profile-wrap {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .profile {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+
+    .profile-details {
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 5px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 15px;
+
+        li {
+          font-size: 12px;
+          color: #777;
+
+          strong {
+            font-weight: 600;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}

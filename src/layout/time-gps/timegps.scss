@@ -1,0 +1,14 @@
+@use "../../styles/sass/variables" as *;
+@use "../../styles/sass/mixins.scss" as *;
+
+.time-lte {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $background-light;
+  display: flex;
+  justify-content: space-between;
+  padding: $space-sm;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}

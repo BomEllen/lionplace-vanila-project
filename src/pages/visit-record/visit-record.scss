@@ -1,0 +1,41 @@
+@use "../../styles/sass/variables.scss" as *;
+@use "../../styles/sass/mixins.scss" as *;
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: $min-content-width;
+  max-width: $max-content-width;
+  margin-inline: auto !important;
+}
+
+.review-visit-record-wrap {
+  display: grid;
+  gap: 1rem;
+  background-color: #e1e1e1;
+  padding: 1.5rem 0.75rem;
+
+  .review-visit-record-list {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+
+    h3 {
+      color: $foundation-secondary-color;
+    }
+  }
+}
+
+nav-items {
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.sr-only {
+  @include sr-only-styles();
+}
